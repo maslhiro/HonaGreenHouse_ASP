@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SellingFruitsWeb.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link rel="stylesheet" href="/static/css/master.css" type="text/css" />
+        <link rel="stylesheet" href="/static/css/slider.css" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Pattaya&amp;subset=vietnamese" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form" runat="server">
+        <%--Header--%>
+        <div class="header">
+            <asp:Button CssClass="button_hd" runat="server" Text="Đăng nhập/ Đăng kí" PostBackUrl="#" />
+            <div style="display: flex; flex: 1; justify-content: center; align-items: center;">
+                <div class="logo" />
+            </div>
+        </div>
+
+        <%--Nav--%>
+        <div style="display: block" runat="server">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-a" href="#home">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-a" href="#product">Trái cây</a></li>
+                <li class="nav-item"><a class="nav-a" href="#product">Blog</a></li>
+                <li class="nav-item"><a class="nav-a" href="#contact">Liên hệ</a></li>
+                <li class="nav-item" style="float: right">
+                    <a class="nav-cart" href="#contact">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <div>&nbsp;Giỏ hàng</div>
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+
+        <asp:ContentPlaceHolder ID="contentplaceholder" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <%--Footer--%>
+        <footer class="footer-distributed">
+            <div class="footer-right">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer-left">
+                <p class="footer-links">
+                    <a href="#">Trang chủ</a>
+                    ·
+					<a href="#">Trái cây</a>
+                    ·
+					<a href="#">Blog</a>
+                    ·
+					<a href="#">Liên hệ</a>
+                </p>
+                <p>Hona Green House &copy; 2019</p>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
