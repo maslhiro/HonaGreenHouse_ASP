@@ -54,3 +54,7 @@ C:\Users\TKS\Desktop\ASP.Net\SellingFruitsWeb\obj\Debug\SellingFruitsWeb.csproj.
 C:\Users\TKS\Desktop\ASP.Net\SellingFruitsWeb\obj\Debug\SellingFruitsWeb.dll
 C:\Users\TKS\Desktop\ASP.Net\SellingFruitsWeb\obj\Debug\SellingFruitsWeb.pdb
 C:\Users\TKS\Desktop\ASP.Net\SellingFruitsWeb\obj\Debug\SellingFruitsWeb.csprojAssemblyReference.cache
+C:\Users\TKS\Desktop\ASP.Net\SellingFruitsWeb\bin\EntityFramework.dll
+C:\Users\TKS\Desktop\ASP.Net\SellingFruitsWeb\bin\EntityFramework.SqlServer.dll
+C:\Users\TKS\Desktop\ASP.Net\SellingFruitsWeb\bin\EntityFramework.xml
+C:\Users\TKS\Desktop\ASP.Net\SellingFruitsWeb\bin\EntityFramework.SqlServer.xml
