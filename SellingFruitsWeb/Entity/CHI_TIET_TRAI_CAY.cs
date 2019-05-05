@@ -1,4 +1,4 @@
-namespace SellingFruitsWeb.entity
+namespace SellingFruitsWeb.Entity
 {
     using System;
     using System.Collections.Generic;
@@ -6,20 +6,19 @@ namespace SellingFruitsWeb.entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class THANH_TOAN
+    public partial class CHI_TIET_TRAI_CAY
     {
         [Key]
         [StringLength(10)]
-        public string Ma_Thanh_Toan { get; set; }
+        public string Ma_Chi_Tiet_Trai_Cay { get; set; }
 
         [Required]
-        [StringLength(500)]
-        public string Bang_Chung_Thanh_Toan { get; set; }
+        public string Hinh_Trai_Cay { get; set; }
 
         [Required]
         [StringLength(10)]
-        public string Ma_Don_Hang { get; set; }
+        public string Ma_Trai_Cay { get; set; }
 
-        public virtual DON_HANG DON_HANG { get; set; }
+        public virtual TRAI_CAY TRAI_CAY { get; set; }
     }
 }

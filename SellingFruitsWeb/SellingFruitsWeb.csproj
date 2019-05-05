@@ -96,15 +96,17 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="entity\ADMIN.cs" />
-    <Compile Include="entity\CHI_TIET_CHUYEN_HANG.cs" />
-    <Compile Include="entity\CHI_TIET_DON_HANG.cs" />
-    <Compile Include="entity\DON_HANG.cs" />
-    <Compile Include="entity\HonaModel.cs" />
-    <Compile Include="entity\LOAI_TRAI_CAY.cs" />
-    <Compile Include="entity\THANH_TOAN.cs" />
-    <Compile Include="entity\TRAI_CAY.cs" />
-    <Compile Include="entity\USER.cs" />
+    <Compile Include="Entity\ADMIN.cs" />
+    <Compile Include="Entity\CHI_TIET_CHUYEN_HANG.cs" />
+    <Compile Include="Entity\CHI_TIET_DON_HANG.cs" />
+    <Compile Include="Entity\CHI_TIET_TRAI_CAY.cs" />
+    <Compile Include="Entity\DON_HANG.cs" />
+    <Compile Include="Entity\HonaModel.cs" />
+    <Compile Include="Entity\LOAI_TRAI_CAY.cs" />
+    <Compile Include="Entity\LOG_NHAP.cs" />
+    <Compile Include="Entity\LOG_THANH_TOAN.cs" />
+    <Compile Include="Entity\TRAI_CAY.cs" />
+    <Compile Include="Entity\USER.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -42,6 +42,9 @@
 /***********
 2. Nav
 ***********/
+body {
+    margin : 0px
+}
 
 .nav {
     list-style-type: none;

@@ -6,19 +6,21 @@ namespace SellingFruitsWeb.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ADMIN")]
-    public partial class ADMIN
+    public partial class LOG_NHAP
     {
         [Key]
         [StringLength(10)]
         public string Auto_ID { get; set; }
 
         [Required]
-        [StringLength(500)]
-        public string Ten_Dang_Nhap { get; set; }
+        [StringLength(10)]
+        public string Ma_Trai_Cay { get; set; }
 
-        [Required]
-        [StringLength(500)]
-        public string Mat_Khau { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime Thoi_Gian { get; set; }
+
+        public int Tong_Tien { get; set; }
+
+        public int So_Luong_Nhap { get; set; }
     }
 }

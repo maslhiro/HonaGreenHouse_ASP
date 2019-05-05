@@ -1,4 +1,4 @@
-namespace SellingFruitsWeb.entity
+namespace SellingFruitsWeb.Entity
 {
     using System;
     using System.Collections.Generic;
@@ -21,10 +21,6 @@ namespace SellingFruitsWeb.entity
         [Required]
         [StringLength(500)]
         public string Ten_Loai_Trai_Cay { get; set; }
-
-        [Required]
-        [StringLength(500)]
-        public string Xuat_Xu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRAI_CAY> TRAI_CAY { get; set; }

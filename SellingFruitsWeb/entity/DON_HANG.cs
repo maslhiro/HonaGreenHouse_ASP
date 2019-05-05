@@ -1,4 +1,4 @@
-namespace SellingFruitsWeb.entity
+namespace SellingFruitsWeb.Entity
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,6 @@ namespace SellingFruitsWeb.entity
         {
             CHI_TIET_CHUYEN_HANG = new HashSet<CHI_TIET_CHUYEN_HANG>();
             CHI_TIET_DON_HANG = new HashSet<CHI_TIET_DON_HANG>();
-            THANH_TOAN = new HashSet<THANH_TOAN>();
         }
 
         [Key]
@@ -30,6 +29,11 @@ namespace SellingFruitsWeb.entity
         public int Hinh_Thuc_Thanh_Toan { get; set; }
 
         [Required]
+        public string Bang_Chung_Thanh_Toan { get; set; }
+
+        public int Tinh_Trang { get; set; }
+
+        [Required]
         [StringLength(10)]
         public string Ma_Khach_Hang { get; set; }
 
@@ -40,8 +44,5 @@ namespace SellingFruitsWeb.entity
         public virtual ICollection<CHI_TIET_DON_HANG> CHI_TIET_DON_HANG { get; set; }
 
         public virtual USER USER { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THANH_TOAN> THANH_TOAN { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-namespace SellingFruitsWeb.entity
+namespace SellingFruitsWeb.Entity
 {
     using System;
     using System.Collections.Generic;

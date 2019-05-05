@@ -1,10 +1,10 @@
-﻿using SellingFruitsWeb.entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SellingFruitsWeb.Entity;
 
 namespace SellingFruitsWeb
 {
@@ -12,8 +12,9 @@ namespace SellingFruitsWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var model = new HonaModel();
-            var re = model.TRAI_CAY.First();
+            var HonaModel = new HonaModel();
+            var re = HonaModel.TRAI_CAY.First();
+            Console.WriteLine(re.Ten_Trai_Cay);
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace SellingFruitsWeb.entity
+namespace SellingFruitsWeb.Entity
 {
     using System;
     using System.Collections.Generic;
@@ -12,6 +12,7 @@ namespace SellingFruitsWeb.entity
         public TRAI_CAY()
         {
             CHI_TIET_DON_HANG = new HashSet<CHI_TIET_DON_HANG>();
+            CHI_TIET_TRAI_CAY = new HashSet<CHI_TIET_TRAI_CAY>();
         }
 
         [Key]
@@ -24,8 +25,6 @@ namespace SellingFruitsWeb.entity
 
         public int So_Luong { get; set; }
 
-        public int Tinh_Trang { get; set; }
-
         public int Don_Gia { get; set; }
 
         [Required]
@@ -33,11 +32,22 @@ namespace SellingFruitsWeb.entity
         public string Don_Vi_Tinh { get; set; }
 
         [Required]
+        [StringLength(500)]
+        public string Xuat_Xu { get; set; }
+
+        [Required]
+        [StringLength(5000)]
+        public string Mo_Ta { get; set; }
+
+        [Required]
         [StringLength(10)]
         public string Loai_ID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHI_TIET_DON_HANG> CHI_TIET_DON_HANG { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHI_TIET_TRAI_CAY> CHI_TIET_TRAI_CAY { get; set; }
 
         public virtual LOAI_TRAI_CAY LOAI_TRAI_CAY { get; set; }
     }
