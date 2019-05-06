@@ -8,6 +8,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
         <link rel="stylesheet" href="/static/css/master.css" type="text/css" />
         <link rel="stylesheet" href="/static/css/slider.css" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Pattaya&amp;subset=vietnamese" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     </asp:ContentPlaceHolder>
@@ -16,26 +17,35 @@
     <form id="form" runat="server">
         <%--Header--%>
         <div class="header">
-            <asp:Button CssClass="button_hd" runat="server" Text="Đăng nhập/ Đăng kí" PostBackUrl="#" />
-            <div style="display: flex; flex: 1; justify-content: center; align-items: center;">
-                <div class="logo" />
+            <div style="font-family: 'Coiny', cursive; color: white; text-align:center; align-self:center; font-size: x-large" runat="server">Hona Green House</div>
+            <div style="flex-direction: row; display: flex">
+                <asp:Button CssClass="button_nav_dn" runat="server" Text="Đăng nhập/ Đăng kí" PostBackUrl="#" />
+                <button class="button_nav_gh" runat="server">
+                    <i class="fas fa-shopping-cart fa-sm"></i>
+                    <div>&nbsp;&nbsp;Giỏ hàng</div>
+                </button>
             </div>
+
         </div>
 
         <%--Nav--%>
-        <div style="display: block" runat="server">
+        <div style="display: block;" runat="server">
             <ul class="nav">
-                <li class="nav-item"><a class="nav-a" href="#home">Trang chủ</a></li>
-                <li class="nav-item"><a class="nav-a" href="#product">Trái cây</a></li>
-                <li class="nav-item"><a class="nav-a" href="#product">Blog</a></li>
-                <li class="nav-item"><a class="nav-a" href="#contact">Liên hệ</a></li>
-                <li class="nav-item" style="float: right">
-                    <a class="nav-cart" href="#contact">
-                        <i class="fas fa-shopping-cart fa-lg"></i>
-                        <div>&nbsp;Giỏ hàng</div>
-                    </a>
 
+                <li class="nav-item"><a class="nav-a" href="#contact">Liên hệ</a></li>
+                <li class="nav-item"><a class="nav-a" href="#product">Hướng dẫn mua hàng</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Sản phẩm</a>
+                    <div class="dropdown-content">
+                        <a href="#">Trái cây miền bắc</a>
+                        <a href="#">Trái cây miền trung</a>
+                        <a href="#">Trái cây miền nam</a>
+                        <a href="#">Trái cây nhập khẩu</a>
+                    </div>
                 </li>
+                <li class="nav-item"><a class="nav-a" href="#home">Trang chủ</a></li>
+
             </ul>
         </div>
 
@@ -54,9 +64,9 @@
                 <p class="footer-links">
                     <a href="#">Trang chủ</a>
                     ·
-					<a href="#">Trái cây</a>
+					<a href="#">Sản phẩm</a>
                     ·
-					<a href="#">Blog</a>
+					<a href="#">Hướng dẫn mua hàng</a>
                     ·
 					<a href="#">Liên hệ</a>
                 </p>
