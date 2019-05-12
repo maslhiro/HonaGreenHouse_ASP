@@ -85,6 +85,10 @@
     <Content Include="static\img\slider01.jpg" />
     <Content Include="static\img\slider02.jpg" />
     <Content Include="static\img\slider03.jpg" />
+    <Content Include="static\img\trai-cay-dac-san-mien-bac.jpg" />
+    <Content Include="static\img\trai-cay-mien-nam.jpg" />
+    <Content Include="static\img\trai-cay-mien-trung.jpg" />
+    <Content Include="static\img\trai-cay-nhap-khau.jpg" />
     <Content Include="static\js\slider.js" />
     <Content Include="Web.config" />
   </ItemGroup>
