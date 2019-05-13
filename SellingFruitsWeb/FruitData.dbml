@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HONAWEB" Class="FruitDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-N0ULFIR\SQLEXPRESS;Initial Catalog=HONAWEB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="HonaModel" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ADMIN" Member="ADMINs">
+    <Type Name="ADMIN">
+      <Column Name="Auto_ID" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ten_Dang_Nhap" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Mat_Khau" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHI_TIET_CHUYEN_HANG" Member="CHI_TIET_CHUYEN_HANGs">
+    <Type Name="CHI_TIET_CHUYEN_HANG">
+      <Column Name="Ma_Chi_Tiet_CH" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ho_Ten" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="So_Dien_Thoai" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Dia_Chi_Nhan" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Ma_Don_Hang" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Association Name="DON_HANG_CHI_TIET_CHUYEN_HANG" Member="DON_HANG" ThisKey="Ma_Don_Hang" OtherKey="Ma_Don_Hang" Type="DON_HANG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHI_TIET_DON_HANG" Member="CHI_TIET_DON_HANGs">
+    <Type Name="CHI_TIET_DON_HANG">
+      <Column Name="Ma_Chi_Tiet_DH" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="So_Luong_Xuat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Don_Gia_Xuat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ma_Don_Hang" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Ma_Trai_Cay" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Association Name="DON_HANG_CHI_TIET_DON_HANG" Member="DON_HANG" ThisKey="Ma_Don_Hang" OtherKey="Ma_Don_Hang" Type="DON_HANG" IsForeignKey="true" />
+      <Association Name="TRAI_CAY_CHI_TIET_DON_HANG" Member="TRAI_CAY" ThisKey="Ma_Trai_Cay" OtherKey="Ma_Trai_Cay" Type="TRAI_CAY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHI_TIET_TRAI_CAY" Member="CHI_TIET_TRAI_CAYs">
+    <Type Name="CHI_TIET_TRAI_CAY">
+      <Column Name="Ma_Chi_Tiet_TC" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Hinh_Trai_Cay" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Ma_Trai_Cay" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Association Name="TRAI_CAY_CHI_TIET_TRAI_CAY" Member="TRAI_CAY" ThisKey="Ma_Trai_Cay" OtherKey="Ma_Trai_Cay" Type="TRAI_CAY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DON_HANG" Member="DON_HANGs">
+    <Type Name="DON_HANG">
+      <Column Name="Ma_Don_Hang" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ma_Chi_Tiet_DH" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Ngay_Dat" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Hinh_Thuc_Thanh_Toan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Bang_Chung_Thanh_Toan" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Tinh_Trang" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ma_Khach_Hang" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Association Name="DON_HANG_CHI_TIET_CHUYEN_HANG" Member="CHI_TIET_CHUYEN_HANGs" ThisKey="Ma_Don_Hang" OtherKey="Ma_Don_Hang" Type="CHI_TIET_CHUYEN_HANG" />
+      <Association Name="DON_HANG_CHI_TIET_DON_HANG" Member="CHI_TIET_DON_HANGs" ThisKey="Ma_Don_Hang" OtherKey="Ma_Don_Hang" Type="CHI_TIET_DON_HANG" />
+      <Association Name="USER_DON_HANG" Member="USER" ThisKey="Ma_Khach_Hang" OtherKey="Ma_Khach_Hang" Type="USER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOAI_TRAI_CAY" Member="LOAI_TRAI_CAYs">
+    <Type Name="LOAI_TRAI_CAY">
+      <Column Name="Ma_Loai_Trai_Cay" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ten_Loai_Trai_Cay" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="LOAI_TRAI_CAY_TRAI_CAY" Member="TRAI_CAYs" ThisKey="Ma_Loai_Trai_Cay" OtherKey="Loai_ID" Type="TRAI_CAY" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOG_NHAP" Member="LOG_NHAPs">
+    <Type Name="LOG_NHAP">
+      <Column Name="Auto_ID" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ma_Trai_Cay" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Thoi_Gian" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Tong_Tien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="So_Luong_Nhap" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOG_THANH_TOAN" Member="LOG_THANH_TOANs">
+    <Type Name="LOG_THANH_TOAN">
+      <Column Name="Auto_ID" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Thoi_Gian" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Tong_Tien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ma_Don_Hang" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRAI_CAY" Member="TRAI_CAYs">
+    <Type Name="TRAI_CAY">
+      <Column Name="Ma_Trai_Cay" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ten_Trai_Cay" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="So_Luong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Don_Gia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Don_Vi_Tinh" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Xuat_Xu" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Mo_Ta" Type="System.String" DbType="VarChar(5000) NOT NULL" CanBeNull="false" />
+      <Column Name="Loai_ID" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Association Name="TRAI_CAY_CHI_TIET_DON_HANG" Member="CHI_TIET_DON_HANGs" ThisKey="Ma_Trai_Cay" OtherKey="Ma_Trai_Cay" Type="CHI_TIET_DON_HANG" />
+      <Association Name="TRAI_CAY_CHI_TIET_TRAI_CAY" Member="CHI_TIET_TRAI_CAYs" ThisKey="Ma_Trai_Cay" OtherKey="Ma_Trai_Cay" Type="CHI_TIET_TRAI_CAY" />
+      <Association Name="LOAI_TRAI_CAY_TRAI_CAY" Member="LOAI_TRAI_CAY" ThisKey="Loai_ID" OtherKey="Ma_Loai_Trai_Cay" Type="LOAI_TRAI_CAY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.USERS" Member="USERs">
+    <Type Name="USER">
+      <Column Name="Ma_Khach_Hang" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ten_Dang_Nhap" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Mat_Khau" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Ho_Ten" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="So_Dien_Thoai" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Dia_Chi" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="USER_DON_HANG" Member="DON_HANGs" ThisKey="Ma_Khach_Hang" OtherKey="Ma_Khach_Hang" Type="DON_HANG" />
+    </Type>
+  </Table>
+</Database>
