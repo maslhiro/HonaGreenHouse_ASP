@@ -10,7 +10,7 @@ namespace SellingFruitsWeb.Entity
     {
         [Key]
         [StringLength(10)]
-        public string Ma_Chi_Tiet_Trai_Cay { get; set; }
+        public string Ma_Chi_Tiet_TC { get; set; }
 
         [Required]
         public string Hinh_Trai_Cay { get; set; }

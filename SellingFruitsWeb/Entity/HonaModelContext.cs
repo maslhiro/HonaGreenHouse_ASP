@@ -5,10 +5,10 @@ namespace SellingFruitsWeb.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class HonaModel : DbContext
+    public partial class HonaModelContext : DbContext
     {
-        public HonaModel()
-            : base("name=HonaModel")
+        public HonaModelContext()
+            : base("name=HonaModelContext")
         {
         }
 
@@ -76,7 +76,7 @@ namespace SellingFruitsWeb.Entity
                 .IsUnicode(false);
 
             modelBuilder.Entity<CHI_TIET_TRAI_CAY>()
-                .Property(e => e.Ma_Chi_Tiet_Trai_Cay)
+                .Property(e => e.Ma_Chi_Tiet_TC)
                 .IsFixedLength()
                 .IsUnicode(false);
 

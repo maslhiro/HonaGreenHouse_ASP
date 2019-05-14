@@ -12,9 +12,7 @@ namespace SellingFruitsWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var HonaModel = new HonaModel();
-            var re = HonaModel.TRAI_CAY.First();
-            Console.WriteLine(re.Ten_Trai_Cay);
+        
         }
     }
 }

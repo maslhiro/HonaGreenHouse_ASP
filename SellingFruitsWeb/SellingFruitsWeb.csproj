@@ -1695,6 +1695,9 @@
     <Compile Include="Admin\ThemSanPham.aspx.designer.cs">
       <DependentUpon>ThemSanPham.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Api\GetListLoaiTraiCay.ashx.cs">
+      <DependentUpon>GetListLoaiTraiCay.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Api\GetListTraiCay.ashx.cs">
       <DependentUpon>GetListTraiCay.ashx</DependentUpon>
     </Compile>
@@ -1705,13 +1708,14 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Loai_Trai_Cay.cs" />
     <Compile Include="DTO\Trai_Cay.cs" />
     <Compile Include="Entity\ADMIN.cs" />
     <Compile Include="Entity\CHI_TIET_CHUYEN_HANG.cs" />
     <Compile Include="Entity\CHI_TIET_DON_HANG.cs" />
     <Compile Include="Entity\CHI_TIET_TRAI_CAY.cs" />
     <Compile Include="Entity\DON_HANG.cs" />
-    <Compile Include="Entity\HonaModel.cs" />
+    <Compile Include="Entity\HonaModelContext.cs" />
     <Compile Include="Entity\LOAI_TRAI_CAY.cs" />
     <Compile Include="Entity\LOG_NHAP.cs" />
     <Compile Include="Entity\LOG_THANH_TOAN.cs" />
@@ -1733,6 +1737,7 @@
     <Content Include="Site.Master" />
     <Content Include="AdminSite.Master" />
     <Content Include="Api\GetListTraiCay.ashx" />
+    <Content Include="Api\GetListLoaiTraiCay.ashx" />
     <None Include="packages.config" />
     <Content Include="static\scss\sb-admin.scss" />
     <Content Include="static\scss\_cards.scss" />
@@ -1900,6 +1905,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

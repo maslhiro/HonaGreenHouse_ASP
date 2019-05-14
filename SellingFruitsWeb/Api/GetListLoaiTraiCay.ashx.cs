@@ -9,9 +9,9 @@ using System.Web;
 namespace SellingFruitsWeb.Api
 {
     /// <summary>
-    /// Summary description for GetListTraiCay
+    /// Summary description for GetListLoaiTraiCay
     /// </summary>
-    public class GetListTraiCay : IHttpHandler
+    public class GetListLoaiTraiCay : IHttpHandler
     {
         private HonaModelContext honaModel = new HonaModelContext();
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -29,14 +29,14 @@ namespace SellingFruitsWeb.Api
 
         public void ProcessRequest(HttpContext context)
         {
-            var listTraiCay = honaModel.TRAI_CAY.Where(p => p.Ma_Trai_Cay != "");
+            var listLoaiTraiCay = honaModel.LOAI_TRAI_CAY.Where(p => p.Ma_Loai_Trai_Cay != "");
 
-            var list = new List<Trai_Cay>();
-            Trai_Cay trai_Cay;
-            foreach (TRAI_CAY item in listTraiCay.ToList())
+            var list = new List<Loai_Trai_Cay>();
+            Loai_Trai_Cay loai_Trai_Cay;
+            foreach (LOAI_TRAI_CAY item in listLoaiTraiCay.ToList())
             {
-                trai_Cay = new Trai_Cay(item.Ma_Trai_Cay, item.Ten_Trai_Cay, item.So_Luong, item.Don_Gia,item.Don_Vi_Tinh, item.Xuat_Xu, item.Mo_Ta, item.Loai_ID);
-                list.Add(trai_Cay);
+                loai_Trai_Cay = new Loai_Trai_Cay(item.Ma_Loai_Trai_Cay, item.Ten_Loai_Trai_Cay);
+                list.Add(loai_Trai_Cay);
             }
 
             var json = JsonConvert.SerializeObject(list);
