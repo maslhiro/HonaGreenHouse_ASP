@@ -50,6 +50,7 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -76,7 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="DetailFruit.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="static\css\bootstrap.css" />
     <Content Include="static\css\master.css" />
     <Content Include="static\css\slider.css" />
     <Content Include="static\img\cart.svg" />
@@ -89,6 +92,8 @@
     <Content Include="static\img\trai-cay-mien-nam.jpg" />
     <Content Include="static\img\trai-cay-mien-trung.jpg" />
     <Content Include="static\img\trai-cay-nhap-khau.jpg" />
+    <Content Include="static\js\bootstrap.js" />
+    <Content Include="static\js\jquery-3.4.1.min.js" />
     <Content Include="static\js\slider.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -100,17 +105,18 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Entity\ADMIN.cs" />
-    <Compile Include="Entity\CHI_TIET_CHUYEN_HANG.cs" />
-    <Compile Include="Entity\CHI_TIET_DON_HANG.cs" />
-    <Compile Include="Entity\CHI_TIET_TRAI_CAY.cs" />
-    <Compile Include="Entity\DON_HANG.cs" />
-    <Compile Include="Entity\HonaModel.cs" />
-    <Compile Include="Entity\LOAI_TRAI_CAY.cs" />
-    <Compile Include="Entity\LOG_NHAP.cs" />
-    <Compile Include="Entity\LOG_THANH_TOAN.cs" />
-    <Compile Include="Entity\TRAI_CAY.cs" />
-    <Compile Include="Entity\USER.cs" />
+    <Compile Include="DetailFruit.aspx.cs">
+      <DependentUpon>DetailFruit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailFruit.aspx.designer.cs">
+      <DependentUpon>DetailFruit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FruitData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FruitData.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -124,6 +130,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FruitData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>FruitData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="FruitData.dbml.layout">
+      <DependentUpon>FruitData.dbml</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
@@ -133,7 +147,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

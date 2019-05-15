@@ -69,7 +69,7 @@
                 <li>
                     <a href="#">
                         <div class="card">
-                          <img src="static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
                           <div class="content">
                             <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
                             <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
@@ -81,7 +81,7 @@
                 <li>
                     <a href="#">
                         <div class="card">
-                          <img src="static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
                           <div class="content">
                             <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
                             <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
@@ -93,7 +93,7 @@
                 <li>
                     <a href="#">
                         <div class="card">
-                          <img src="static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
                           <div class="content">
                             <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
                             <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
@@ -105,7 +105,7 @@
                 <li>
                     <a href="#">
                         <div class="card">
-                          <img src="static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
                           <div class="content">
                             <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
                             <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
@@ -117,7 +117,7 @@
                 <li>
                     <a href="#">
                         <div class="card">
-                          <img src="static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
                           <div class="content">
                             <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
                             <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
@@ -129,7 +129,7 @@
                 <li>
                     <a href="#">
                         <div class="card">
-                          <img src="static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
                           <div class="content">
                             <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
                             <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
