@@ -23,5 +23,124 @@
             <span class="dot" onclick="currentSlide(2)"></span>
         </div>
     </div>
+    <div class="Category">
+        <a href="#">
+            <div class="card">
+                <img src="static/img/trai-cay-mien-nam.jpg" alt="Avatar">
+                <div class="content">
+                <span class="category_name"><b>TRÁI CÂY MIỀN NAM</b></span> 
+                </div>
+            </div>
+        </a>
+        
+        <a href="#">
+            <div class="card">
+              <img src="static/img/trai-cay-dac-san-mien-bac.jpg" alt="Avatar">
+              <div class="content">
+                <span class="category_name"><b>TRÁI CÂY MIỀN BẮC</b></span> 
+              </div>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="card">
+              <img src="static/img/trai-cay-mien-trung.jpg" alt="Avatar">
+              <div class="content">
+                <span class="category_name"><b>TRÁI CÂY MIỀN TRUNG</b></span> 
+              </div>
+            </div>
+        </a>
+        
+        <a href="#">
+            <div class="card">
+              <img src="static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+              <div class="content">
+                <span class="category_name"><b>TRÁI CÂY NHẬP KHẨU</b></span> 
+              </div>
+            </div>
+        </a>
+    </div>
+    <div class="Selling_Products">
+        <div class="selling_title">
+            <span>SẢN PHẨM BÁN CHẠY</span>
+        </div>
+        <div class="list_products">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="card">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <div class="content">
+                            <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
+                            <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
+                            <div class="product_price">70,000 ₫</div>
+                          </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="card">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <div class="content">
+                            <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
+                            <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
+                            <div class="product_price">70,000 ₫</div>
+                          </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="card">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <div class="content">
+                            <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
+                            <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
+                            <div class="product_price">70,000 ₫</div>
+                          </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="card">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <div class="content">
+                            <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
+                            <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
+                            <div class="product_price">70,000 ₫</div>
+                          </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="card">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <div class="content">
+                            <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
+                            <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
+                            <div class="product_price">70,000 ₫</div>
+                          </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="card">
+                          <img src="/static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                          <div class="content">
+                            <div class="product_name"><b>Dưa Lưới Việt Nam</b></div>
+                            <div class="product_unit">ĐƠN VI TÍNH : Kg</div>
+                            <div class="product_price">70,000 ₫</div>
+                          </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="see_more"><button class="button_see_more">XEM THÊM</button></div>     
+    </div>
     <script src="static/js/slider.js" type="text/javascript"></script>
 </asp:Content>
