@@ -96,6 +96,7 @@
     <Content Include="static\js\demo\chart-bar-demo.js" />
     <Content Include="static\js\demo\chart-pie-demo.js" />
     <Content Include="static\js\demo\datatables-demo.js" />
+    <Content Include="static\js\popper.min.js" />
     <Content Include="static\js\sb-admin.js" />
     <Content Include="static\js\sb-admin.min.js" />
     <Content Include="static\js\slider.js" />

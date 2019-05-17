@@ -1,8 +1,56 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminSite.Master" AutoEventWireup="true" CodeBehind="ThemSanPham.aspx.cs" Inherits="SellingFruitsWeb.Admin.ThemSanPham" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+          <!-- Page level plugin JavaScript-->
+    <script src="/static/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="/static/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+
+    <script type="text/javascript" >
+        var table;
+
+        function loadTable() {
+            table = $('#dataTable').DataTable({
+                processing: true,
+                paging: false,
+                searching: false,
+                ajax: {
+                    url: '/Api/GetListTraiCay.ashx',
+                    dataSrc: ''
+                },
+                columns: [
+                    { data: 'Ma_Trai_Cay' },
+                    { data: 'Ten_Trai_Cay' },
+                    { data: 'Loai_ID' },
+                    { data: 'Xuat_Xu' },
+                    { data: 'So_Luong' },
+                    { data: 'Don_Vi_Tinh' },
+                    { data: 'Don_Gia' },
+                    {
+                        "data": null,
+                        "defaultContent": `<button type="button" id="btnSua" class="btn btn-secondary">Sửa</button>`
+                    },
+                    {
+                        "data": null,
+                        "defaultContent": `<button type="button" id="btnXoa" class="btn btn-dark">Xoá</button>`
+                    }]
+            });
+
+            $('#dataTable tbody').on('click', '#btnSua', function () {
+                var data = table.row($(this).parents('tr')).data();
+                alert(data.Ten_Trai_Cay);
+            });
+
+            $('#dataTable tbody').on('click', '#btnXoa', function () {
+                var data = table.row($(this).parents('tr')).data();
+                alert(data.Ma_Trai_Cay);
+            });
+        }
+
+        $(document).ready(function () {
+            loadTable()
+        });    </script>
     <div class="container-fluid">
 
         <!-- Breadcrumbs-->
@@ -14,11 +62,15 @@
         </ol>
 
         <!-- Button Them Trai Cay-->
-        <div class="d-flex m-4 flex-row-reverse">
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Thêm trái cây</button>
+        <div class="d-flex m-3 flex-row-reverse">
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalThemTC">Thêm trái cây</button>
+            <asp:Button runat="server" ID="btnReload" OnClick="btnReload_Click" CssClass="btn btn-dark" Text="Reload Table"/>
         </div>
 
-        <!-- DataTables Example -->
+            <div runat="server" id="alertSuccest"></div>
+
+
+        <!-- DataTables -->
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fas fa-table"></i>
@@ -62,52 +114,53 @@
             </div>
         </div>
 
-        <!-- The Modal -->
-        <div class="modal fade" id="myModal">
+        <!-- The Modal Them Trai Cay -->
+        <div class="modal fade" id="modalThemTC">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Thêm Trái Cây</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="close"  id="btnClose" runat="server" onserverclick="btnClose_Click">&times;</button>
                     </div>
 
                     <!-- Modal body -->
                     <div class="modal-body">
+                        <div id="alertError" runat="server"></div>
                         <div class="d-flex">
                             <div class="p-1 flex-fill">
                                 <div class="form-group">
-                                    <label for="usr">Tên trái cây:</label>
-                                    <input type="text" class="form-control" id="usr" name="username">
+                                    <label for="usr">Tên trái cây: (*)</label>
+                                    <input type="text" class="form-control" id="txtTenTraiCay" runat="server" ClientIdMode="Static">
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Xuất xứ:</label>
-                                    <input type="password" class="form-control" name="password">
+                                    <input type="text" class="form-control" id="txtXuatXu" runat="server" ClientIdMode="Static">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Số lượng nhập:</label>
-                                    <input type="password" class="form-control" name="password">
+                                    <label for="pwd">Số lượng nhập: (*)</label>
+                                    <input type="text" class="form-control" id="txtSoLuongNhap" runat="server" ClientIdMode="Static">
                                 </div>
 
                             </div>
                             <div class="p-1 flex-fill">
 
                                 <div class="form-group">
-                                    <label for="pwd">Đơn giá:</label>
-                                    <input type="password" class="form-control" name="password">
+                                    <label for="pwd">Đơn giá: (*)</label>
+                                    <input type="text" class="form-control" id="txtDonGia" runat="server" ClientIdMode="Static" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Đơn vị tính:</label>
-                                    <input type="password" class="form-control" name="password">
+                                    <label for="pwd">Đơn vị tính: (*)</label>
+                                    <input type="text" class="form-control" id="txtDonViTinh" runat="server" ClientIdMode="Static" >
                                 </div>
                                 <div class="form-group">
                                     <label for="sel1">Loại trái cây:</label>
-                                    <select class="form-control" id="sel1" name="sellistLoaiTC" runat="server"  ClientIDMode="Static" >
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
+                                    <select class="form-control" id="selLoaiTraiCay" runat="server" ClientIdMode="Static" tabindex="0">
+                                        <option>LTC01 - Trái cây miền bắc</option>
+                                        <option>LTC02 - Trái cây miền trung</option>
+                                        <option>LTC03 - Trái cây miền nam</option>
+                                        <option>LTC04 - Trái cây nhập khẩu</option>
                                     </select>
                                 </div>
 
@@ -115,66 +168,19 @@
                         </div>
                         <div class="form-group">
                             <label for="comment">Mô tả:</label>
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                            <textarea class="form-control" rows="5" id="txtMoTa" runat="server"></textarea>
                         </div>
                     </div>
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Submit</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <asp:Button runat="server" CssClass="btn btn-dark" ID="btnSubmit" OnClick="btnSubmit_Click" Text="Submit" />
                     </div>
 
                 </div>
             </div>
         </div>
+
+
     </div>
-
-    <!-- Page level plugin JavaScript-->
-    <script src="/static/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="/static/vendor/datatables/dataTables.bootstrap4.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(
-            function () {
-                var table = $('#dataTable').DataTable({
-                    processing: true,
-                    ajax: {
-                        url: '/Api/GetListTraiCay.ashx',
-                        dataSrc: ''
-                    },
-                    columns: [
-                        { data: 'Ma_Trai_Cay' },
-                        { data: 'Ten_Trai_Cay' },
-                        { data: 'Loai_ID' },
-                        { data: 'Xuat_Xu' },
-                        { data: 'So_Luong' },
-                        { data: 'Don_Vi_Tinh' },
-                        { data: 'Don_Gia', type: 'num-fmt' },
-                        {
-                            "data": null,
-                            "defaultContent": `<button type="button" id="btnSua" class="btn btn-secondary">Sửa</button>`
-                        },
-                        {
-                            "data": null,
-                            "defaultContent": `<button type="button" id="btnXoa" class="btn btn-dark">Xoá</button>`
-                        }]
-                });
-
-
-                $('#dataTable tbody').on('click', '#btnSua', function () {
-                    var data = table.row($(this).parents('tr')).data();
-                    alert(data.Ten_Trai_Cay);
-                });
-
-                $('#dataTable tbody').on('click', '#btnXoa', function () {
-                    var data = table.row($(this).parents('tr')).data();
-                    alert(data.Ma_Trai_Cay);
-                });
-
-            })
-
-
-    </script>
 </asp:Content>
