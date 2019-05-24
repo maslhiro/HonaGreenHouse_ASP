@@ -19,7 +19,7 @@
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalThemTC">Thêm trái cây</button>
         </div>
 
-        <div runat="server" id="alertSuccest"></div>
+        <div id="alert"></div>
 
 
         <!-- DataTables -->
@@ -76,25 +76,25 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Thêm Trái Cây</h4>
-                        <button type="button" class="close" id="btnClose" runat="server" onserverclick="btnClose_Click">&times;</button>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <div id="alertError" runat="server"></div>
+                        <div id="alertThem"></div>
                         <div class="d-flex">
                             <div class="p-1 flex-fill">
                                 <div class="form-group">
                                     <label for="usr">Tên trái cây: (*)</label>
-                                    <input type="text" class="form-control" id="txtTenTraiCay" runat="server" clientidmode="Static">
+                                    <input type="text" class="form-control" id="txtTenTraiCay" >
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Xuất xứ:</label>
-                                    <input type="text" class="form-control" id="txtXuatXu" runat="server" clientidmode="Static">
+                                    <input type="text" class="form-control" id="txtXuatXu" >
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Số lượng nhập: (*)</label>
-                                    <input type="text" class="form-control" id="txtSoLuongNhap" runat="server" clientidmode="Static">
+                                    <input type="text" class="form-control" id="txtSoLuongNhap" >
                                 </div>
 
                             </div>
@@ -102,19 +102,19 @@
 
                                 <div class="form-group">
                                     <label for="pwd">Đơn giá: (*)</label>
-                                    <input type="text" class="form-control" id="txtDonGia" runat="server" clientidmode="Static">
+                                    <input type="text" class="form-control" id="txtDonGia" >
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Đơn vị tính: (*)</label>
-                                    <input type="text" class="form-control" id="txtDonViTinh" runat="server" clientidmode="Static">
+                                    <input type="text" class="form-control" id="txtDonViTinh" >
                                 </div>
                                 <div class="form-group">
                                     <label for="sel1">Loại trái cây:</label>
-                                    <select class="form-control" id="selLoaiTraiCay" runat="server" clientidmode="Static" tabindex="0">
-                                        <option>LTC01 - Trái cây miền bắc</option>
-                                        <option>LTC02 - Trái cây miền trung</option>
-                                        <option>LTC03 - Trái cây miền nam</option>
-                                        <option>LTC04 - Trái cây nhập khẩu</option>
+                                    <select class="form-control" id="selLoaiTraiCay"  tabindex="0">
+                                        <option value="LTC01">LTC01 - Trái cây miền bắc</option>
+                                        <option value="LTC02">LTC02 - Trái cây miền trung</option>
+                                        <option value="LTC03">LTC03 - Trái cây miền nam</option>
+                                        <option value="LTC04">LTC04 - Trái cây nhập khẩu</option>
                                     </select>
                                 </div>
 
@@ -122,13 +122,13 @@
                         </div>
                         <div class="form-group">
                             <label for="comment">Mô tả:</label>
-                            <textarea class="form-control" rows="5" id="txtMoTa" runat="server"></textarea>
+                            <textarea class="form-control" rows="5" id="txtMoTa"></textarea>
                         </div>
                     </div>
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <asp:Button runat="server" CssClass="btn btn-dark" ID="btnSubmit" OnClick="btnSubmit_Click" Text="Submit" />
+                        <button class="btn btn-dark" id="btnSubmitThem">Submit</button>
                     </div>
 
                 </div>
@@ -151,7 +151,7 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button class="btn btn-dark" id="btnSubmitXoa" onclick="btnSubmit_Click">Submit</button>
+                        <button class="btn btn-dark" id="btnSubmitXoa" data-dismiss="modal">Submit</button>
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@
 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <div id="alertError01"></div>
+                        <div id="alertSua"></div>
                         <div class="d-flex">
                             <div class="p-1 flex-fill">
                                 <div class="form-group">
@@ -217,7 +217,7 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button class="btn btn-dark" id="btnSubmit01" onclick="btnSubmit_Click">Submit</button>
+                        <button class="btn btn-dark" id="btnSubmitSua">Submit</button>
                     </div>
                 </div>
             </div>
@@ -234,13 +234,15 @@
         var table;
 
         function loadTable() {
+
+            // Load dataTable qua Api trai cay  
             table = $('#dataTable').DataTable({
                 processing: true,
                 paging: false,
                 searching: false,
                 ajax: {
                     url: '/Api/TraiCay.ashx?DataType=1',
-                    dataSrc: ''
+                    dataSrc: 'Data'
                 },
                 columns: [
                     { data: 'Ma_Trai_Cay' },
@@ -261,8 +263,11 @@
                     }]
             });
 
+            // Gan su kien click btn Sua cho tung row
             $('#dataTable tbody').on('click', '#btnSua', function () {
                 let data = table.row($(this).parents('tr')).data();
+
+                // Load data vao modal Sua
                 $('#modalSuaTC').on('show.bs.modal', function (event) {
                     var modal = $(this)
                     modal.find('.modal-body #txtTenTraiCay01').val(data.Ten_Trai_Cay)
@@ -274,23 +279,104 @@
 
                     modal.find('.modal-title').text('Sửa trái cây mã ' + data.Ma_Trai_Cay)
                 })
-
-
+                                
                 let loaiTC = data.Loai_ID.toString().trim();
                 $("#selLoaiTraiCay01 option[value='" + loaiTC + "']").attr("selected", "selected");
+
+
             });
 
             $('#dataTable tbody').on('click', '#btnXoa', function () {
                 let data = table.row($(this).parents('tr')).data();
+
+                // hiển thị mã trái cây ở modal xoá
                 $('#modalXoaTC').on('show.bs.modal', function (event) {
                     var modal = $(this)
                     modal.find('.modal-title').text('Xoá trái cây mã ' + data.Ma_Trai_Cay)
                 })
+
+                // gán sự kiện vào btn Xoa trong modal 
+                $('#btnSubmitXoa').click(function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/Api/TraiCay.ashx?DataType=2&MaTraiCay=" + data.Ma_Trai_Cay,
+                        success: function (result) {
+
+                            if (result.Status_Code) {
+                                $('#alert').empty().append(`<div class='alert alert-danger'> <strong> Warning!</strong > ` + result.Status_Text + ` </div >`)
+                            }
+                            else {
+                                $('#alert').empty().append(`<div class='alert alert-success'> <strong> Warning!</strong > ` + result.Status_Text + ` </div >`)
+                            }
+
+                            $('#alert').show();
+
+                            // ẩn alert sau 4s
+                            $("#alert").delay(4000).slideUp(200, function () {
+                                $(this).alert('dispose');
+                            });
+
+                            // load lai dataTable
+                            table.ajax.reload();
+                        },
+                        error: function (result) {
+                            console.log(result)
+                            $('#alert').empty().append(`<div class='alert alert-danger'> <strong> Warning!</strong > Có lỗi trong quá trình kết nối </div >`)
+                        }
+                    });
+                });
+
+            });
+        }
+
+        function btnSubmitThem_OnClick(e) {
+            e.preventDefault();
+            let traiCay = {
+                "Ten_Trai_Cay": $("#txtTenTraiCay").text(),
+                "Don_Vi_Tinh": $("#txtDonViTinh").text(),
+                "Don_Gia": $("txtDonGia").text() ? parseInt($("txtDonGia").text()):0,
+                "So_Luong": $("txtSoLuongNhap").text() ? parseInt($("txtSoLuongNhap").text()):0,
+                "Xuat_Xu": $("txtXuatXu").text(),
+                "Mo_Ta": $("txtMoTa").text(),
+                "Loai_ID": $("#selLoaiTraiCay").val()
+            }
+            console.log("JSON", traiCay)
+            $.ajax({
+                type: "POST",
+                url: "/Api/TraiCay.ashx?DataType=3",
+                data: JSON.stringify(traiCay),
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (result) {
+                    if (result.Status_Code) {
+                        $('#alertThem').empty().append(`<div class='alert alert-danger'> <strong> Warning!</strong > ` + result.Status_Text + ` </div >`)
+                    }
+                    else {
+                        $('#alertThem').empty().append(`<div class='alert alert-success'> <strong> Warning!</strong > ` + result.Status_Text + ` </div >`)
+                    }           
+                    $('#alertThem').show();
+                    // ẩn alert sau 4s
+                    $("#alertThem").delay(4000).slideUp(200, function () {
+                        $(this).alert('dispose');
+                    });
+
+                    // load lai dataTable
+                    //table.ajax.reload();
+                },
+                error: function (result) {
+                    console.log(result)
+                    $('#alertThem').empty().append(`<div class='alert alert-danger'> <strong> Warning!</strong > Có lỗi trong quá trình kết nối </div >`)
+                }
             });
         }
 
         $(document).ready(function () {
             loadTable()
+
+            $("#btnSubmitThem").click(function (e) {
+                btnSubmitThem_OnClick(e)
+            })
         });
     </script>
 </asp:Content>

@@ -1725,6 +1725,7 @@
     <Compile Include="DetailFruit.aspx.designer.cs">
       <DependentUpon>DetailFruit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Object _Response.cs" />
     <Compile Include="DTO\Loai_Trai_cay.cs" />
     <Compile Include="DTO\Trai_Cay.cs" />
     <Compile Include="FruitData.designer.cs">
