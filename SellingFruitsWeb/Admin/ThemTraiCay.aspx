@@ -21,7 +21,6 @@
 
         <div id="alert"></div>
 
-
         <!-- DataTables -->
         <div class="card mb-3">
             <div class="card-header">
@@ -119,11 +118,7 @@
                                 </div>
 
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="comment">Mô tả:</label>
-                            <textarea class="form-control" rows="5" id="txtMoTa"></textarea>
-                        </div>
+                        </div>                        
                     </div>
 
                     <!-- Modal footer -->
@@ -156,7 +151,6 @@
                 </div>
             </div>
         </div>
-
         <!-- The Modal Sua Trai Cay -->
         <div class="modal fade" id="modalSuaTC">
             <div class="modal-dialog modal-lg">
@@ -208,10 +202,6 @@
                                 </div>
 
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="comment">Mô tả:</label>
-                            <textarea class="form-control" rows="5" id="txtMoTa01"></textarea>
                         </div>
                     </div>
 
@@ -273,7 +263,6 @@
                     modal.find('.modal-body #txtTenTraiCay01').val(data.Ten_Trai_Cay)
                     modal.find('.modal-body #txtXuatXu01').val(data.Xuat_Xu)
                     modal.find('.modal-body #txtSoLuongNhap01').val(data.So_Luong)
-                    modal.find('.modal-body #txtMoTa01').val(data.Mo_Ta)
                     modal.find('.modal-body #txtDonGia01').val(data.Don_Gia)
                     modal.find('.modal-body #txtDonViTinh01').val(data.Don_Vi_Tinh)
 
@@ -294,7 +283,6 @@
                         "Don_Gia": $("#txtDonGia01").val(),
                         "So_Luong": $("#txtSoLuongNhap01").val(),
                         "Xuat_Xu": $("#txtXuatXu01").val() ? $("#txtXuatXu01").val() : "",
-                        "Mo_Ta": $("#txtMoTa01").val() ? $("#txtMoTa01").val() : "",
                         "Loai_ID": $("#selLoaiTraiCay01").val()
                     }
                     console.log("JSON", traiCay)
@@ -323,7 +311,6 @@
                                 $("#txtDonGia01").val("")
                                 $("#txtSoLuongNhap01").val("")
                                 $("#txtXuatXu01").val("")
-                                $("#txtMoTa01").val("")
                                 $("#selLoaiTraiCay01").val("LTC01")
 
                                 $('#alert').empty().append(`<div class='alert alert-success'> <strong> Success!</strong > ` + result.Status_Text + ` </div >`)
@@ -403,7 +390,6 @@
                 "Don_Gia": $("#txtDonGia").val(),
                 "So_Luong": $("#txtSoLuongNhap").val(),
                 "Xuat_Xu": $("#txtXuatXu").val() ? $("#txtXuatXu").val() : "",
-                "Mo_Ta": $("#txtMoTa").val() ? $("#txtMoTa").val() : "",
                 "Loai_ID": $("#selLoaiTraiCay").val()
             }
             console.log("JSON", traiCay)
@@ -432,7 +418,6 @@
                         $("#txtDonGia").val("")
                         $("#txtSoLuongNhap").val("")
                         $("#txtXuatXu").val("")
-                        $("#txtMoTa").val("")
                         $("#selLoaiTraiCay").val("LTC01")
 
                         $('#alert').empty().append(`<div class='alert alert-success'> <strong> Success!</strong > ` + result.Status_Text + ` </div >`)

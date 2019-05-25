@@ -219,7 +219,6 @@ namespace SellingFruitsWeb.Api
                 tc.Don_Gia = trai_Cay.Don_Gia;
                 tc.Don_Vi_Tinh = trai_Cay.Don_Vi_Tinh;
                 tc.Loai_ID = trai_Cay.Loai_ID;
-                tc.Mo_Ta = trai_Cay.Mo_Ta;
 
                 db.TRAI_CAYs.InsertOnSubmit(tc);
                 db.SubmitChanges();
@@ -333,7 +332,7 @@ namespace SellingFruitsWeb.Api
                 tc.Don_Gia = trai_Cay.Don_Gia;
                 tc.Don_Vi_Tinh = trai_Cay.Don_Vi_Tinh;
                 tc.Loai_ID = trai_Cay.Loai_ID;
-                tc.Mo_Ta = trai_Cay.Mo_Ta;
+              
 
                 db.SubmitChanges();
                 return 0;
