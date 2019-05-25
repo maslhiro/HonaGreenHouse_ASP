@@ -79,8 +79,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\ChiTietTraiCay.aspx" />
     <Content Include="Admin\DashBoard.aspx" />
-    <Content Include="Admin\ThemSanPham.aspx" />
+    <Content Include="Admin\ThemTraiCay.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DetailFruit.aspx" />
     <Content Include="Global.asax" />
@@ -1691,6 +1692,13 @@
     <Compile Include="AdminSite.Master.designer.cs">
       <DependentUpon>AdminSite.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ChiTietTraiCay.aspx.cs">
+      <DependentUpon>ChiTietTraiCay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ChiTietTraiCay.aspx.designer.cs">
+      <DependentUpon>ChiTietTraiCay.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\DashBoard.aspx.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1698,18 +1706,18 @@
     <Compile Include="Admin\DashBoard.aspx.designer.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ThemSanPham.aspx.cs">
-      <DependentUpon>ThemSanPham.aspx</DependentUpon>
+    <Compile Include="Admin\ThemTraiCay.aspx.cs">
+      <DependentUpon>ThemTraiCay.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\ThemSanPham.aspx.designer.cs">
-      <DependentUpon>ThemSanPham.aspx</DependentUpon>
+    <Compile Include="Admin\ThemTraiCay.aspx.designer.cs">
+      <DependentUpon>ThemTraiCay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Api\GetListLoaiTraiCay.ashx.cs">
       <DependentUpon>GetListLoaiTraiCay.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Api\GetListTraiCay.ashx.cs">
-      <DependentUpon>GetListTraiCay.ashx</DependentUpon>
+    <Compile Include="Api\TraiCay.ashx.cs">
+      <DependentUpon>TraiCay.ashx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -1725,12 +1733,13 @@
     <Compile Include="DetailFruit.aspx.designer.cs">
       <DependentUpon>DetailFruit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Object _Response.cs" />
     <Compile Include="DTO\Loai_Trai_cay.cs" />
     <Compile Include="DTO\Trai_Cay.cs" />
     <Compile Include="FruitData.designer.cs">
-      <DependentUpon>FruitData.dbml</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FruitData.dbml</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1745,14 +1754,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminSite.Master" />
+    <Content Include="Api\GetListLoaiTraiCay.ashx" />
+    <Content Include="Api\TraiCay.ashx" />
     <Content Include="FruitData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>FruitData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="AdminSite.Master" />
-    <Content Include="Api\GetListLoaiTraiCay.ashx" />
-    <Content Include="Api\GetListTraiCay.ashx" />
     <None Include="FruitData.dbml.layout">
       <DependentUpon>FruitData.dbml</DependentUpon>
     </None>
