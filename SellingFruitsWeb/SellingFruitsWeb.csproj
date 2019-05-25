@@ -79,6 +79,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\ChiTietTraiCay.aspx" />
     <Content Include="Admin\DashBoard.aspx" />
     <Content Include="Admin\ThemTraiCay.aspx" />
     <Content Include="Default.aspx" />
@@ -1690,6 +1691,13 @@
     </Compile>
     <Compile Include="AdminSite.Master.designer.cs">
       <DependentUpon>AdminSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ChiTietTraiCay.aspx.cs">
+      <DependentUpon>ChiTietTraiCay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ChiTietTraiCay.aspx.designer.cs">
+      <DependentUpon>ChiTietTraiCay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\DashBoard.aspx.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>

@@ -139,10 +139,50 @@ namespace SellingFruitsWeb.Api
                             break;
                     }
                     break;
+                // Edit trai cay by id
+                case 4:
+                    object_Response = new Object_Response();
+                    ketQua = suaTraiCayByID(context);
+                    switch (ketQua)
+                    {
+                        // Lỗi nhập ko đủ dữ liệu
+                        case -2:
+                            // gửi reponse trong suaTraiCay
+                            break;
+                        // Update thanh cong
+                        case 0:
+                            object_Response.Status_Code = 0;
+                            object_Response.Status_Text = "Update trái cây thành công";
+                            object_Response.Data = "";
+
+                            context.Response.ContentType = "text/json";
+                            context.Response.Write(JsonConvert.SerializeObject(object_Response));
+
+                            break;
+                        // Data = null
+                        case 1:
+                            object_Response.Status_Code = 1;
+                            object_Response.Status_Text = "Lỗi kết nối cơ sở dữ liệu";
+                            object_Response.Data = "";
+
+                            context.Response.ContentType = "text/json";
+                            context.Response.Write(JsonConvert.SerializeObject(object_Response));
+                            break;
+                        default:
+                            object_Response.Status_Code = -1;
+                            object_Response.Status_Text = "Lỗi kết nối cơ sở dữ liệu";
+                            object_Response.Data = "";
+
+                            context.Response.ContentType = "text/json";
+                            context.Response.Write(JsonConvert.SerializeObject(object_Response));
+                            break;
+                    }
+                    break;
                 default: break;
             }
 
         }
+
         public int themTraiCay(HttpContext context) {
 
             try
@@ -260,6 +300,52 @@ namespace SellingFruitsWeb.Api
 
         }
 
+        private int suaTraiCayByID(HttpContext context)
+        {
+            try
+            {
+                string strJson = new StreamReader(context.Request.InputStream).ReadToEnd();
+                //deserialize the object
+                Trai_Cay trai_Cay = JsonConvert.DeserializeObject<Trai_Cay>(strJson);
+
+                if (trai_Cay == null) return 1;
+
+                // Check prop của trái cây
+                string check = checkInputData(trai_Cay);
+
+                if (check != "")
+                {
+                    object_Response.Status_Code = -2;
+                    object_Response.Status_Text = "Vui lòng nhập" + check;
+                    object_Response.Data = "";
+
+                    context.Response.ContentType = "text/json";
+                    context.Response.Write(JsonConvert.SerializeObject(object_Response));
+                    return -2;
+                }
+
+                // Parse sang class DTO của linq
+                TRAI_CAY tc = db.TRAI_CAYs.Where(p=>p.Ma_Trai_Cay == trai_Cay.Ma_Trai_Cay).FirstOrDefault();
+
+                tc.Ten_Trai_Cay = trai_Cay.Ten_Trai_Cay;
+                tc.So_Luong = trai_Cay.So_Luong;
+                tc.Xuat_Xu = trai_Cay.Xuat_Xu;
+                tc.Don_Gia = trai_Cay.Don_Gia;
+                tc.Don_Vi_Tinh = trai_Cay.Don_Vi_Tinh;
+                tc.Loai_ID = trai_Cay.Loai_ID;
+                tc.Mo_Ta = trai_Cay.Mo_Ta;
+
+                db.SubmitChanges();
+                return 0;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return -1;
+            }
+
+        }
+
         private string checkInputData(Trai_Cay trai_Cay)
         {
             string result = "";
@@ -272,11 +358,11 @@ namespace SellingFruitsWeb.Api
             {
                 result += " Đơn vị tính,";
             }
-            if (trai_Cay.Don_Gia.ToString() == "")
+            if (trai_Cay.Don_Gia == 0)
             {
                 result += " Đơn giá,";
             }
-            if (trai_Cay.So_Luong.ToString() == "")
+            if (trai_Cay.So_Luong == 0)
             {
                 result += " Số lượng ";
             }

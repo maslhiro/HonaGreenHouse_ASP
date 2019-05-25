@@ -191,7 +191,7 @@ namespace SellingFruitsWeb
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auto_ID", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auto_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Auto_ID
 		{
 			get
@@ -316,7 +316,7 @@ namespace SellingFruitsWeb
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Khach_Hang", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Khach_Hang", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Ma_Khach_Hang
 		{
 			get
@@ -522,7 +522,7 @@ namespace SellingFruitsWeb
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Chi_Tiet_CH", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Chi_Tiet_CH", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Ma_Chi_Tiet_CH
 		{
 			get
@@ -602,7 +602,7 @@ namespace SellingFruitsWeb
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Don_Hang", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Don_Hang", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string Ma_Don_Hang
 		{
 			get
@@ -724,7 +724,7 @@ namespace SellingFruitsWeb
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Chi_Tiet_DH", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Chi_Tiet_DH", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Ma_Chi_Tiet_DH
 		{
 			get
@@ -784,7 +784,7 @@ namespace SellingFruitsWeb
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Don_Hang", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Don_Hang", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string Ma_Don_Hang
 		{
 			get
@@ -975,7 +975,7 @@ namespace SellingFruitsWeb
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Don_Hang", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Don_Hang", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Ma_Don_Hang
 		{
 			get
@@ -995,7 +995,7 @@ namespace SellingFruitsWeb
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Chi_Tiet_DH", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Chi_Tiet_DH", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string Ma_Chi_Tiet_DH
 		{
 			get
@@ -1095,7 +1095,7 @@ namespace SellingFruitsWeb
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Khach_Hang", DbType="Char(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Khach_Hang", DbType="VarChar(10)")]
 		public string Ma_Khach_Hang
 		{
 			get
@@ -1256,7 +1256,7 @@ namespace SellingFruitsWeb
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Loai_Trai_Cay", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Loai_Trai_Cay", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Ma_Loai_Trai_Cay
 		{
 			get
@@ -1399,7 +1399,7 @@ namespace SellingFruitsWeb
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auto_ID", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auto_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Auto_ID
 		{
 			get
@@ -1419,7 +1419,7 @@ namespace SellingFruitsWeb
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Trai_Cay", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Trai_Cay", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string Ma_Trai_Cay
 		{
 			get
@@ -1553,7 +1553,7 @@ namespace SellingFruitsWeb
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auto_ID", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auto_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Auto_ID
 		{
 			get
@@ -1613,7 +1613,7 @@ namespace SellingFruitsWeb
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Don_Hang", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Don_Hang", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string Ma_Don_Hang
 		{
 			get
@@ -1921,7 +1921,7 @@ namespace SellingFruitsWeb
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Loai_ID", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Loai_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string Loai_ID
 		{
 			get

@@ -86,15 +86,15 @@
                             <div class="p-1 flex-fill">
                                 <div class="form-group">
                                     <label for="usr">Tên trái cây: (*)</label>
-                                    <input type="text" class="form-control" id="txtTenTraiCay" >
+                                    <input type="text" class="form-control" id="txtTenTraiCay">
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Xuất xứ:</label>
-                                    <input type="text" class="form-control" id="txtXuatXu" >
+                                    <input type="text" class="form-control" id="txtXuatXu">
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Số lượng nhập: (*)</label>
-                                    <input type="text" class="form-control" id="txtSoLuongNhap" >
+                                    <input type="number" class="form-control" id="txtSoLuongNhap" min="0" step="1" value="0">
                                 </div>
 
                             </div>
@@ -102,15 +102,15 @@
 
                                 <div class="form-group">
                                     <label for="pwd">Đơn giá: (*)</label>
-                                    <input type="text" class="form-control" id="txtDonGia" >
+                                    <input type="number" class="form-control" id="txtDonGia" min="0" step="1" value="0">
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Đơn vị tính: (*)</label>
-                                    <input type="text" class="form-control" id="txtDonViTinh" >
+                                    <input type="text" class="form-control" id="txtDonViTinh">
                                 </div>
                                 <div class="form-group">
                                     <label for="sel1">Loại trái cây:</label>
-                                    <select class="form-control" id="selLoaiTraiCay"  tabindex="0">
+                                    <select class="form-control" id="selLoaiTraiCay" tabindex="0">
                                         <option value="LTC01">LTC01 - Trái cây miền bắc</option>
                                         <option value="LTC02">LTC02 - Trái cây miền trung</option>
                                         <option value="LTC03">LTC03 - Trái cây miền nam</option>
@@ -183,7 +183,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Số lượng nhập: (*)</label>
-                                    <input type="text" class="form-control" id="txtSoLuongNhap01">
+                                    <input type="number" class="form-control" id="txtSoLuongNhap01" min="0" step="1" value="0">
                                 </div>
 
                             </div>
@@ -191,7 +191,7 @@
 
                                 <div class="form-group">
                                     <label for="pwd">Đơn giá: (*)</label>
-                                    <input type="text" class="form-control" id="txtDonGia01">
+                                    <input type="number" class="form-control" id="txtDonGia01" min="0" step="1" value="0">
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Đơn vị tính: (*)</label>
@@ -279,13 +279,77 @@
 
                     modal.find('.modal-title').text('Sửa trái cây mã ' + data.Ma_Trai_Cay)
                 })
-                                
+
                 let loaiTC = data.Loai_ID.toString().trim();
                 $("#selLoaiTraiCay01 option[value='" + loaiTC + "']").attr("selected", "selected");
 
+                // Gan su kien submit cho modal Sua
+                $("#btnSubmitSua").click(function (e) {
+                    e.preventDefault();
+
+                    let traiCay = {
+                        "Ma_Trai_Cay": data.Ma_Trai_Cay,
+                        "Ten_Trai_Cay": $("#txtTenTraiCay01").val() ? $("#txtTenTraiCay01").val() : "",
+                        "Don_Vi_Tinh": $("#txtDonViTinh01").val() ? $("#txtDonViTinh01").val() : "",
+                        "Don_Gia": $("#txtDonGia01").val(),
+                        "So_Luong": $("#txtSoLuongNhap01").val(),
+                        "Xuat_Xu": $("#txtXuatXu01").val() ? $("#txtXuatXu01").val() : "",
+                        "Mo_Ta": $("#txtMoTa01").val() ? $("#txtMoTa01").val() : "",
+                        "Loai_ID": $("#selLoaiTraiCay01").val()
+                    }
+                    console.log("JSON", traiCay)
+                    $.ajax({
+                        type: "POST",
+                        url: "/Api/TraiCay.ashx?DataType=4",
+                        data: JSON.stringify(traiCay),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function (result) {
+                            // Lôi 
+                            if (result.Status_Code) {
+                                $('#alertSua').empty().append(`<div class='alert alert-danger'> <strong> Warning!</strong > ` + result.Status_Text + ` </div >`)
+                                $('#alertSua').show();
+                                // ẩn alert sau 7s
+                                $("#alertSua").delay(7000).slideUp(200, function () {
+                                    $(this).alert('dispose');
+                                });
+                            }
+                            else {
+                                // dong modal va xoa cac truong du lieu da nhap
+                                $("#modalSuaTC").modal('hide')
+
+                                $("#txtTenTraiCay01").val("")
+                                $("#txtDonViTinh01").val("")
+                                $("#txtDonGia01").val("")
+                                $("#txtSoLuongNhap01").val("")
+                                $("#txtXuatXu01").val("")
+                                $("#txtMoTa01").val("")
+                                $("#selLoaiTraiCay01").val("LTC01")
+
+                                $('#alert').empty().append(`<div class='alert alert-success'> <strong> Success!</strong > ` + result.Status_Text + ` </div >`)
+
+                                $('#alert').show();
+                                // ẩn alert sau 7s
+                                $("#alert").delay(7000).slideUp(200, function () {
+                                    $(this).alert('dispose');
+                                });
+
+                                // load lai dataTable
+                                table.ajax.reload();
+                            }
+
+
+                        },
+                        error: function (result) {
+                            console.log(result)
+                            $('#alertThem').empty().append(`<div class='alert alert-danger'> <strong> Warning!</strong > Có lỗi trong quá trình kết nối </div >`)
+                        }
+                    });
+                })
 
             });
 
+            // Gan su kien click btn Xoa cho tung row
             $('#dataTable tbody').on('click', '#btnXoa', function () {
                 let data = table.row($(this).parents('tr')).data();
 
@@ -307,13 +371,13 @@
                                 $('#alert').empty().append(`<div class='alert alert-danger'> <strong> Warning!</strong > ` + result.Status_Text + ` </div >`)
                             }
                             else {
-                                $('#alert').empty().append(`<div class='alert alert-success'> <strong> Warning!</strong > ` + result.Status_Text + ` </div >`)
+                                $('#alert').empty().append(`<div class='alert alert-success'> <strong> Success!</strong > ` + result.Status_Text + ` </div >`)
                             }
 
                             $('#alert').show();
 
-                            // ẩn alert sau 4s
-                            $("#alert").delay(4000).slideUp(200, function () {
+                            // ẩn alert sau 7s
+                            $("#alert").delay(7000).slideUp(200, function () {
                                 $(this).alert('dispose');
                             });
 
@@ -332,13 +396,14 @@
 
         function btnSubmitThem_OnClick(e) {
             e.preventDefault();
+
             let traiCay = {
-                "Ten_Trai_Cay": $("#txtTenTraiCay").text(),
-                "Don_Vi_Tinh": $("#txtDonViTinh").text(),
-                "Don_Gia": $("txtDonGia").text() ? parseInt($("txtDonGia").text()):0,
-                "So_Luong": $("txtSoLuongNhap").text() ? parseInt($("txtSoLuongNhap").text()):0,
-                "Xuat_Xu": $("txtXuatXu").text(),
-                "Mo_Ta": $("txtMoTa").text(),
+                "Ten_Trai_Cay": $("#txtTenTraiCay").val() ? $("#txtTenTraiCay").val() : "",
+                "Don_Vi_Tinh": $("#txtDonViTinh").val() ? $("#txtDonViTinh").val() : "",
+                "Don_Gia": $("#txtDonGia").val(),
+                "So_Luong": $("#txtSoLuongNhap").val(),
+                "Xuat_Xu": $("#txtXuatXu").val() ? $("#txtXuatXu").val() : "",
+                "Mo_Ta": $("#txtMoTa").val() ? $("#txtMoTa").val() : "",
                 "Loai_ID": $("#selLoaiTraiCay").val()
             }
             console.log("JSON", traiCay)
@@ -349,20 +414,40 @@
                 dataType: 'json',
                 contentType: 'application/json',
                 success: function (result) {
+                    // Lôi 
                     if (result.Status_Code) {
                         $('#alertThem').empty().append(`<div class='alert alert-danger'> <strong> Warning!</strong > ` + result.Status_Text + ` </div >`)
+                        $('#alertThem').show();
+                        // ẩn alert sau 7s
+                        $("#alertThem").delay(7000).slideUp(200, function () {
+                            $(this).alert('dispose');
+                        });
                     }
                     else {
-                        $('#alertThem').empty().append(`<div class='alert alert-success'> <strong> Warning!</strong > ` + result.Status_Text + ` </div >`)
-                    }           
-                    $('#alertThem').show();
-                    // ẩn alert sau 4s
-                    $("#alertThem").delay(4000).slideUp(200, function () {
-                        $(this).alert('dispose');
-                    });
+                        // dong modal va xoa cac truong du lieu da nhap
+                        $("#modalThemTC").modal('hide')
 
-                    // load lai dataTable
-                    //table.ajax.reload();
+                        $("#txtTenTraiCay").val("")
+                        $("#txtDonViTinh").val("")
+                        $("#txtDonGia").val("")
+                        $("#txtSoLuongNhap").val("")
+                        $("#txtXuatXu").val("")
+                        $("#txtMoTa").val("")
+                        $("#selLoaiTraiCay").val("LTC01")
+
+                        $('#alert').empty().append(`<div class='alert alert-success'> <strong> Success!</strong > ` + result.Status_Text + ` </div >`)
+
+                        $('#alert').show();
+                        // ẩn alert sau 7s
+                        $("#alert").delay(7000).slideUp(200, function () {
+                            $(this).alert('dispose');
+                        });
+
+                        // load lai dataTable
+                        table.ajax.reload();
+                    }
+
+
                 },
                 error: function (result) {
                     console.log(result)
@@ -370,7 +455,7 @@
                 }
             });
         }
-
+        
         $(document).ready(function () {
             loadTable()
 
@@ -379,4 +464,5 @@
             })
         });
     </script>
+
 </asp:Content>
