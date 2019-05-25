@@ -23,7 +23,9 @@ namespace SellingFruitsWeb.DTO
 
         public string Loai_ID { get; set; }
 
-        public Trai_Cay(string ma_Trai_Cay, string ten_Trai_Cay, int so_Luong, int don_Gia, string don_Vi_Tinh, string xuat_Xu, string mo_Ta, string loai_ID)
+        public string Ten_Loai_TC { get; set; }
+
+        public Trai_Cay(string ma_Trai_Cay, string ten_Trai_Cay, int so_Luong, int don_Gia, string don_Vi_Tinh, string xuat_Xu, string mo_Ta, string loai_ID, string ten_Loai_TC = "")
         {
             Ma_Trai_Cay = ma_Trai_Cay;
             Ten_Trai_Cay = ten_Trai_Cay;
@@ -33,6 +35,7 @@ namespace SellingFruitsWeb.DTO
             Xuat_Xu = xuat_Xu;
             Mo_Ta = mo_Ta;
             Loai_ID = loai_ID;
+            Ten_Loai_TC = ten_Loai_TC;
         }
 
         public Trai_Cay()

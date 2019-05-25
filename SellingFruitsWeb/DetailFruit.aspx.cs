@@ -16,12 +16,11 @@ namespace SellingFruitsWeb
             {
                 string id = Request.QueryString["id"].ToString();
                 var detailFruit = db.TRAI_CAYs.Where(x => x.Ma_Trai_Cay == id).FirstOrDefault();
-                var imgFruit = db.CHI_TIET_TRAI_CAYs.Where(x => x.Ma_Trai_Cay == id).FirstOrDefault();
                 lblTenTC.Text = detailFruit.Ten_Trai_Cay;
                 lblDonGia.Text = string.Format("{0:#,##0}", detailFruit.Don_Gia);
                 lblDonViTinh.Text = detailFruit.Don_Vi_Tinh;
                 lblMieuTa.Text = " Xuất sứ: "+detailFruit.Xuat_Xu;
-                imgFruiteId.ImageUrl = imgFruit.Hinh_Trai_Cay;
+                imgFruiteId.ImageUrl = detailFruit.Url_Anh;
             }
             catch
             {
