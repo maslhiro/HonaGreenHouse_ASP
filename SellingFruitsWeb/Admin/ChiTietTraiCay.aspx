@@ -25,7 +25,9 @@
                 </div>
                  <div class="form-group">
                     <label>Upload ảnh :</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <%--<input type="file" class="form-control-file" id="exampleFormControlFile1">--%>
+                    <input type='file' onchange="readURL(this);" />
+                    <img id="blah" src="#" alt="your image" />
                   </div>
                 <button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
 
@@ -36,6 +38,19 @@
 
 
     <script>
-          
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(300)
+                        .height(300);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }      
     </script>
 </asp:Content>
