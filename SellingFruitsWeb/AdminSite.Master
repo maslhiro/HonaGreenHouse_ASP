@@ -79,7 +79,7 @@
                     <span>Quản lí kho</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <a class="dropdown-item" href="#">Thêm loại trái cây</a>
+                    <a class="dropdown-item" href="/Admin/ThemLoaiTraiCay.aspx">Thêm loại trái cây</a>
                     <a class="dropdown-item" href="/Admin/ThemTraiCay.aspx">Thêm trái cây</a>
                 </div>
             </li>
