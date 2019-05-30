@@ -81,7 +81,9 @@
   <ItemGroup>
     <Content Include="Admin\ChiTietTraiCay.aspx" />
     <Content Include="Admin\DashBoard.aspx" />
+    <Content Include="Admin\ThemLoaiTraiCay.aspx" />
     <Content Include="Admin\ThemTraiCay.aspx" />
+    <Content Include="Admin\TiepNhanDonHang.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DetailFruit.aspx" />
     <Content Include="Global.asax" />
@@ -1682,7 +1684,9 @@
     <Content Include="static\vendor\jquery\jquery.min.js" />
     <Content Include="static\vendor\jquery\jquery.slim.js" />
     <Content Include="static\vendor\jquery\jquery.slim.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminSite.Master.cs">
@@ -1706,6 +1710,13 @@
     <Compile Include="Admin\DashBoard.aspx.designer.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ThemLoaiTraiCay.aspx.cs">
+      <DependentUpon>ThemLoaiTraiCay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ThemLoaiTraiCay.aspx.designer.cs">
+      <DependentUpon>ThemLoaiTraiCay.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ThemTraiCay.aspx.cs">
       <DependentUpon>ThemTraiCay.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1713,8 +1724,21 @@
     <Compile Include="Admin\ThemTraiCay.aspx.designer.cs">
       <DependentUpon>ThemTraiCay.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\TiepNhanDonHang.aspx.cs">
+      <DependentUpon>TiepNhanDonHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TiepNhanDonHang.aspx.designer.cs">
+      <DependentUpon>TiepNhanDonHang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\DonHang.ashx.cs">
+      <DependentUpon>DonHang.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Api\GetListLoaiTraiCay.ashx.cs">
       <DependentUpon>GetListLoaiTraiCay.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\LoaiTraiCay.ashx.cs">
+      <DependentUpon>LoaiTraiCay.ashx</DependentUpon>
     </Compile>
     <Compile Include="Api\TraiCay.ashx.cs">
       <DependentUpon>TraiCay.ashx</DependentUpon>
@@ -1733,9 +1757,12 @@
     <Compile Include="DetailFruit.aspx.designer.cs">
       <DependentUpon>DetailFruit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Don_Hang.cs" />
     <Compile Include="DTO\Object _Response.cs" />
     <Compile Include="DTO\Loai_Trai_cay.cs" />
     <Compile Include="DTO\Trai_Cay.cs" />
+    <Compile Include="Enum\EnumExtension.cs" />
+    <Compile Include="Enum\Enums.cs" />
     <Compile Include="FruitData.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1757,6 +1784,8 @@
     <Content Include="AdminSite.Master" />
     <Content Include="Api\GetListLoaiTraiCay.ashx" />
     <Content Include="Api\TraiCay.ashx" />
+    <Content Include="Api\LoaiTraiCay.ashx" />
+    <Content Include="Api\DonHang.ashx" />
     <Content Include="FruitData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>FruitData.designer.cs</LastGenOutput>
