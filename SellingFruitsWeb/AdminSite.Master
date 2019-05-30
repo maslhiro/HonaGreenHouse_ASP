@@ -89,10 +89,10 @@
                     <span>Quản lí đơn hàng</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <a class="dropdown-item" href="#">Đơn hàng tiếp nhập</a>
+                    <a class="dropdown-item" href="#">Danh sách đơn hàng</a>
                     <div class="dropdown-divider"></div>
 
-                    <a class="dropdown-item" href="#">Xác nhập đơn hàng</a>
+                    <a class="dropdown-item" href="/Admin/TiepNhanDonHang.aspx">Tiếp nhận đơn hàng</a>
                 </div>
             </li>
 

@@ -22,7 +22,7 @@ namespace SellingFruitsWeb
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="HonaModel")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="HonaWeb")]
 	public partial class FruitDataDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -60,7 +60,7 @@ namespace SellingFruitsWeb
     #endregion
 		
 		public FruitDataDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["HonaModelConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["HonaWebConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
