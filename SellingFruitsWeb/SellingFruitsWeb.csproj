@@ -82,6 +82,7 @@
     <Content Include="Admin\ChiTietTraiCay.aspx" />
     <Content Include="Admin\DashBoard.aspx" />
     <Content Include="Admin\ThemTraiCay.aspx" />
+    <Content Include="Admin\TiepNhanDonHang.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DetailFruit.aspx" />
     <Content Include="Global.asax" />
@@ -1713,6 +1714,15 @@
     <Compile Include="Admin\ThemTraiCay.aspx.designer.cs">
       <DependentUpon>ThemTraiCay.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\TiepNhanDonHang.aspx.cs">
+      <DependentUpon>TiepNhanDonHang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TiepNhanDonHang.aspx.designer.cs">
+      <DependentUpon>TiepNhanDonHang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\DonHang.ashx.cs">
+      <DependentUpon>DonHang.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Api\GetListLoaiTraiCay.ashx.cs">
       <DependentUpon>GetListLoaiTraiCay.ashx</DependentUpon>
     </Compile>
@@ -1733,9 +1743,12 @@
     <Compile Include="DetailFruit.aspx.designer.cs">
       <DependentUpon>DetailFruit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Don_Hang.cs" />
     <Compile Include="DTO\Object _Response.cs" />
     <Compile Include="DTO\Loai_Trai_cay.cs" />
     <Compile Include="DTO\Trai_Cay.cs" />
+    <Compile Include="Enum\EnumExtension.cs" />
+    <Compile Include="Enum\Enums.cs" />
     <Compile Include="FruitData.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1762,6 +1775,7 @@
       <LastGenOutput>FruitData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Api\DonHang.ashx" />
     <None Include="FruitData.dbml.layout">
       <DependentUpon>FruitData.dbml</DependentUpon>
     </None>

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SellingFruitsWeb.DTO
 {
-    public class Don_Hang_Moi
+    public class Don_Hang
     {
         public string Ma_Don_Hang { get; set; }
 
@@ -20,7 +20,7 @@ namespace SellingFruitsWeb.DTO
         public string Trinh_Trang_String { get; set; }
 
 
-        public Don_Hang_Moi(string ma_Don_Hang, string ngay_Dat, int hinh_Thuc_Thanh_Toan, string hinh_Thuc_Thanh_Toan_String, string bang_Chung_Thanh_Toan, int trinh_Trang, string trinh_Trang_String)
+        public Don_Hang(string ma_Don_Hang, string ngay_Dat, int hinh_Thuc_Thanh_Toan, string hinh_Thuc_Thanh_Toan_String, string bang_Chung_Thanh_Toan, int trinh_Trang, string trinh_Trang_String)
         {
             Ma_Don_Hang = ma_Don_Hang;
             Ngay_Dat = ngay_Dat;
@@ -31,7 +31,7 @@ namespace SellingFruitsWeb.DTO
             Hinh_Thuc_Thanh_Toan = hinh_Thuc_Thanh_Toan;
         }
 
-        public Don_Hang_Moi()
+        public Don_Hang()
         {
         }
 

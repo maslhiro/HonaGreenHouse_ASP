@@ -14,11 +14,6 @@
             <li class="breadcrumb-item active">Overview</li>
         </ol>
 
-        <!-- Button Them Trai Cay-->
-     <%--   <div class="d-flex m-3 flex-row-reverse">
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalThemTC">Thêm trái cây</button>
-        </div>--%>
-
         <div id="alert"></div>
 
         <!-- DataTables -->

@@ -144,84 +144,6 @@ namespace SellingFruitsWeb.Api
                             break;
                     }
                     break;
-                //// Them don hang
-                //case 3:
-                //    object_Response = new Object_Response();
-                //    ketQua = themTraiCay(context);
-                //    switch (ketQua)
-                //    {
-                //        // Lỗi nhập ko đủ dữ liệu
-                //        case -2:
-                //            // gửi reponse trong themTraiCay
-                //            break;
-                //        // Thêm thanh cong
-                //        case 0:
-                //            object_Response.Status_Code = 0;
-                //            object_Response.Status_Text = "Thêm đơn hàng thành công";
-                //            object_Response.Data = "";
-
-                //            context.Response.ContentType = "text/json";
-                //            context.Response.Write(JsonConvert.SerializeObject(object_Response));
-
-                //            break;
-                //        // Data = null
-                //        case 1:
-                //            object_Response.Status_Code = 1;
-                //            object_Response.Status_Text = "Lỗi kết nối cơ sở dữ liệu";
-                //            object_Response.Data = "";
-
-                //            context.Response.ContentType = "text/json";
-                //            context.Response.Write(JsonConvert.SerializeObject(object_Response));
-                //            break;                     
-                //        default:
-                //            object_Response.Status_Code = -1;
-                //            object_Response.Status_Text = "Lỗi kết nối cơ sở dữ liệu";
-                //            object_Response.Data = "";
-
-                //            context.Response.ContentType = "text/json";
-                //            context.Response.Write(JsonConvert.SerializeObject(object_Response));
-                //            break;
-                //    }
-                //    break;
-                //// Edit don hangby id
-                //case 4:
-                //    object_Response = new Object_Response();
-                //    ketQua = suaTraiCayByID(context);
-                //    switch (ketQua)
-                //    {
-                //        // Lỗi nhập ko đủ dữ liệu
-                //        case -2:
-                //            // gửi reponse trong suaTraiCay
-                //            break;
-                //        // Update thanh cong
-                //        case 0:
-                //            object_Response.Status_Code = 0;
-                //            object_Response.Status_Text = "Update đơn hàng thành công";
-                //            object_Response.Data = "";
-
-                //            context.Response.ContentType = "text/json";
-                //            context.Response.Write(JsonConvert.SerializeObject(object_Response));
-
-                //            break;
-                //        // Data = null
-                //        case 1:
-                //            object_Response.Status_Code = 1;
-                //            object_Response.Status_Text = "Lỗi kết nối cơ sở dữ liệu";
-                //            object_Response.Data = "";
-
-                //            context.Response.ContentType = "text/json";
-                //            context.Response.Write(JsonConvert.SerializeObject(object_Response));
-                //            break;
-                //        default:
-                //            object_Response.Status_Code = -1;
-                //            object_Response.Status_Text = "Lỗi kết nối cơ sở dữ liệu";
-                //            object_Response.Data = "";
-
-                //            context.Response.ContentType = "text/json";
-                //            context.Response.Write(JsonConvert.SerializeObject(object_Response));
-                //            break;
-                //    }
-                //    break;
                 default: break;
             }
 
@@ -232,19 +154,19 @@ namespace SellingFruitsWeb.Api
             try
             {
                 var listDonHangMoi = db.DON_HANGs.Where(x => x.Tinh_Trang == 0);
-                var list = new List<Don_Hang_Moi>();
-                Don_Hang_Moi don_Hang_Moi;
+                var list = new List<Don_Hang>();
+                Don_Hang Don_Hang;
                 foreach (DON_HANG item in listDonHangMoi.ToList())
                 {
-                    don_Hang_Moi = new Don_Hang_Moi();
-                    don_Hang_Moi.Ma_Don_Hang = item.Ma_Don_Hang;
-                    don_Hang_Moi.Ngay_Dat = item.Ngay_Dat.ToString("dd/MM/yyyy");
-                    don_Hang_Moi.Hinh_Thuc_Thanh_Toan = item.Hinh_Thuc_Thanh_Toan;
-                    don_Hang_Moi.Hinh_Thuc_Thanh_Toan_String = item.Hinh_Thuc_Thanh_Toan.ToEnum<ThanhToan>().Text();
-                    don_Hang_Moi.Bang_Chung_Thanh_Toan = item.Bang_Chung_Thanh_Toan;
-                    don_Hang_Moi.Trinh_Trang = item.Tinh_Trang;
-                    don_Hang_Moi.Trinh_Trang_String= item.Tinh_Trang.ToEnum<DonHang>().Text();
-                    list.Add(don_Hang_Moi);
+                    Don_Hang = new Don_Hang();
+                    Don_Hang.Ma_Don_Hang = item.Ma_Don_Hang;
+                    Don_Hang.Ngay_Dat = item.Ngay_Dat.ToString("dd/MM/yyyy");
+                    Don_Hang.Hinh_Thuc_Thanh_Toan = item.Hinh_Thuc_Thanh_Toan;
+                    Don_Hang.Hinh_Thuc_Thanh_Toan_String = item.Hinh_Thuc_Thanh_Toan.ToEnum<ThanhToan>().Text();
+                    Don_Hang.Bang_Chung_Thanh_Toan = item.Bang_Chung_Thanh_Toan;
+                    Don_Hang.Trinh_Trang = item.Tinh_Trang;
+                    Don_Hang.Trinh_Trang_String= item.Tinh_Trang.ToEnum<DonHang>().Text();
+                    list.Add(Don_Hang);
                 }
 
                 object_Response.Status_Code = 0;
