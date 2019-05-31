@@ -82,6 +82,8 @@
     <Content Include="Admin\ChiTietTraiCay.aspx" />
     <Content Include="Admin\DashBoard.aspx" />
     <Content Include="Admin\ThemLoaiTraiCay.aspx" />
+    <Content Include="Admin\ThongKeNhapXuat.aspx" />
+    <Content Include="Admin\ThongKeDonHang.aspx" />
     <Content Include="Admin\ThemTraiCay.aspx" />
     <Content Include="Admin\TiepNhanDonHang.aspx" />
     <Content Include="Default.aspx" />
@@ -92,6 +94,33 @@
     <Content Include="static\css\sb-admin.css" />
     <Content Include="static\css\sb-admin.min.css" />
     <Content Include="static\css\slider.css" />
+    <Content Include="static\gijgo-datepicker\css\gijgo.css" />
+    <Content Include="static\gijgo-datepicker\css\gijgo.min.css" />
+    <Content Include="static\gijgo-datepicker\fonts\gijgo-material.svg" />
+    <Content Include="static\gijgo-datepicker\js\gijgo.js" />
+    <Content Include="static\gijgo-datepicker\js\gijgo.min.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.bg-bg.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.bg-bg.min.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.de-de.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.de-de.min.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.es-es.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.es-es.min.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.fr-fr.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.fr-fr.min.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.it-it.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.it-it.min.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.ja-jp.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.ja-jp.min.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.pt-br.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.pt-br.min.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.ru-ru.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.ru-ru.min.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.tr-tr.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.tr-tr.min.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.zh-cn.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.zh-cn.min.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.zh-tw.js" />
+    <Content Include="static\gijgo-datepicker\js\messages\messages.zh-tw.min.js" />
     <Content Include="static\img\cart.svg" />
     <Content Include="static\img\header_bg.jpg" />
     <Content Include="static\img\logo.png" />
@@ -1717,6 +1746,20 @@
     <Compile Include="Admin\ThemLoaiTraiCay.aspx.designer.cs">
       <DependentUpon>ThemLoaiTraiCay.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ThongKeNhapXuat.aspx.cs">
+      <DependentUpon>ThongKeNhapXuat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ThongKeNhapXuat.aspx.designer.cs">
+      <DependentUpon>ThongKeNhapXuat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ThongKeDonHang.aspx.cs">
+      <DependentUpon>ThongKeDonHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ThongKeDonHang.aspx.designer.cs">
+      <DependentUpon>ThongKeDonHang.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ThemTraiCay.aspx.cs">
       <DependentUpon>ThemTraiCay.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1736,6 +1779,12 @@
     </Compile>
     <Compile Include="Api\GetListLoaiTraiCay.ashx.cs">
       <DependentUpon>GetListLoaiTraiCay.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\ThongKeNhapXuat.ashx.cs">
+      <DependentUpon>ThongKeNhapXuat.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\ThongKeDonHang.ashx.cs">
+      <DependentUpon>ThongKeDonHang.ashx</DependentUpon>
     </Compile>
     <Compile Include="Api\LoaiTraiCay.ashx.cs">
       <DependentUpon>LoaiTraiCay.ashx</DependentUpon>
@@ -1757,6 +1806,8 @@
     <Compile Include="DetailFruit.aspx.designer.cs">
       <DependentUpon>DetailFruit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Thong_Ke_Nhap_Xuat.cs" />
+    <Compile Include="DTO\Thong_Ke_Don_Hang.cs" />
     <Compile Include="DTO\Don_Hang.cs" />
     <Compile Include="DTO\Object _Response.cs" />
     <Compile Include="DTO\Loai_Trai_cay.cs" />
@@ -1786,11 +1837,13 @@
     <Content Include="Api\TraiCay.ashx" />
     <Content Include="Api\LoaiTraiCay.ashx" />
     <Content Include="Api\DonHang.ashx" />
+    <Content Include="Api\ThongKeDonHang.ashx" />
     <Content Include="FruitData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>FruitData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Api\ThongKeNhapXuat.ashx" />
     <None Include="FruitData.dbml.layout">
       <DependentUpon>FruitData.dbml</DependentUpon>
     </None>
@@ -1949,6 +2002,9 @@
     <Content Include="static\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="static\vendor\jquery\jquery.min.map" />
     <Content Include="static\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="static\gijgo-datepicker\fonts\gijgo-material.eot" />
+    <Content Include="static\gijgo-datepicker\fonts\gijgo-material.ttf" />
+    <Content Include="static\gijgo-datepicker\fonts\gijgo-material.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1959,6 +2015,7 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
