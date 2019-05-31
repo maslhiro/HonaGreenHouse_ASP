@@ -81,6 +81,7 @@
   <ItemGroup>
     <Content Include="Admin\ChiTietTraiCay.aspx" />
     <Content Include="Admin\DashBoard.aspx" />
+    <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\ThemLoaiTraiCay.aspx" />
     <Content Include="Admin\ThongKeNhapXuat.aspx" />
     <Content Include="Admin\ThongKeDonHang.aspx" />
@@ -1739,6 +1740,13 @@
     <Compile Include="Admin\DashBoard.aspx.designer.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ThemLoaiTraiCay.aspx.cs">
       <DependentUpon>ThemLoaiTraiCay.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1773,6 +1781,9 @@
     </Compile>
     <Compile Include="Admin\TiepNhanDonHang.aspx.designer.cs">
       <DependentUpon>TiepNhanDonHang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\Admin.ashx.cs">
+      <DependentUpon>Admin.ashx</DependentUpon>
     </Compile>
     <Compile Include="Api\DonHang.ashx.cs">
       <DependentUpon>DonHang.ashx</DependentUpon>
@@ -1844,6 +1855,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Api\ThongKeNhapXuat.ashx" />
+    <Content Include="Api\Admin.ashx" />
     <None Include="FruitData.dbml.layout">
       <DependentUpon>FruitData.dbml</DependentUpon>
     </None>

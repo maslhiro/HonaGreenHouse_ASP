@@ -11,7 +11,14 @@ namespace SellingFruitsWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.Cookies["username"] != null)
+            {
+                //var value = Request.Cookies["key"].Value;
+            }
+            else
+            {
+                Response.Redirect("/Admin/Login.aspx");
+            }
         }
     }
 }
