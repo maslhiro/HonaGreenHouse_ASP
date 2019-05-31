@@ -82,6 +82,7 @@
     <Content Include="Admin\ChiTietTraiCay.aspx" />
     <Content Include="Admin\DashBoard.aspx" />
     <Content Include="Admin\ThemLoaiTraiCay.aspx" />
+    <Content Include="Admin\ThongKeNhapXuat.aspx" />
     <Content Include="Admin\ThongKeDonHang.aspx" />
     <Content Include="Admin\ThemTraiCay.aspx" />
     <Content Include="Admin\TiepNhanDonHang.aspx" />
@@ -1745,6 +1746,13 @@
     <Compile Include="Admin\ThemLoaiTraiCay.aspx.designer.cs">
       <DependentUpon>ThemLoaiTraiCay.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ThongKeNhapXuat.aspx.cs">
+      <DependentUpon>ThongKeNhapXuat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ThongKeNhapXuat.aspx.designer.cs">
+      <DependentUpon>ThongKeNhapXuat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ThongKeDonHang.aspx.cs">
       <DependentUpon>ThongKeDonHang.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1772,6 +1780,9 @@
     <Compile Include="Api\GetListLoaiTraiCay.ashx.cs">
       <DependentUpon>GetListLoaiTraiCay.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Api\ThongKeNhapXuat.ashx.cs">
+      <DependentUpon>ThongKeNhapXuat.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Api\ThongKeDonHang.ashx.cs">
       <DependentUpon>ThongKeDonHang.ashx</DependentUpon>
     </Compile>
@@ -1795,7 +1806,7 @@
     <Compile Include="DetailFruit.aspx.designer.cs">
       <DependentUpon>DetailFruit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DTO\Thoi_Gian_Thong_Ke.cs" />
+    <Compile Include="DTO\Thong_Ke_Nhap_Xuat.cs" />
     <Compile Include="DTO\Thong_Ke_Don_Hang.cs" />
     <Compile Include="DTO\Don_Hang.cs" />
     <Compile Include="DTO\Object _Response.cs" />
@@ -1826,12 +1837,13 @@
     <Content Include="Api\TraiCay.ashx" />
     <Content Include="Api\LoaiTraiCay.ashx" />
     <Content Include="Api\DonHang.ashx" />
+    <Content Include="Api\ThongKeDonHang.ashx" />
     <Content Include="FruitData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>FruitData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Api\ThongKeDonHang.ashx" />
+    <Content Include="Api\ThongKeNhapXuat.ashx" />
     <None Include="FruitData.dbml.layout">
       <DependentUpon>FruitData.dbml</DependentUpon>
     </None>

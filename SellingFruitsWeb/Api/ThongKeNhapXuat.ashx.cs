@@ -1,17 +1,15 @@
 ﻿using Newtonsoft.Json;
 using SellingFruitsWeb.DTO;
-using SellingFruitsWeb.Enums;
 using SellingFruitsWeb.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Web;
 
 namespace SellingFruitsWeb.Api
 {
-    public class ThongKeDonHang : IHttpHandler
+    public class ThongKeNhapXuat : IHttpHandler
     {
         private FruitDataDataContext db;
         private Object_Response object_Response;
@@ -37,10 +35,10 @@ namespace SellingFruitsWeb.Api
             int dataType = int.Parse(context.Request.QueryString["DataType"]);
             switch (dataType)
             {
-                // Get list log thanh toan
+                // Get list log nhap xuat
                 case 1:
                     object_Response = new Object_Response();
-                    ketQua = getListThanhToan(context);
+                    ketQua = getListNhapXuat(context);
                     switch (ketQua)
                     {
                         // Get list thanh cong
@@ -56,10 +54,10 @@ namespace SellingFruitsWeb.Api
                             break;
                     }
                     break;
-                // Get list log thanh toan theo ngay
+                // Get list log nhap xuat theo ngay
                 case 2:
                     object_Response = new Object_Response();
-                    ketQua = getListThanhToanTheoThoiGian(context);
+                    ketQua = getListNhapXuatTheoThoiGian(context);
                     switch (ketQua)
                     {
                         //Lỗi ngày bắt đầu lớn hơn ngày kết thúc
@@ -94,7 +92,7 @@ namespace SellingFruitsWeb.Api
 
         }
 
-        private int getListThanhToanTheoThoiGian(HttpContext context)
+        private int getListNhapXuatTheoThoiGian(HttpContext context)
         {
             try
             {
@@ -147,53 +145,32 @@ namespace SellingFruitsWeb.Api
                     return -3;
                 }
 
-                var listThanhToan = db.LOG_THANH_TOANs.Where(p => p.Thoi_Gian >= fromDate && p.Thoi_Gian <= toDate);
+                var listNhapXuat = db.LOG_NHAP_TCs.Where(p => p.Thoi_Gian >= fromDate && p.Thoi_Gian <= toDate);
 
-                var list = new List<Thong_Ke_Don_Hang>();
+                var list = new List<Thong_Ke_Nhap_Xuat>();
 
-                foreach (LOG_THANH_TOAN item in listThanhToan.ToList())
+                foreach (LOG_NHAP_TC item in listNhapXuat.ToList())
                 {
-                    var thongKe = new Thong_Ke_Don_Hang();
+                    var thongKe = new Thong_Ke_Nhap_Xuat();
 
                     thongKe.Auto_ID = item.Auto_ID;
-                    thongKe.Tong_Tien = item.Tong_Tien;
+                    thongKe.Ma_Trai_Cay = item.Ma_Trai_Cay;
                     thongKe.Thoi_Gian = item.Thoi_Gian.ToString("hh:mm tt - dd/MM/yyyy");
-                    thongKe.Ma_Don_Hang = item.Ma_Don_Hang;
+                    thongKe.Tong_Tien = item.Tong_Tien;
+                    thongKe.So_Luong_Nhap = item.So_Luong_Nhap;
 
-                    //Chi tiet don hang
-                    var donHang = db.DON_HANGs.Where(p => p.Ma_Don_Hang == item.Ma_Don_Hang);
-                    if (donHang.ToList().Count != 0)
-                    {
-                        thongKe.Ma_Khach_Hang = donHang.FirstOrDefault().Ma_Khach_Hang;
-                        thongKe.Hinh_Thuc_Thanh_Toan = donHang.FirstOrDefault().Hinh_Thuc_Thanh_Toan.ToEnum<ThanhToan>().Text();
-                        var chiTietChuyenHang = donHang.FirstOrDefault().CHI_TIET_CHUYEN_HANGs.Where(p => p.Ma_Don_Hang == item.Ma_Don_Hang);
-                        if (chiTietChuyenHang.ToList().Count != 0)
-                        {
-                            thongKe.Ho_Ten = chiTietChuyenHang.FirstOrDefault().Ho_Ten;
-                            thongKe.So_Dien_Thoai = chiTietChuyenHang.FirstOrDefault().So_Dien_Thoai;
-                            thongKe.Dia_Chi_Nhan = chiTietChuyenHang.FirstOrDefault().Dia_Chi_Nhan;
-                        }
-                        else
-                        {
-                            thongKe.Ho_Ten = "";
-                            thongKe.So_Dien_Thoai = "";
-                            thongKe.Dia_Chi_Nhan = "";
-                        }
-                    }
-                    else
-                    {
-                        thongKe.Ma_Khach_Hang = "";
-                        thongKe.Hinh_Thuc_Thanh_Toan = "";
-                        thongKe.Ho_Ten = "";
-                        thongKe.So_Dien_Thoai = "";
-                        thongKe.Dia_Chi_Nhan = "";
-                    }
+                    //Chi tiet trai cay
+                    var traiCay = db.TRAI_CAYs.Where(p => p.Ma_Trai_Cay == item.Ma_Trai_Cay).FirstOrDefault();
+                    thongKe.Ten_Trai_Cay = traiCay.Ten_Trai_Cay;
+                    thongKe.Don_Gia = traiCay.Don_Gia.ToString();
+                    thongKe.Don_Vi_Tinh = traiCay.Don_Vi_Tinh;
+                    thongKe.Xuat_Xu = traiCay.Xuat_Xu;
 
                     list.Add(thongKe);
                 }
 
                 object_Response.Status_Code = 0;
-                object_Response.Status_Text = "Thống kê đơn hàng thành công";
+                object_Response.Status_Text = "Thống kê nhập xuất thành công";
                 object_Response.Data = list;
 
                 context.Response.ContentType = "text/json";
@@ -208,57 +185,36 @@ namespace SellingFruitsWeb.Api
 
         }
 
-        private int getListThanhToan(HttpContext context)
+        private int getListNhapXuat(HttpContext context)
         {
             try
             {
-                var listThanhToan = db.LOG_THANH_TOANs.ToList();
+                var listNhapXuat = db.LOG_NHAP_TCs.ToList();
 
-                var list = new List<Thong_Ke_Don_Hang>();
+                var list = new List<Thong_Ke_Nhap_Xuat>();
 
-                foreach (LOG_THANH_TOAN item in listThanhToan.ToList())
+                foreach (LOG_NHAP_TC item in listNhapXuat.ToList())
                 {
-                    var thongKe = new Thong_Ke_Don_Hang();
+                    var thongKe = new Thong_Ke_Nhap_Xuat();
 
                     thongKe.Auto_ID = item.Auto_ID;
-                    thongKe.Tong_Tien = item.Tong_Tien;
+                    thongKe.Ma_Trai_Cay = item.Ma_Trai_Cay;
                     thongKe.Thoi_Gian = item.Thoi_Gian.ToString("hh:mm tt - dd/MM/yyyy");
-                    thongKe.Ma_Don_Hang = item.Ma_Don_Hang;
+                    thongKe.Tong_Tien = item.Tong_Tien;
+                    thongKe.So_Luong_Nhap = item.So_Luong_Nhap;
 
-                    //Chi tiet don hang
-                    var donHang = db.DON_HANGs.Where(p => p.Ma_Don_Hang == item.Ma_Don_Hang);
-                    if(donHang.ToList().Count != 0)
-                    {
-                        thongKe.Ma_Khach_Hang = donHang.FirstOrDefault().Ma_Khach_Hang;
-                        thongKe.Hinh_Thuc_Thanh_Toan = donHang.FirstOrDefault().Hinh_Thuc_Thanh_Toan.ToEnum<ThanhToan>().Text();
-                        var chiTietChuyenHang = donHang.FirstOrDefault().CHI_TIET_CHUYEN_HANGs.Where(p => p.Ma_Don_Hang == item.Ma_Don_Hang);
-                        if (chiTietChuyenHang.ToList().Count != 0)
-                        {
-                            thongKe.Ho_Ten = chiTietChuyenHang.FirstOrDefault().Ho_Ten;
-                            thongKe.So_Dien_Thoai = chiTietChuyenHang.FirstOrDefault().So_Dien_Thoai;
-                            thongKe.Dia_Chi_Nhan = chiTietChuyenHang.FirstOrDefault().Dia_Chi_Nhan;
-                        }
-                        else
-                        {
-                            thongKe.Ho_Ten = "";
-                            thongKe.So_Dien_Thoai = "";
-                            thongKe.Dia_Chi_Nhan = "";
-                        }
-                    }
-                    else
-                    {
-                        thongKe.Ma_Khach_Hang = "";
-                        thongKe.Hinh_Thuc_Thanh_Toan = "";
-                        thongKe.Ho_Ten = "";
-                        thongKe.So_Dien_Thoai = "";
-                        thongKe.Dia_Chi_Nhan = "";
-                    }
-                    
+                    //Chi tiet trai cay
+                    var traiCay = db.TRAI_CAYs.Where(p => p.Ma_Trai_Cay == item.Ma_Trai_Cay).FirstOrDefault();
+                    thongKe.Ten_Trai_Cay = traiCay.Ten_Trai_Cay;
+                    thongKe.Don_Gia = traiCay.Don_Gia.ToString();
+                    thongKe.Don_Vi_Tinh = traiCay.Don_Vi_Tinh;
+                    thongKe.Xuat_Xu = traiCay.Xuat_Xu;
+
                     list.Add(thongKe);
                 }
 
                 object_Response.Status_Code = 0;
-                object_Response.Status_Text = "Thống kê đơn hàng thành công";
+                object_Response.Status_Text = "Thống kê nhập xuất thành công";
                 object_Response.Data = list;
 
                 context.Response.ContentType = "text/json";

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminSite.Master" AutoEventWireup="true" CodeBehind="ThongKeDonHang.aspx.cs" Inherits="SellingFruitsWeb.Admin.ThongKeDonHang" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminSite.Master" AutoEventWireup="true" CodeBehind="ThongKeNhapXuat.aspx.cs" Inherits="SellingFruitsWeb.Admin.ThongKeNhapXuat" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -9,7 +9,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Thống kê đơn hàng</a>
+                <a href="#">Thống kê nhập xuất</a>
             </li>
             <li class="breadcrumb-item active">Overview</li>
         </ol>
@@ -41,21 +41,22 @@
                     <table class="table table-bordered" id="dataTable">
                         <thead>
                             <tr>
-                                <th>Mã đơn hàng</th>
+                                <th>Mã trái cây</th>
                                 <th></th>
                                 <th>Thời gian</th>
                                 <th>Tổng tiền</th>
+                                <th>Số lượng nhập</th>
 
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Mã đơn hàng</th>
+                                <th>Mã trái cây</th>
                                 <th></th>
                                 <th>Thời gian</th>
                                 <th>Tổng tiền</th>
+                                <th>Số lượng nhập</th>
                                 
-
                             </tr>
                         </tfoot>
                         <tbody>
@@ -69,14 +70,14 @@
             </div>
         </div>
 
-        <!-- The Modal Xem chi tiet don hang -->
+        <!-- The Modal Xem chi tiet trai cay -->
         <div class="modal fade" id="modalXemChiTiet">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Xem chi tiết đơn hàng</h4>
+                        <h4 class="modal-title">Xem chi tiết trái cây</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
 
@@ -86,30 +87,24 @@
                         <div class="d-flex">
                             <div class="p-1 flex-fill">
                                 <div class="form-group">
-                                    <label for="usr">Mã khách hàng:</label>
-                                    <input class="form-control" id="txtMaKhachHang" readonly>
+                                    <label for="usr">Tên trái cây:</label>
+                                    <input class="form-control" id="txtTenTraiCay" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Hình thức thanh toán:</label>
-                                    <input class="form-control" id="txtHinhThuc" readonly>
+                                    <label for="pwd">Đơn vị tính:</label>
+                                    <input class="form-control" id="txtDonViTinh" readonly>
                                 </div>
-                                <div class="form-group">
-                                    <label for="pwd">Địa chỉ giao hàng:</label>
-                                    <input class="form-control" id="txtDiaChiGiao" readonly>
-                                </div>
-
                             </div>
                             <div class="p-1 flex-fill">
 
                                 <div class="form-group">
-                                    <label for="pwd">Họ tên người nhận:</label>
-                                    <input class="form-control" id="txtHoTen" readonly>
+                                    <label for="pwd">Đơn giá:</label>
+                                    <input class="form-control" id="txtDonGia" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Số điện thoại:</label>
-                                    <input class="form-control" id="txtSDT" readonly>
+                                    <label for="pwd">Xuất xứ:</label>
+                                    <input class="form-control" id="txtXuatXu" readonly>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -140,17 +135,18 @@
                 paging: false,
                 searching: false,
                 ajax: {
-                    url: '/Api/ThongKeDonHang.ashx?DataType=1',
+                    url: '/Api/ThongKeNhapXuat.ashx?DataType=1',
                     dataSrc: 'Data'
                 },
                 columns: [
-                    { data: 'Ma_Don_Hang' },
+                    { data: 'Ma_Trai_Cay' },
                     {
                         "data": null,
                         "defaultContent": `<div align="center"><button type="button" id="btnXemChiTiet" class="btn btn-secondary" data-toggle="modal" data-target="#modalXemChiTiet">Xem chi tiết</button></div>`
                     },
                     { data: 'Thoi_Gian' },
                     { data: 'Tong_Tien' },
+                    { data: 'So_Luong_Nhap' },
                     ]
             });
         }
@@ -161,13 +157,12 @@
 
             $('#modalXemChiTiet').on('show.bs.modal', function (event) {
                 var modal = $(this)
-                modal.find('.modal-body #txtMaKhachHang').val(data.Ma_Khach_Hang)
-                modal.find('.modal-body #txtHinhThuc').val(data.Hinh_Thuc_Thanh_Toan)
-                modal.find('.modal-body #txtHoTen').val(data.Ho_Ten)
-                modal.find('.modal-body #txtSDT').val(data.So_Dien_Thoai)
-                modal.find('.modal-body #txtDiaChiGiao').val(data.Dia_Chi_Nhan)
+                modal.find('.modal-body #txtTenTraiCay').val(data.Ten_Trai_Cay)
+                modal.find('.modal-body #txtDonViTinh').val(data.Don_Vi_Tinh)
+                modal.find('.modal-body #txtDonGia').val(data.Don_Gia)
+                modal.find('.modal-body #txtXuatXu').val(data.Xuat_Xu)
 
-                modal.find('.modal-title').text('Chi tiết đơn hàng mã ' + data.Ma_Don_Hang)
+                modal.find('.modal-title').text('Chi tiết trái cây mã ' + data.Ma_Trai_Cay)
             })
 
             // Gan su kien cho btn Dong xem chi tiet
@@ -176,11 +171,10 @@
 
                 $("#modalXemChiTiet").modal('hide')
 
-                $("#txtMaKhachHang").val("")
-                $("#txtHinhThuc").val("")
-                $("#txtHoTen").val("")
-                $("#txtSDT").val("")
-                $("#txtDiaChiGiao").val("")
+                $("#txtTenTraiCay").val("")
+                $("#txtDonViTinh").val("")
+                $("#txtDonGia").val("")
+                $("#txtXuatXu").val("")
             })
         });
 
@@ -192,7 +186,7 @@
                 "To_Date": $("#dpkTo").val() ? $("#dpkTo").val() : "",
             }
 
-            let thongkeUrl = "/Api/ThongKeDonHang.ashx?DataType=2&From_Date=" + thoiGianThongKe.From_Date + "&To_Date=" + thoiGianThongKe.To_Date;
+            let thongkeUrl = "/Api/ThongKeNhapXuat.ashx?DataType=2&From_Date=" + thoiGianThongKe.From_Date + "&To_Date=" + thoiGianThongKe.To_Date;
             debugger;
             var StatusCode;
             console.log("JSON", thoiGianThongKe)
@@ -231,7 +225,7 @@
 
         function btnRefresh_OnClick(e) {
             e.preventDefault();
-            table.ajax.url( '/Api/ThongKeDonHang.ashx?DataType=1' ).load();
+            table.ajax.url( '/Api/ThongKeNhapXuat.ashx?DataType=1' ).load();
         }      
         
         $(document).ready(function () {
