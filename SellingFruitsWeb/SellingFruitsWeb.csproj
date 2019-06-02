@@ -87,9 +87,12 @@
     <Content Include="Admin\ThongKeDonHang.aspx" />
     <Content Include="Admin\ThemTraiCay.aspx" />
     <Content Include="Admin\TiepNhanDonHang.aspx" />
+    <Content Include="DanhMuc.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DetailFruit.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="HuongDanMuaHang.aspx" />
+    <Content Include="LienHe.aspx" />
     <Content Include="static\css\bootstrap.css" />
     <Content Include="static\css\master.css" />
     <Content Include="static\css\sb-admin.css" />
@@ -1803,6 +1806,13 @@
     <Compile Include="Api\TraiCay.ashx.cs">
       <DependentUpon>TraiCay.ashx</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc.aspx.cs">
+      <DependentUpon>DanhMuc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc.aspx.designer.cs">
+      <DependentUpon>DanhMuc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1832,6 +1842,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HuongDanMuaHang.aspx.cs">
+      <DependentUpon>HuongDanMuaHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HuongDanMuaHang.aspx.designer.cs">
+      <DependentUpon>HuongDanMuaHang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LienHe.aspx.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LienHe.aspx.designer.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
