@@ -10,42 +10,42 @@
 namespace SellingFruitsWeb {
     
     
-    public partial class Site {
+    public partial class GioHang {
         
         /// <summary>
-        /// head control.
+        /// txtGioHangTrong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtGioHangTrong;
         
         /// <summary>
-        /// form control.
+        /// divGioHang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGioHang;
         
         /// <summary>
-        /// btnGioHang control.
+        /// divDataGioHang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnGioHang;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDataGioHang;
         
         /// <summary>
-        /// contentplaceholder control.
+        /// txtTongCong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder contentplaceholder;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtTongCong;
     }
 }

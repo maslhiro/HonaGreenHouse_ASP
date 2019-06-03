@@ -31,6 +31,15 @@ namespace SellingFruitsWeb {
         protected global::System.Web.UI.WebControls.Label lblTenTC;
         
         /// <summary>
+        /// lblDonGiaInt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDonGiaInt;
+        
+        /// <summary>
         /// lblDonGia control.
         /// </summary>
         /// <remarks>

@@ -100,6 +100,7 @@
                     </div>
                     <div class="col-md-12">
                         <h5>
+                            <asp:Label ID="lblDonGiaInt" runat="server" Visible="false"></asp:Label>
                             <asp:Label ID="lblDonGia" runat="server" Text=""></asp:Label>đ</h5>
                     </div>
                     <div class="col-md-12"><span>Đơn vị tính:
@@ -121,7 +122,7 @@
                         <div class="col-md-12 top-cart">
                             <span>Số lượng </span>
                             <asp:TextBox ID="txbSoLuong" runat="server" type="number" step="1" min="1" value="1" class="number-add-to-cart" />
-                            <asp:Button ID="btnBuy" runat="server" Text="MUA NGAY" class="add-to-cart" OnClick="btnBuy_Click" />
+                            <asp:Button ID="btnBuy" runat="server" Text="MUA NGAY" class="" OnClick="btnBuy_Click" />
                         </div>
                     </div>
 

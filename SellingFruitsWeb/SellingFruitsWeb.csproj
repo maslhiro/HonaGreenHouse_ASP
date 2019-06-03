@@ -88,6 +88,7 @@
     <Content Include="Admin\ThemTraiCay.aspx" />
     <Content Include="Admin\TiepNhanDonHang.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="GioHang.aspx" />
     <Content Include="DetailFruit.aspx" />
     <Content Include="Global.asax" />
     <Content Include="static\css\bootstrap.css" />
@@ -1810,6 +1811,14 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Chi_Tiet_Gio_Hang.cs" />
+    <Compile Include="GioHang.aspx.cs">
+      <DependentUpon>GioHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GioHang.aspx.designer.cs">
+      <DependentUpon>GioHang.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetailFruit.aspx.cs">
       <DependentUpon>DetailFruit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1849,13 +1858,13 @@
     <Content Include="Api\LoaiTraiCay.ashx" />
     <Content Include="Api\DonHang.ashx" />
     <Content Include="Api\ThongKeDonHang.ashx" />
+    <Content Include="Api\ThongKeNhapXuat.ashx" />
+    <Content Include="Api\Admin.ashx" />
     <Content Include="FruitData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>FruitData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Api\ThongKeNhapXuat.ashx" />
-    <Content Include="Api\Admin.ashx" />
     <None Include="FruitData.dbml.layout">
       <DependentUpon>FruitData.dbml</DependentUpon>
     </None>
