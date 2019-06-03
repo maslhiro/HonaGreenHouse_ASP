@@ -929,8 +929,6 @@ namespace SellingFruitsWeb
 		
 		private string _Ma_Don_Hang;
 		
-		private string _Ma_Chi_Tiet_DH;
-		
 		private System.DateTime _Ngay_Dat;
 		
 		private int _Hinh_Thuc_Thanh_Toan;
@@ -940,6 +938,8 @@ namespace SellingFruitsWeb
 		private int _Tinh_Trang;
 		
 		private string _Ma_Khach_Hang;
+		
+		private System.Nullable<double> _Tong_Tien;
 		
 		private EntitySet<CHI_TIET_CHUYEN_HANG> _CHI_TIET_CHUYEN_HANGs;
 		
@@ -953,8 +953,6 @@ namespace SellingFruitsWeb
     partial void OnCreated();
     partial void OnMa_Don_HangChanging(string value);
     partial void OnMa_Don_HangChanged();
-    partial void OnMa_Chi_Tiet_DHChanging(string value);
-    partial void OnMa_Chi_Tiet_DHChanged();
     partial void OnNgay_DatChanging(System.DateTime value);
     partial void OnNgay_DatChanged();
     partial void OnHinh_Thuc_Thanh_ToanChanging(int value);
@@ -965,6 +963,8 @@ namespace SellingFruitsWeb
     partial void OnTinh_TrangChanged();
     partial void OnMa_Khach_HangChanging(string value);
     partial void OnMa_Khach_HangChanged();
+    partial void OnTong_TienChanging(System.Nullable<double> value);
+    partial void OnTong_TienChanged();
     #endregion
 		
 		public DON_HANG()
@@ -991,26 +991,6 @@ namespace SellingFruitsWeb
 					this._Ma_Don_Hang = value;
 					this.SendPropertyChanged("Ma_Don_Hang");
 					this.OnMa_Don_HangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma_Chi_Tiet_DH", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string Ma_Chi_Tiet_DH
-		{
-			get
-			{
-				return this._Ma_Chi_Tiet_DH;
-			}
-			set
-			{
-				if ((this._Ma_Chi_Tiet_DH != value))
-				{
-					this.OnMa_Chi_Tiet_DHChanging(value);
-					this.SendPropertyChanging();
-					this._Ma_Chi_Tiet_DH = value;
-					this.SendPropertyChanged("Ma_Chi_Tiet_DH");
-					this.OnMa_Chi_Tiet_DHChanged();
 				}
 			}
 		}
@@ -1115,6 +1095,26 @@ namespace SellingFruitsWeb
 					this._Ma_Khach_Hang = value;
 					this.SendPropertyChanged("Ma_Khach_Hang");
 					this.OnMa_Khach_HangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tong_Tien", DbType="Float")]
+		public System.Nullable<double> Tong_Tien
+		{
+			get
+			{
+				return this._Tong_Tien;
+			}
+			set
+			{
+				if ((this._Tong_Tien != value))
+				{
+					this.OnTong_TienChanging(value);
+					this.SendPropertyChanging();
+					this._Tong_Tien = value;
+					this.SendPropertyChanged("Tong_Tien");
+					this.OnTong_TienChanged();
 				}
 			}
 		}
@@ -1374,9 +1374,11 @@ namespace SellingFruitsWeb
 		
 		private System.DateTime _Thoi_Gian;
 		
-		private int _Tong_Tien;
+		private int _Don_Gia_Nhap;
 		
 		private int _So_Luong_Nhap;
+		
+		private int _Tong_Tien_Nhap;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1388,10 +1390,12 @@ namespace SellingFruitsWeb
     partial void OnMa_Trai_CayChanged();
     partial void OnThoi_GianChanging(System.DateTime value);
     partial void OnThoi_GianChanged();
-    partial void OnTong_TienChanging(int value);
-    partial void OnTong_TienChanged();
+    partial void OnDon_Gia_NhapChanging(int value);
+    partial void OnDon_Gia_NhapChanged();
     partial void OnSo_Luong_NhapChanging(int value);
     partial void OnSo_Luong_NhapChanged();
+    partial void OnTong_Tien_NhapChanging(int value);
+    partial void OnTong_Tien_NhapChanged();
     #endregion
 		
 		public LOG_NHAP_TC()
@@ -1459,22 +1463,22 @@ namespace SellingFruitsWeb
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tong_Tien", DbType="Int NOT NULL")]
-		public int Tong_Tien
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Don_Gia_Nhap", DbType="Int NOT NULL")]
+		public int Don_Gia_Nhap
 		{
 			get
 			{
-				return this._Tong_Tien;
+				return this._Don_Gia_Nhap;
 			}
 			set
 			{
-				if ((this._Tong_Tien != value))
+				if ((this._Don_Gia_Nhap != value))
 				{
-					this.OnTong_TienChanging(value);
+					this.OnDon_Gia_NhapChanging(value);
 					this.SendPropertyChanging();
-					this._Tong_Tien = value;
-					this.SendPropertyChanged("Tong_Tien");
-					this.OnTong_TienChanged();
+					this._Don_Gia_Nhap = value;
+					this.SendPropertyChanged("Don_Gia_Nhap");
+					this.OnDon_Gia_NhapChanged();
 				}
 			}
 		}
@@ -1495,6 +1499,26 @@ namespace SellingFruitsWeb
 					this._So_Luong_Nhap = value;
 					this.SendPropertyChanged("So_Luong_Nhap");
 					this.OnSo_Luong_NhapChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tong_Tien_Nhap", DbType="Int NOT NULL")]
+		public int Tong_Tien_Nhap
+		{
+			get
+			{
+				return this._Tong_Tien_Nhap;
+			}
+			set
+			{
+				if ((this._Tong_Tien_Nhap != value))
+				{
+					this.OnTong_Tien_NhapChanging(value);
+					this.SendPropertyChanging();
+					this._Tong_Tien_Nhap = value;
+					this.SendPropertyChanged("Tong_Tien_Nhap");
+					this.OnTong_Tien_NhapChanged();
 				}
 			}
 		}
@@ -1666,7 +1690,9 @@ namespace SellingFruitsWeb
 		
 		private int _So_Luong;
 		
-		private int _Don_Gia;
+		private int _Don_Gia_Nhap;
+		
+		private System.Nullable<int> _Don_Gia_Xuat;
 		
 		private string _Don_Vi_Tinh;
 		
@@ -1696,8 +1722,10 @@ namespace SellingFruitsWeb
     partial void OnTen_Trai_CayChanged();
     partial void OnSo_LuongChanging(int value);
     partial void OnSo_LuongChanged();
-    partial void OnDon_GiaChanging(int value);
-    partial void OnDon_GiaChanged();
+    partial void OnDon_Gia_NhapChanging(int value);
+    partial void OnDon_Gia_NhapChanged();
+    partial void OnDon_Gia_XuatChanging(System.Nullable<int> value);
+    partial void OnDon_Gia_XuatChanged();
     partial void OnDon_Vi_TinhChanging(string value);
     partial void OnDon_Vi_TinhChanged();
     partial void OnXuat_XuChanging(string value);
@@ -1781,22 +1809,42 @@ namespace SellingFruitsWeb
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Don_Gia", DbType="Int NOT NULL")]
-		public int Don_Gia
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Don_Gia_Nhap", DbType="Int NOT NULL")]
+		public int Don_Gia_Nhap
 		{
 			get
 			{
-				return this._Don_Gia;
+				return this._Don_Gia_Nhap;
 			}
 			set
 			{
-				if ((this._Don_Gia != value))
+				if ((this._Don_Gia_Nhap != value))
 				{
-					this.OnDon_GiaChanging(value);
+					this.OnDon_Gia_NhapChanging(value);
 					this.SendPropertyChanging();
-					this._Don_Gia = value;
-					this.SendPropertyChanged("Don_Gia");
-					this.OnDon_GiaChanged();
+					this._Don_Gia_Nhap = value;
+					this.SendPropertyChanged("Don_Gia_Nhap");
+					this.OnDon_Gia_NhapChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Don_Gia_Xuat", DbType="Int")]
+		public System.Nullable<int> Don_Gia_Xuat
+		{
+			get
+			{
+				return this._Don_Gia_Xuat;
+			}
+			set
+			{
+				if ((this._Don_Gia_Xuat != value))
+				{
+					this.OnDon_Gia_XuatChanging(value);
+					this.SendPropertyChanging();
+					this._Don_Gia_Xuat = value;
+					this.SendPropertyChanged("Don_Gia_Xuat");
+					this.OnDon_Gia_XuatChanged();
 				}
 			}
 		}

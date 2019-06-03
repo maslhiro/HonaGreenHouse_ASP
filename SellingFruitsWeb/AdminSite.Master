@@ -14,15 +14,15 @@
 
     <!-- Custom styles for this template-->
     <link href="/static/css/sb-admin.css" rel="stylesheet">
+    
 
-    <link href="/static/gijgo-datepicker/css/gijgo.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
     <script src="/static/vendor/jquery/jquery.min.js"></script>
     <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 
 </head>
 <body id="page-top">
@@ -91,10 +91,9 @@
                     <span>Quản lí đơn hàng</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <a class="dropdown-item" href="/Admin/DanhSachDonHang.aspx">Danh sách đơn hàng</a>
+                    <a class="dropdown-item" href="/Admin/TiepNhanDonHang.aspx">Đơn hàng mới</a>
                     <div class="dropdown-divider"></div>
-
-                    <a class="dropdown-item" href="/Admin/TiepNhanDonHang.aspx">Tiếp nhận đơn hàng</a>
+                    <a class="dropdown-item" href="/Admin/DanhSachDonHang.aspx">Danh sách đơn hàng</a>
                 </div>
             </li>
 
@@ -104,19 +103,15 @@
                     <span>Thống kê</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <h6 class="dropdown-header">Lập thống kê</h6>
                     <a class="dropdown-item" href="/Admin/ThongKeDonHang.aspx">Thông kê đơn hàng</a>
-                    <a class="dropdown-item" href="/Admin/ThongKeNhapXuat.aspx">Thống kê nhập xuất</a>
                     <div class="dropdown-divider"></div>
-                    <h6 class="dropdown-header">Xuất báo cáo</h6>
-                    <a class="dropdown-item" href="#">Blank Page</a>
+                    <h6 class="dropdown-header">Thống kê nhập xuất</h6>
+                    <a class="dropdown-item" href="/Admin/ThongKeNhap.aspx">Thống kê nhập</a>
+                    <a class="dropdown-item" href="/Admin/ThongKeNhapXuat.aspx">Thống kê xuất</a>
+
+<%--                    <h6 class="dropdown-header">xuất báo cáo</h6>
+                    <a class="dropdown-item" href="#">blank page</a>--%>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Quản lí tài khoản</span>
-                </a>
             </li>
         </ul>
 
@@ -162,7 +157,6 @@
             </div>
         </div>
     </div>
-
     <!-- Core plugin JavaScript-->
     <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
 

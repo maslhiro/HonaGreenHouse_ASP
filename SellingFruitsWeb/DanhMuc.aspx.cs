@@ -35,7 +35,7 @@ namespace SellingFruitsWeb
                 //HtmlGenericControl a = new HtmlGenericControl("a");
                 //a.Attributes.Add("href", "#");
                 //li.Controls.Add(a);
-                li.InnerHtml = "<a href='" + "/DetailFruit.aspx?id=" + tc.Ma_Trai_Cay + "'><div class='card'><img src='" + tc.Url_Anh + "' alt='Avatar'><div class='content'><div class='product_name'><b>" + tc.Ten_Trai_Cay + "</b></div><div class='product_unit'>ĐƠN VI TÍNH : " + tc.Don_Vi_Tinh + "</div><div class='product_price'>" + tc.Don_Gia + " ₫</div></div></div></a>";
+                li.InnerHtml = "<a href='" + "/DetailFruit.aspx?id=" + tc.Ma_Trai_Cay + "'><div class='card'><img src='" + tc.Url_Anh + "' alt='Avatar'><div class='content'><div class='product_name'><b>" + tc.Ten_Trai_Cay + "</b></div><div class='product_unit'>ĐƠN VI TÍNH : " + tc.Don_Vi_Tinh + "</div><div class='product_price'>" + tc.Don_Gia_Xuat + " ₫</div></div></div></a>";
                 ul_list_danhmuc.Controls.Add(li);
             }
         }
@@ -54,7 +54,7 @@ namespace SellingFruitsWeb
                 //HtmlGenericControl a = new HtmlGenericControl("a");
                 //a.Attributes.Add("href", "#");
                 //li.Controls.Add(a);
-                li.InnerHtml = "<a href='" + "/DetailFruit.aspx?id=" + tc.Ma_Trai_Cay + "'><div class='card'><img src='" + tc.Url_Anh + "' alt='Avatar'><div class='content'><div class='product_name'><b>" + tc.Ten_Trai_Cay + "</b></div><div class='product_unit'>ĐƠN VI TÍNH : " + tc.Don_Vi_Tinh + "</div><div class='product_price'>" + tc.Don_Gia + " ₫</div></div></div></a>";
+                li.InnerHtml = "<a href='" + "/DetailFruit.aspx?id=" + tc.Ma_Trai_Cay + "'><div class='card'><img src='" + tc.Url_Anh + "' alt='Avatar'><div class='content'><div class='product_name'><b>" + tc.Ten_Trai_Cay + "</b></div><div class='product_unit'>ĐƠN VI TÍNH : " + tc.Don_Vi_Tinh + "</div><div class='product_price'>" + tc.Don_Gia_Xuat + " ₫</div></div></div></a>";
                 ul_list_danhmuc.Controls.Add(li);
             }
         }

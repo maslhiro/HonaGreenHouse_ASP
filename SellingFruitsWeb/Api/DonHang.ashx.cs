@@ -289,8 +289,6 @@ namespace SellingFruitsWeb.Api
 
         }
 
-
-
         public bool IsReusable
         {
             get

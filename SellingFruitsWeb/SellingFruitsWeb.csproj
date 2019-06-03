@@ -80,9 +80,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\ChiTietTraiCay.aspx" />
+    <Content Include="Admin\DanhSachDonHang.aspx" />
     <Content Include="Admin\DashBoard.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\ThemLoaiTraiCay.aspx" />
+    <Content Include="Admin\ThongKeNhap.aspx" />
     <Content Include="Admin\ThongKeNhapXuat.aspx" />
     <Content Include="Admin\ThongKeDonHang.aspx" />
     <Content Include="Admin\ThemTraiCay.aspx" />
@@ -1736,6 +1738,13 @@
     <Compile Include="Admin\ChiTietTraiCay.aspx.designer.cs">
       <DependentUpon>ChiTietTraiCay.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\DanhSachDonHang.aspx.cs">
+      <DependentUpon>DanhSachDonHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DanhSachDonHang.aspx.designer.cs">
+      <DependentUpon>DanhSachDonHang.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\DashBoard.aspx.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1756,6 +1765,13 @@
     </Compile>
     <Compile Include="Admin\ThemLoaiTraiCay.aspx.designer.cs">
       <DependentUpon>ThemLoaiTraiCay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ThongKeNhap.aspx.cs">
+      <DependentUpon>ThongKeNhap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ThongKeNhap.aspx.designer.cs">
+      <DependentUpon>ThongKeNhap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ThongKeNhapXuat.aspx.cs">
       <DependentUpon>ThongKeNhapXuat.aspx</DependentUpon>
@@ -1873,13 +1889,13 @@
     <Content Include="Api\LoaiTraiCay.ashx" />
     <Content Include="Api\DonHang.ashx" />
     <Content Include="Api\ThongKeDonHang.ashx" />
+    <Content Include="Api\ThongKeNhapXuat.ashx" />
+    <Content Include="Api\Admin.ashx" />
     <Content Include="FruitData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>FruitData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Api\ThongKeNhapXuat.ashx" />
-    <Content Include="Api\Admin.ashx" />
     <None Include="FruitData.dbml.layout">
       <DependentUpon>FruitData.dbml</DependentUpon>
     </None>
@@ -2051,7 +2067,9 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Image\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

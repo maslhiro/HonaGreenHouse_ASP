@@ -148,29 +148,33 @@ namespace SellingFruitsWeb.Api
                 var listNhapXuat = db.LOG_NHAP_TCs.Where(p => p.Thoi_Gian >= fromDate && p.Thoi_Gian <= toDate);
 
                 var list = new List<Thong_Ke_Nhap_Xuat>();
+                var total = 0;
+                Thong_Ke_Nhap_Xuat thongKe; 
 
-                foreach (LOG_NHAP_TC item in listNhapXuat.ToList())
+                foreach (LOG_NHAP_TC item in listNhapXuat)
                 {
-                    var thongKe = new Thong_Ke_Nhap_Xuat();
+                    thongKe = new Thong_Ke_Nhap_Xuat();
 
                     thongKe.Auto_ID = item.Auto_ID;
                     thongKe.Ma_Trai_Cay = item.Ma_Trai_Cay;
                     thongKe.Thoi_Gian = item.Thoi_Gian.ToString("hh:mm tt - dd/MM/yyyy");
-                    thongKe.Tong_Tien = item.Tong_Tien;
+                    thongKe.Tong_Tien_Nhap = item.Tong_Tien_Nhap;
+                    thongKe.Don_Gia_Nhap = item.Don_Gia_Nhap;
                     thongKe.So_Luong_Nhap = item.So_Luong_Nhap;
 
                     //Chi tiet trai cay
                     var traiCay = db.TRAI_CAYs.Where(p => p.Ma_Trai_Cay == item.Ma_Trai_Cay).FirstOrDefault();
                     thongKe.Ten_Trai_Cay = traiCay.Ten_Trai_Cay;
-                    thongKe.Don_Gia = traiCay.Don_Gia.ToString();
                     thongKe.Don_Vi_Tinh = traiCay.Don_Vi_Tinh;
                     thongKe.Xuat_Xu = traiCay.Xuat_Xu;
+
+                    total += item.Tong_Tien_Nhap;
 
                     list.Add(thongKe);
                 }
 
                 object_Response.Status_Code = 0;
-                object_Response.Status_Text = "Thống kê nhập xuất thành công";
+                object_Response.Status_Text = total.ToString();
                 object_Response.Data = list;
 
                 context.Response.ContentType = "text/json";
@@ -190,7 +194,7 @@ namespace SellingFruitsWeb.Api
             try
             {
                 var listNhapXuat = db.LOG_NHAP_TCs.ToList();
-
+                long total = 0;
                 var list = new List<Thong_Ke_Nhap_Xuat>();
 
                 foreach (LOG_NHAP_TC item in listNhapXuat.ToList())
@@ -200,21 +204,23 @@ namespace SellingFruitsWeb.Api
                     thongKe.Auto_ID = item.Auto_ID;
                     thongKe.Ma_Trai_Cay = item.Ma_Trai_Cay;
                     thongKe.Thoi_Gian = item.Thoi_Gian.ToString("hh:mm tt - dd/MM/yyyy");
-                    thongKe.Tong_Tien = item.Tong_Tien;
+                    thongKe.Tong_Tien_Nhap = item.Tong_Tien_Nhap;
                     thongKe.So_Luong_Nhap = item.So_Luong_Nhap;
+                    thongKe.Don_Gia_Nhap = item.Don_Gia_Nhap;
 
                     //Chi tiet trai cay
                     var traiCay = db.TRAI_CAYs.Where(p => p.Ma_Trai_Cay == item.Ma_Trai_Cay).FirstOrDefault();
                     thongKe.Ten_Trai_Cay = traiCay.Ten_Trai_Cay;
-                    thongKe.Don_Gia = traiCay.Don_Gia.ToString();
                     thongKe.Don_Vi_Tinh = traiCay.Don_Vi_Tinh;
                     thongKe.Xuat_Xu = traiCay.Xuat_Xu;
+
+                    total += item.Tong_Tien_Nhap;
 
                     list.Add(thongKe);
                 }
 
                 object_Response.Status_Code = 0;
-                object_Response.Status_Text = "Thống kê nhập xuất thành công";
+                object_Response.Status_Text = total.ToString();
                 object_Response.Data = list;
 
                 context.Response.ContentType = "text/json";

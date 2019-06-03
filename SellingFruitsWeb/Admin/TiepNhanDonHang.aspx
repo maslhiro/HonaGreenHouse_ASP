@@ -117,8 +117,8 @@
             
             table = $('#dataTable').DataTable({
                 processing: true,
-                paging: false,
-                searching: false,
+                paging: true,
+                searching: true,
                 ajax: {
                     url: '/Api/DonHang.ashx?DataType=1',
                     dataSrc: 'Data'
@@ -229,9 +229,7 @@
 
             });
         }
-
-       
-        
+ 
         $(document).ready(function () {
             loadTable()
          });

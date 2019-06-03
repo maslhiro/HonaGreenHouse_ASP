@@ -155,8 +155,8 @@
             // Load dataTable qua Api loai trai cay  
             table = $('#dataTable').DataTable({
                 processing: true,
-                paging: false,
-                searching: false,
+                paging: true,
+                searching: true,
                 ajax: {
                     url: '/Api/LoaiTraiCay.ashx?DataType=8',
                     dataSrc: 'Data'
@@ -179,7 +179,7 @@
                 let data = table.row($(this).parents('tr')).data();
 
                 // Load data vao modal Sua
-                $('#modalSuaTC').on('show.bs.modal', function (event) {
+                $('#modalSuaLTC').on('show.bs.modal', function (event) {
                     var modal = $(this)
                     modal.find('.modal-body #txtTenLoaiTraiCay01').val(data.Ten_Loai_Trai_Cay)
 

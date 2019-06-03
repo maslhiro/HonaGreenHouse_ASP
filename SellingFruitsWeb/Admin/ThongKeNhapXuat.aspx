@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminSite.Master" AutoEventWireup="true" CodeBehind="ThongKeNhapXuat.aspx.cs" Inherits="SellingFruitsWeb.Admin.ThongKeNhapXuat" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+         <link href="/static/gijgo-datepicker/css/gijgo.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -42,21 +43,21 @@
                         <thead>
                             <tr>
                                 <th>Mã trái cây</th>
-                                <th></th>
                                 <th>Thời gian</th>
+                                <th>SL nhập</th>
+                                <th>Đơn giá nhập</th>
                                 <th>Tổng tiền</th>
-                                <th>Số lượng nhập</th>
-
+                                <th>#</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Mã trái cây</th>
-                                <th></th>
                                 <th>Thời gian</th>
+                                <th>SL nhập</th>
+                                <th>Đơn giá nhập</th>
                                 <th>Tổng tiền</th>
-                                <th>Số lượng nhập</th>
-                                
+                                <th>#</th> 
                             </tr>
                         </tfoot>
                         <tbody>
@@ -123,7 +124,6 @@
     <script src="/static/vendor/datatables/jquery.dataTables.js"></script>
     <script src="/static/vendor/datatables/dataTables.bootstrap4.js"></script>
     <script src="/static/js/popper.min.js"></script>
-    <script src="/static/js/popper.min.js"></script>
     <script src="/static/gijgo-datepicker/js/gijgo.js" type="text/javascript"></script>
 
     <script type="text/javascript">
@@ -132,21 +132,22 @@
         function loadTable() {
             table = $('#dataTable').DataTable({
                 processing: true,
-                paging: false,
-                searching: false,
+                paging: true,
+                searching: true,
                 ajax: {
                     url: '/Api/ThongKeNhapXuat.ashx?DataType=1',
                     dataSrc: 'Data'
                 },
                 columns: [
                     { data: 'Ma_Trai_Cay' },
+                    { data: 'Thoi_Gian' },
+                    { data: 'Don_Gia_Nhap' },
+                    { data: 'So_Luong_Nhap' },
+                    { data: 'Tong_Tien_Nhap'},
                     {
                         "data": null,
                         "defaultContent": `<div align="center"><button type="button" id="btnXemChiTiet" class="btn btn-secondary" data-toggle="modal" data-target="#modalXemChiTiet">Xem chi tiết</button></div>`
                     },
-                    { data: 'Thoi_Gian' },
-                    { data: 'Tong_Tien' },
-                    { data: 'So_Luong_Nhap' },
                     ]
             });
         }

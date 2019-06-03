@@ -8,27 +8,34 @@ namespace SellingFruitsWeb.DTO
     public class Thong_Ke_Nhap_Xuat
     {
         public string Auto_ID { get; set; }
+
         public string Ma_Trai_Cay { get; set; }
-        public string Thoi_Gian { get; set; } 
-        public long Tong_Tien { get; set; }
+
+        public string Thoi_Gian { get; set; }
+
+        public long Tong_Tien_Nhap { get; set; }
+
+        public int Don_Gia_Nhap { get; set; }
+
         public int So_Luong_Nhap { get; set; }
+
         public string Ten_Trai_Cay { get; set; }
-        public string Don_Gia { get; set; }
+
         public string Don_Vi_Tinh { get; set; }
+
         public string Xuat_Xu { get; set; }
 
-        public Thong_Ke_Nhap_Xuat(string autoID, string maTraiCay, string thoiGian, long tongTien, 
-            int soLuong, string ten, string donGia, string donViTinh, string xuatXu)
+        public Thong_Ke_Nhap_Xuat(string auto_ID, string ma_Trai_Cay, string thoi_Gian, long tong_Tien_Nhap, int don_Gia_Nhap, int so_Luong_Nhap, string ten_Trai_Cay, string don_Vi_Tinh, string xuat_Xu)
         {
-            Auto_ID = autoID;
-            Ma_Trai_Cay = maTraiCay;
-            Thoi_Gian = thoiGian;
-            Tong_Tien = tongTien;
-            So_Luong_Nhap = soLuong;
-            Ten_Trai_Cay = ten;
-            Don_Gia = donGia;
-            Don_Vi_Tinh = donViTinh;
-            Xuat_Xu = xuatXu;
+            Auto_ID = auto_ID;
+            Ma_Trai_Cay = ma_Trai_Cay;
+            Thoi_Gian = thoi_Gian;
+            Tong_Tien_Nhap = tong_Tien_Nhap;
+            Don_Gia_Nhap = don_Gia_Nhap;
+            So_Luong_Nhap = so_Luong_Nhap;
+            Ten_Trai_Cay = ten_Trai_Cay;
+            Don_Vi_Tinh = don_Vi_Tinh;
+            Xuat_Xu = xuat_Xu;
         }
 
         public Thong_Ke_Nhap_Xuat()
