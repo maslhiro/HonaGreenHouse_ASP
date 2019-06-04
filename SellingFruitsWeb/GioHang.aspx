@@ -43,6 +43,23 @@
             padding-right: 10px;
         }
 
+        .btn-check-out {
+            background-color: #46aa48;
+            font-size: 14px !important;
+            color: white;
+            border-radius: 40px;
+            border-width: 0px;
+            border-style: solid;
+            border-color: #fff;
+            font-weight: bold;
+            font-family: 'PT Sans', Arial, Helvetica, sans-serif;
+            min-height: 32px;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0 20px;
+            margin: 0;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="contentplaceholder" runat="server">
@@ -126,6 +143,7 @@
             <div class="col-md-5 content-header">
                 <span>THÔNG TIN MUA HÀNG</span>
             </div>
+            <asp:Button ID="btnCheckOut" runat="server" Text="TIẾN HÀNH THANH TOÁN" class="btn-check-out" OnClick="btnCheckOut_Click" />
         </div>
     </div>
 

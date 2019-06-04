@@ -1812,6 +1812,11 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="DTO\Chi_Tiet_Gio_Hang.cs" />
+    <Compile Include="FruitData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FruitData.dbml</DependentUpon>
+    </Compile>
     <Compile Include="GioHang.aspx.cs">
       <DependentUpon>GioHang.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1834,11 +1839,6 @@
     <Compile Include="DTO\Trai_Cay.cs" />
     <Compile Include="Enum\EnumExtension.cs" />
     <Compile Include="Enum\Enums.cs" />
-    <Compile Include="FruitData.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FruitData.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

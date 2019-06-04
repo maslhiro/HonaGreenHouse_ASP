@@ -224,5 +224,47 @@ namespace SellingFruitsWeb
             }
             txtTongCong.InnerText = string.Format("{0:#,##0}", sum) + moneySuffix;
         }
+
+        protected void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FruitDataDataContext db = new FruitDataDataContext();
+
+                string count = string.Format("{0, 0:D3}", db.DON_HANGs.Count() + 1);
+
+                //Create new order
+                var donHang = new DON_HANG();
+                donHang.Ma_Don_Hang = "DH" + count;
+                donHang.Ma_Chi_Tiet_DH = ""; //WTF chỗ này đáng lẽ ko có
+                donHang.Ngay_Dat = DateTime.Now;
+                //Sửa lại chỗ này, mấy cái này null éo dc
+                donHang.Hinh_Thuc_Thanh_Toan = 0;
+                donHang.Tinh_Trang = 0;
+                donHang.Ma_Khach_Hang = "KH001";
+
+                //Create new order details
+                int countCTDH = db.CHI_TIET_DON_HANGs.Count();
+                foreach (Chi_Tiet_Gio_Hang item in gioHang)
+                {
+                    var ctdh = new CHI_TIET_DON_HANG();
+                    countCTDH++;
+                    ctdh.Ma_Chi_Tiet_DH = "CTDH" + string.Format("{0, 0:D3}", countCTDH);
+                    ctdh.Ma_Don_Hang = donHang.Ma_Don_Hang;
+                    ctdh.Ma_Trai_Cay = item.Ma_Trai_Cay;
+                    ctdh.Don_Gia_Xuat = Int32.Parse(item.Don_Gia_Xuat);
+                    ctdh.So_Luong_Xuat = Int32.Parse(item.So_Luong_Xuat);
+
+                    db.CHI_TIET_DON_HANGs.InsertOnSubmit(ctdh); 
+                }
+                db.DON_HANGs.InsertOnSubmit(donHang);
+
+                db.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
