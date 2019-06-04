@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace  SellingFruitsWeb.Enums
+namespace  SellingFruitsWeb.Extensions
 {
     
     public enum DonHang

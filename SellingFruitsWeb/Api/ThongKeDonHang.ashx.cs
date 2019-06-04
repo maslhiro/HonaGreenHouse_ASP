@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SellingFruitsWeb.DTO;
-using SellingFruitsWeb.Enums;
+using SellingFruitsWeb.Extensions;
 using SellingFruitsWeb.Extensions;
 using System;
 using System.Collections.Generic;

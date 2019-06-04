@@ -10,7 +10,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Thống kê nhập xuất</a>
+                <a href="#">Thống kê nhập</a>
             </li>
             <li class="breadcrumb-item active">Overview</li>
         </ol>
@@ -43,7 +43,7 @@
                     <table class="table table-bordered" id="dataTable">
                         <thead>
                             <tr>
-                                <th>Mã</th>
+                                <th>Mã đơn hàng</th>
                                 <th>Tên trái cây</th>
                                 <th>Thời gian</th>
                                 <th>Xuất xứ</th>
@@ -52,7 +52,7 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Mã</th>
+                                <th>Mã đơn hàng</th>
                                 <th>Tên trái cây</th>
                                 <th>Thời gian</th>
                                 <th>Xuất xứ</th>
@@ -64,7 +64,7 @@
                     </table>
                 </div>
                 <div class="d-flex row m-4 justify-content-end">
-                    <div  id="txtTotal">Tổng cộng : </div>
+                    <div id="txtTotal">Tổng cộng : </div>
                 </div>
             </div>
 
@@ -141,7 +141,7 @@
                 paging: true,
                 searching: true,
                 ajax: {
-                    url: '/Api/ThongKeNhapXuat.ashx?DataType=1',
+                    url: '/Api/ThongKeNhap.ashx?DataType=1',
                     dataSrc: 'Data'
                 },
                 columns: [
@@ -197,7 +197,7 @@
                 "To_Date": $("#dpkTo").val() ? $("#dpkTo").val() : "",
             }
 
-            let thongkeUrl = "/Api/ThongKeNhapXuat.ashx?DataType=2&From_Date=" + thoiGianThongKe.From_Date + "&To_Date=" + thoiGianThongKe.To_Date;
+            let thongkeUrl = "/Api/ThongKeNhap.ashx?DataType=2&From_Date=" + thoiGianThongKe.From_Date + "&To_Date=" + thoiGianThongKe.To_Date;
 
             console.log("JSON", thoiGianThongKe)
             $.ajax({
@@ -207,18 +207,20 @@
                     if (result.Status_Code == 0) {
                         //$('#alert').empty().append(`<div class='alert alert-success'>  <strong> Success! </strong >` + result.Status_Text + ` </div >`)
 
-                        //$('#alert').show();
-                        //// ẩn alert sau 7s
-                        //$("#alert").delay(7000).slideUp(200, function () {
-                        //    $(this).alert('dispose');
-                        //});
-                        $('#txtTotal').empty().append("Tổng cộng : "+result.Status_Text+" đ");
+                        $('#txtTotal').empty().append("Tổng cộng : " + result.Status_Text + " đ");
 
                         table.ajax.url(thongkeUrl).load();
                     }
                     else {
                         $('#alert').empty().append(`<div class='alert alert-danger'> <strong> Lỗi! </strong > ` + result.Status_Text + ` </div >`);
+                        $('#alert').show();
+                        // ẩn alert sau 7s
+                        $("#alert").delay(7000).slideUp(200, function () {
+                            $(this).alert('dispose');
+                        });
                     }
+
+
                 },
                 error: function (result) {
                     $('#alert').empty().append(`<div class='alert alert-danger'> <strong> Lỗi! </strong > Có lỗi trong quá trình kết nối </div >`)
@@ -229,7 +231,7 @@
 
         function btnRefresh_OnClick(e) {
             e.preventDefault();
-            table.ajax.url("/Api/ThongKeNhapXuat.ashx?DataType=1").load();
+            table.ajax.url("/Api/ThongKeNhap.ashx?DataType=1").load();
         }
 
         $(document).ready(function () {
