@@ -215,7 +215,7 @@ namespace SellingFruitsWeb
             return null;
         }
 
-        protected void calculateTongTien()
+        protected float calculateTongTien()
         {
             long sum = 0;
             foreach(Chi_Tiet_Gio_Hang item in gioHang)
@@ -223,8 +223,10 @@ namespace SellingFruitsWeb
                 sum += Int32.Parse(item.Don_Gia_Xuat) * Int32.Parse(item.So_Luong_Xuat);
             }
             txtTongCong.InnerText = string.Format("{0:#,##0}", sum) + moneySuffix;
+            return sum;
         }
-
+        
+        protected string MaDonHangThanhToan = "";
         protected void btnCheckOut_Click(object sender, EventArgs e)
         {
             try
@@ -232,7 +234,7 @@ namespace SellingFruitsWeb
                 FruitDataDataContext db = new FruitDataDataContext();
 
                 string count = string.Format("{0, 0:D3}", db.DON_HANGs.Count() + 1);
-
+                MaDonHangThanhToan ="DH" +count;
                 //Create new order
                 var donHang = new DON_HANG();
                 donHang.Ma_Don_Hang = "DH" + count;
@@ -241,7 +243,8 @@ namespace SellingFruitsWeb
                 //Sửa lại chỗ này, mấy cái này null éo dc
                 donHang.Hinh_Thuc_Thanh_Toan = 0;
                 donHang.Tinh_Trang = 0;
-                donHang.Ma_Khach_Hang = "KH001";
+                donHang.Tong_Tien = calculateTongTien();
+                //     donHang.Ma_Khach_Hang = "KH001";
 
                 //Create new order details
                 int countCTDH = db.CHI_TIET_DON_HANGs.Count();
@@ -259,12 +262,32 @@ namespace SellingFruitsWeb
                 }
                 db.DON_HANGs.InsertOnSubmit(donHang);
 
+                //Lưu thông tin chi tiết chuyển hàng xuống db
+                string countCTCH = string.Format("{0, 0:D3}", db.CHI_TIET_CHUYEN_HANGs.Count() + 1);
+                var chiTietChuyenHang = new CHI_TIET_CHUYEN_HANG();
+                chiTietChuyenHang.Ma_Chi_Tiet_CH = "CTCH" + countCTCH;
+                chiTietChuyenHang.Ho_Ten = txbTenNguoiNhan.Text;
+                chiTietChuyenHang.So_Dien_Thoai = txbSDT.Text;
+                chiTietChuyenHang.Dia_Chi_Nhan = txbDiaChiNhanHang.Text;
+                chiTietChuyenHang.Ma_Don_Hang= "DH" + count;
+                chiTietChuyenHang.Ghi_Chu = txbGhiChu.Text;
+                db.CHI_TIET_CHUYEN_HANGs.InsertOnSubmit(chiTietChuyenHang);
                 db.SubmitChanges();
+
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append(@"<script language='javascript'>");
+                sb.Append(@"$('#modalDatHang').modal('show');");
+                sb.Append(@"</script>");
+
+                
+                ClientScript.RegisterStartupScript(this.GetType(), "JSScript", sb.ToString());
             }
             catch (Exception)
             {
                 throw;
             }
         }
+        
+       
     }
 }

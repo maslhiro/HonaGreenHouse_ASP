@@ -43,6 +43,10 @@
             padding-right: 10px;
         }
 
+        .notes-fruite {
+            height: auto;
+            width: 100%;
+        }
         .btn-check-out {
             background-color: #46aa48;
             font-size: 14px !important;
@@ -140,13 +144,83 @@
                 </div>
                 
             </div>
-            <div class="col-md-5 content-header">
-                <span>THÔNG TIN MUA HÀNG</span>
+
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-12 content-header">
+                            <span>THÔNG TIN NGƯỜI MUA/NHẬN HÀNG</span>
+                    </div>
+                    <div class="col-md-12 font-weight-bold">
+                          <asp:Label ID="lbTenNguoiNhan" runat="server" Text="Tên" ></asp:Label>
+                    </div>
+                    <div class="col-md-12 ">
+                        <asp:TextBox ID="txbTenNguoiNhan" required="required" placeholder="Tên người nhận" runat="server"  CssClass="w-100"></asp:TextBox>
+                    </div>
+                     <div class="col-md-12  font-weight-bold mt-2">
+                          <asp:Label ID="Label1" runat="server" Text="Điện thoại liên lạc" ></asp:Label>
+                    </div>
+                    <div class="col-md-12 w-100 ">
+                        <asp:TextBox ID="txbSDT" required="required" placeholder="Số điện thoại" runat="server" CssClass="w-100"></asp:TextBox>
+                    </div>
+                     <div class="col-md-12  font-weight-bold mt-2">
+                          <asp:Label ID="lbDiaChiNhanHang" runat="server" Text="Địa chỉ nhận hàng" ></asp:Label>
+                    </div>
+                    <div class="col-md-12">
+                        <asp:TextBox ID="txbDiaChiNhanHang" required="required" placeholder="Địa chỉ nhận hàng" runat="server" CssClass="w-100"></asp:TextBox>
+                    </div>
+                    <div class="col-md-12  font-weight-bold mt-2">
+                          <asp:Label ID="lbGhiChu" runat="server" Text="Ghi chú"  ></asp:Label>
+                    </div>
+                    <div class="col-md-12 ">
+                        <asp:TextBox ID="txbGhiChu" placeholder="Ghi chú" TextMode="MultiLine" runat="server" CssClass="w-100"></asp:TextBox>
+                    </div>
+                </div>
+                   <div class="col-md-12 col-md-offset-5">
+                <asp:Button ID="btnCheckOut" runat="server" Text="ĐẶT HÀNG" class="btn-check-out" OnClick="btnCheckOut_Click" />
             </div>
-            <asp:Button ID="btnCheckOut" runat="server" Text="TIẾN HÀNH THANH TOÁN" class="btn-check-out" OnClick="btnCheckOut_Click" />
+            </div>
+        </div>
+            
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
+        <div class="modal" id="modalDatHang">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Đặt hàng thành công!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <div>
+                         <span> Vui lòng chuyển khoản đúng số tiền: </span> 
+                       <span style="color:red">
+                           <%= txtTongCong.InnerText %>
+                           <br>
+                       </span>
+                         <span> Đến STK: 0381000587738 <br> Ngân hàng thương mại cổ phần Ngoại thương Việt Nam (Vietcombank) <br />
+                                Chủ tài khoản: Dương Phước Hải Thọ <br /> Chi nhánh Thủ Đức <br /> Với nội dung:  
+                         </span>
+                          <span style="color:red">
+                          <%= MaDonHangThanhToan %>
+                           <br>
+                       </span>
+                      </div>
+                        
+
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button class="btn btn-dark" id="btnSubmitDatHang" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
+    <script>
+    </script>
     <script src="static/js/jquery-3.4.1.min.js" type="text/javascript"></script>
     <script src="static/js/bootstrap.js" type="text/javascript"></script>
 </asp:Content>

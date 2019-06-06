@@ -14,22 +14,10 @@
         <elementListCompartment Id="e8a5b139-1fd8-44e2-a304-2ba17ce79bab" absoluteBounds="0.765, 4.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2f17b570-03ad-40e4-90f2-c06cf05c2be7" absoluteBounds="6.25, 3.75, 2, 1.7708968098958327">
-      <DataClassMoniker Name="/FruitDataDataContext/CHI_TIET_CHUYEN_HANG" />
-      <nestedChildShapes>
-        <elementListCompartment Id="e9591a10-e2bd-407a-9df1-e89e05c26f40" absoluteBounds="6.265, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="8c0960f5-3ef7-44ad-ab30-ab3805c51127" absoluteBounds="6.25, 0.75, 2, 1.7708968098958331">
       <DataClassMoniker Name="/FruitDataDataContext/CHI_TIET_DON_HANG" />
       <nestedChildShapes>
         <elementListCompartment Id="c0e594ca-1063-47ff-9f97-6d40c3ce9808" absoluteBounds="6.265, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="7e1531c0-8996-46b5-9c3e-4b267e5c0801" absoluteBounds="3.5, 3.5, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/FruitDataDataContext/DON_HANG" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ee3d62f3-6a05-4585-a9e6-6adb27462104" absoluteBounds="3.515, 3.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="9713b8b8-8848-4028-84e9-03a5ae983b7f" absoluteBounds="0.75, 8.125, 2, 1.3862939453125005">
@@ -56,39 +44,51 @@
         <elementListCompartment Id="515ff39f-b4f2-44bd-892c-a9777e3bec47" absoluteBounds="3.515, 7.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 4.63544840494792); (5.79166666666667 : 4.63544840494792 : JumpStart); (5.95833333333333 : 4.63544840494792 : JumpEnd); (6.25 : 4.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/FruitDataDataContext/DON_HANG/DON_HANG_CHI_TIET_CHUYEN_HANG" />
-      <nodes>
-        <classShapeMoniker Id="7e1531c0-8996-46b5-9c3e-4b267e5c0801" />
-        <classShapeMoniker Id="2f17b570-03ad-40e4-90f2-c06cf05c2be7" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 3.5); (4.5 : 1.63544840494792); (6.25 : 1.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/FruitDataDataContext/DON_HANG/DON_HANG_CHI_TIET_DON_HANG" />
-      <nodes>
-        <classShapeMoniker Id="7e1531c0-8996-46b5-9c3e-4b267e5c0801" />
-        <classShapeMoniker Id="8c0960f5-3ef7-44ad-ab30-ab3805c51127" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.60659912109375); (3.5 : 4.60659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/FruitDataDataContext/USER/USER_DON_HANG" />
-      <nodes>
-        <classShapeMoniker Id="f73ebe3e-355f-4d72-be22-af6e408d333f" />
-        <classShapeMoniker Id="7e1531c0-8996-46b5-9c3e-4b267e5c0801" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 7.25); (5.875 : 6.875); (5.875 : 2.10942460742187); (6.25 : 2.10942460742187)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.65625 : 7.25); (3.65625 : 1.28407225085136); (6.25 : 1.28407225085136)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/FruitDataDataContext/TRAI_CAY/TRAI_CAY_CHI_TIET_DON_HANG" />
       <nodes>
         <classShapeMoniker Id="2b7ab611-4b4b-4647-bd4f-549bba4a2986" />
         <classShapeMoniker Id="8c0960f5-3ef7-44ad-ab30-ab3805c51127" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.81814697265625); (3.5 : 8.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 8.81814697265625); (3.5 : 8.81814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/FruitDataDataContext/LOAI_TRAI_CAY/LOAI_TRAI_CAY_TRAI_CAY" />
       <nodes>
         <classShapeMoniker Id="9713b8b8-8848-4028-84e9-03a5ae983b7f" />
         <classShapeMoniker Id="2b7ab611-4b4b-4647-bd4f-549bba4a2986" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9408b543-6674-4572-b2c0-7d3816a2b01c" absoluteBounds="3.875, 2.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/FruitDataDataContext/DON_HANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bdc8f882-2e22-4a33-97fc-9111bfca1b34" absoluteBounds="3.89, 2.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.875 : 2.25); (4.875 : 1.88064950170272); (6.25 : 1.88064950170272)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FruitDataDataContext/DON_HANG/DON_HANG_CHI_TIET_DON_HANG" />
+      <nodes>
+        <classShapeMoniker Id="9408b543-6674-4572-b2c0-7d3816a2b01c" />
+        <classShapeMoniker Id="8c0960f5-3ef7-44ad-ab30-ab3805c51127" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.11140055338542); (3.875 : 4.11140055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FruitDataDataContext/USER/USER_DON_HANG" />
+      <nodes>
+        <classShapeMoniker Id="f73ebe3e-355f-4d72-be22-af6e408d333f" />
+        <classShapeMoniker Id="9408b543-6674-4572-b2c0-7d3816a2b01c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="72095096-2e39-4ec0-b70b-fab4c6fe1e99" absoluteBounds="6.375, 4, 2, 1.9631982421875">
+      <DataClassMoniker Name="/FruitDataDataContext/CHI_TIET_CHUYEN_HANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d1fce48-38cf-4e65-832b-73f69a862eab" absoluteBounds="6.39, 4.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 4.29890055338542); (6.375 : 4.29890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FruitDataDataContext/DON_HANG/DON_HANG_CHI_TIET_CHUYEN_HANG" />
+      <nodes>
+        <classShapeMoniker Id="9408b543-6674-4572-b2c0-7d3816a2b01c" />
+        <classShapeMoniker Id="72095096-2e39-4ec0-b70b-fab4c6fe1e99" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

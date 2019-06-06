@@ -106,14 +106,15 @@
                     <div class="col-md-12"><span>Đơn vị tính:
                         <asp:Label ID="lblDonViTinh" runat="server" Text=""></asp:Label>
                     </span></div>
-                    <div class="col-md-12">
+
+                    <%--<div class="col-md-12">
                         <h5>Yêu cầu đặc biệt </h5>
                     </div>
                     <div class="col-md-12">
-                        <textarea placeholder="" class="notes-fruite" data-price="" id="tmcp_textarea_1" tabindex="1" rows="5" cols="20"></textarea>
-                    </div>
+                        <textarea placeholder="" class="notes-fruite" data-price="" id="textarea_note" tabindex="1" rows="5" cols="20"></textarea>
+                    </div>--%>
 
-                    <div class="top-cart">
+                 
 
                         <%--<div class="col-md-12">
                         <span>Tổng tiền: </span>
@@ -124,7 +125,7 @@
                             <asp:TextBox ID="txbSoLuong" runat="server" type="number" step="1" min="1" value="1" class="number-add-to-cart" />
                             <asp:Button ID="btnBuy" runat="server" Text="MUA NGAY" class="add-to-cart" OnClick="btnBuy_Click" />
                         </div>
-                    </div>
+                   
 
                 </div>
 

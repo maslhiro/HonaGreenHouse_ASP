@@ -36,6 +36,7 @@ namespace SellingFruitsWeb
         protected void btnBuy_Click(object sender, EventArgs e)
         {
             var money = Convert.ToDecimal(lblDonGia.Text) * Convert.ToDecimal(txbSoLuong.Text);
+            // txbGhiChu.text = textarea_note.text;
             updateCookieGioHang();
         }
 
