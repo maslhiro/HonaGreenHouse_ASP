@@ -91,9 +91,8 @@
                     <span>Quản lí đơn hàng</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <a class="dropdown-item" href="/Admin/TiepNhanDonHang.aspx">Đơn hàng mới</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/Admin/DanhSachDonHang.aspx">Danh sách đơn hàng</a>
+                    <a class="dropdown-item" href="/Admin/DonHangMoi.aspx">Đơn hàng mới</a>
+                    <a class="dropdown-item" href="/Admin/DonHangDaXuLi.aspx">Đơn hàng đã xử lí</a>
                 </div>
             </li>
 

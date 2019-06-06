@@ -15,7 +15,7 @@ namespace SellingFruitsWeb.DTO
 
         public int Don_Gia_Nhap { get; set; }
 
-        public int? Don_Gia_Xuat { get; set; }
+        public int Don_Gia_Xuat { get; set; }
 
         public string Don_Vi_Tinh { get; set; }
 

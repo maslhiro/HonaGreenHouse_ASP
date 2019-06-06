@@ -1,48 +1,74 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminSite.Master" AutoEventWireup="true" CodeBehind="DanhSachDonHang.aspx.cs" Inherits="SellingFruitsWeb.Admin.DanhSachDonHang" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminSite.Master" AutoEventWireup="true" CodeBehind="ChiTietDonHang.aspx.cs" Inherits="SellingFruitsWeb.Admin.ChiTietDonHang" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <div class="container-fluid">
-
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Danh sách đơn hàng</a>
+                <a href="#" runat="server" id="title">Chi tiết trái cây</a>
             </li>
             <li class="breadcrumb-item active">Overview</li>
         </ol>
 
-        <div id="alert"></div>
-
-        <!-- DataTables -->
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fas fa-table"></i>
-                Danh sách đơn hàng mới
+                Chi tiết giao hàng
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="txtHoTen">Họ tên : </label>
+                    <input type="text" class="form-control" id="txtHoTen" readonly runat="server">
+                </div>
+                <div class="form-group">
+                    <label for="txtSoDienThoai">Số điện thoại : </label>
+                    <input type="text" class="form-control" id="txtSoDienThoai" readonly runat="server">
+                </div>
+                <div class="form-group">
+                    <label for="txtDiaChiNhan">Địa chỉ nhận : </label>
+                    <input type="text" class="form-control" id="txtDiaChiNhan" readonly runat="server">
+                </div>
+                <div class="form-group">
+                    <label for="txtHoTen">Ghi Chú : </label>
+                    <textarea class="form-control" rows="5" id="txtGhiChu" readonly runat="server"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Bằng chứng thanh toán :</label>
+                </div>
+                <img id="image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" runat="server" />
+
+            </div>
+
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Chi tiết giao hàng
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable">
                         <thead>
                             <tr>
-                                <th>Mã đơn hàng</th>
-                                <th>Ngày đặt</th>
-                                <th>Hình thức thanh toán</th>
-                                <th>Bằng chứng thanh toán</th>
-                                <th>Tình trạng</th>
-                                <th>#</th>
+                                <th>Mã chi tiết DH</th>
+                                <th>Tên trái cây</th>
+                                <th>Xuất xứ</th>
+                                <th>SL</th>
+                                <th>ĐG</th>
+                                <th>Tổng tiền</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                               <th>Mã đơn hàng</th>
-                                <th>Ngày đặt</th>
-                                <th>Hình thức thanh toán</th>
-                                <th>Bằng chứng thanh toán</th>
-                                <th>Tình trạng</th>
-                                <th>#</th>
+                                <th>Mã chi tiết DH</th>
+                                <th>Tên trái cây</th>
+                                <th>Xuất xứ</th>
+                                <th>SL</th>
+                                <th>ĐG</th>
+                                <th>Tổng tiền</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -51,64 +77,6 @@
                 </div>
             </div>
         </div>
-
-      
-        <!-- The Modal Chi Tiet Don Hang -->
-        <div class="modal fade" id="modalChiTietDH">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Chi Tiết Đơn Hàng</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div id="alertChiTietDH"></div>
-                        <div class="d-flex">
-                            <div class="p-1 flex-fill">
-                                <div class="form-group">
-                                    <label for="usr">Ngày đặt:</label>
-                                    <input type="text" class="form-control" id="txtNgayDat01">
-                                </div>
-                                <div class="form-group">
-                                    <label for="sel1">Hình thức thanh toán:</label>
-                                    <select class="form-control" id="selHTTT01">
-                                        <option value="0">Thanh toán qua MOMO</option>
-                                        <option value="1">Thanh toán COD</option>
-                                    </select>
-                                </div>
-
-                            </div>
-                            <div class="p-1 flex-fill">
-                                <div class="form-group">
-                                    <label for="sel2">Tình trạng:</label>
-                                    <select class="form-control" id="selTinhTrang01">
-                                        <option value="0">Chờ xác nhận</option>
-                                        <option value="1">Đang xử lý</option>
-                                        <option value="2">Hủy</option>
-                                        <option value="3">Thành công</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">Bằng chứng thanh toán:</label>
-                                    <input type="text" class="form-control" id="txtBangChungThanhToan01">
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button class="btn btn-dark" id="btnSubmitChiTiet">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-      
     </div>
 
     <!-- Page level plugin JavaScript-->
@@ -117,34 +85,32 @@
     <script src="/static/js/popper.min.js"></script>
 
     <script type="text/javascript">
-        var table;
+        let table;
 
         function loadTable() {
 
             // Load dataTable qua Api don hang  
-            
+            let url = new URL(window.location.href);
+            let maDonHang = url.searchParams.get("MaDonHang");
             table = $('#dataTable').DataTable({
                 processing: true,
-                paging: false,
-                searching: false,
+                paging: true,
+                searching: true,
                 ajax: {
-                    url: '/Api/DonHang.ashx?DataType=4',
+                    url: '/Api/DonHang.ashx?DataType=6&MaDonHang='+maDonHang,
                     dataSrc: 'Data'
                 },
                 columns: [
-                    { data: 'Ma_Don_Hang' },
-                    { data: 'Ngay_Dat' },
-                    { data: 'Hinh_Thuc_Thanh_Toan_String' },
-                    { data: 'Bang_Chung_Thanh_Toan' },
-                    { data: 'Trinh_Trang_String' },
-                    {
-                        "data": null,
-                        "defaultContent": `<button type="button" id="btnChiTiet" class="btn btn-secondary" data-toggle="modal" data-target="#modalChiTietDH">Chi tiết</button>`
-                    }]
+                    { data: 'Ma_Chi_Tiet_DH' },
+                    { data: 'Ten_Trai_Cay' },
+                    { data: 'Xuat_Xu' },
+                    { data: 'So_Luong_Xuat' },
+                    { data: 'Don_Gia_Xuat' },
+                    { data: 'Tong_Tien_Xuat' }]
             });
-            
-        
-            
+
+
+
             // Gan su kien click btn Chi tiet cho tung row
             $('#dataTable tbody').on('click', '#btnChiTiet', function () {
                 let data = table.row($(this).parents('tr')).data();
@@ -165,7 +131,7 @@
                 //selTinhTrang01
                 let tinhTrang = data.Trinh_Trang_String.toString().trim();
                 $("#selTinhTrang01 option[value='" + tinhTrang + "']").attr("selected", "selected");
-                
+
                 // Gan su kien submit cho modal Chi Tiet
                 $("#btnSubmitChiTiet").click(function (e) {
                     e.preventDefault();
@@ -228,11 +194,10 @@
             });
         }
 
-       
-        
+
+
         $(document).ready(function () {
             loadTable()
-         });
+        });
     </script>
-
 </asp:Content>

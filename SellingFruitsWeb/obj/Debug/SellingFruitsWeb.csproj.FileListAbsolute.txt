@@ -304,3 +304,4 @@ C:\Users\15521\Desktop\ASP\HonaGreenShop_ASP\SellingFruitsWeb\obj\Debug\SellingF
 C:\Users\15521\Desktop\ASP\HonaGreenShop_ASP\SellingFruitsWeb\obj\Debug\SellingFruitsWeb.csproj.CopyComplete
 C:\Users\15521\Desktop\ASP\HonaGreenShop_ASP\SellingFruitsWeb\obj\Debug\SellingFruitsWeb.dll
 C:\Users\15521\Desktop\ASP\HonaGreenShop_ASP\SellingFruitsWeb\obj\Debug\SellingFruitsWeb.pdb
+C:\Users\15521\Desktop\ASP\HonaGreenShop_ASP\SellingFruitsWeb\obj\Debug\SellingFruitsWeb.csprojAssemblyReference.cache

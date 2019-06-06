@@ -117,7 +117,7 @@ namespace SellingFruitsWeb.Api
 
                     ctdh.Ma_Chi_Tiet_DH = item.ct.Ma_Chi_Tiet_DH;
                     ctdh.Ma_Don_Hang = item.ct.Ma_Don_Hang;
-                    ctdh.Thoi_Gian = item.dh.Ngay_Dat.ToString("hh:mm tt - dd/MM/yyyy"); ;
+                    ctdh.Thoi_Gian = item.dh.Ngay_Dat; ;
                     ctdh.So_Luong_Xuat = item.ct.So_Luong_Xuat;
                     ctdh.Ma_Trai_Cay = item.ct.Ma_Trai_Cay;
                     ctdh.Don_Gia_Xuat = item.ct.Don_Gia_Xuat;
@@ -179,7 +179,7 @@ namespace SellingFruitsWeb.Api
                     ctdh.Ma_Trai_Cay = item.ct.Ma_Trai_Cay;
                     ctdh.Don_Gia_Xuat = item.ct.Don_Gia_Xuat;
                     ctdh.Tong_Tien_Xuat = item.ct.So_Luong_Xuat * item.ct.Don_Gia_Xuat;
-                    ctdh.Thoi_Gian = item.dh.Ngay_Dat.ToString("hh:mm tt - dd/MM/yyyy"); ;
+                    ctdh.Thoi_Gian = item.dh.Ngay_Dat; ;
                     //Chi tiet trai cay
                     var traiCay = db.TRAI_CAYs.Where(p => p.Ma_Trai_Cay == item.ct.Ma_Trai_Cay).FirstOrDefault();
 

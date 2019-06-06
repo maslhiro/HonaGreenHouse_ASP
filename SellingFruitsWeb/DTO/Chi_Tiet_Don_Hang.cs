@@ -25,9 +25,9 @@ namespace SellingFruitsWeb.DTO
 
         public string Xuat_Xu { get; set; }
 
-        public string Thoi_Gian { get; set; }
+        public DateTime Thoi_Gian { get; set; }
 
-        public Chi_Tiet_Don_Hang(string ma_Don_Hang, string ma_Chi_Tiet_DH, string ma_Trai_Cay, string ten_Trai_Cay, string don_Vi_Tinh, double tong_Tien_Xuat, int so_Luong_Xuat, int don_Gia_Xuat, string xuat_Xu, string thoi_Gian)
+        public Chi_Tiet_Don_Hang(string ma_Don_Hang, string ma_Chi_Tiet_DH, string ma_Trai_Cay, string ten_Trai_Cay, string don_Vi_Tinh, double tong_Tien_Xuat, int so_Luong_Xuat, int don_Gia_Xuat, string xuat_Xu, DateTime thoi_Gian)
         {
             Ma_Don_Hang = ma_Don_Hang;
             Ma_Chi_Tiet_DH = ma_Chi_Tiet_DH;

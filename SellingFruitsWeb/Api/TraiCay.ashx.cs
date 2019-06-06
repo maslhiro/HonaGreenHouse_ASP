@@ -221,7 +221,16 @@ namespace SellingFruitsWeb.Api
                 tc.Don_Vi_Tinh = trai_Cay.Don_Vi_Tinh;
                 tc.Loai_ID = trai_Cay.Loai_ID;
 
+                LOG_NHAP_TC logNhap = new LOG_NHAP_TC();
+                logNhap.Auto_ID =  "LNTC" + string.Format("{0, 0:D3}", db.LOG_NHAP_TCs.Count() + 1);
+                logNhap.Don_Gia_Nhap = tc.Don_Gia_Nhap;
+                logNhap.Ma_Trai_Cay = tc.Ma_Trai_Cay;
+                logNhap.Thoi_Gian = DateTime.Now;
+                logNhap.So_Luong_Nhap = tc.So_Luong;
+                logNhap.Tong_Tien_Nhap = tc.So_Luong * tc.Don_Gia_Nhap;
+
                 db.TRAI_CAYs.InsertOnSubmit(tc);
+                db.LOG_NHAP_TCs.InsertOnSubmit(logNhap);
                 db.SubmitChanges();
                 return 0;
             }
