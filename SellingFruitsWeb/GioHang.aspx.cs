@@ -64,8 +64,9 @@ namespace SellingFruitsWeb
                     return list;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 return null;
             }
             return null;

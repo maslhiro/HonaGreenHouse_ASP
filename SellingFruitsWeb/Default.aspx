@@ -26,37 +26,36 @@
     <div class="Category">
         <a href="/DanhMuc.aspx?id=LTC01">
             <div class="card">
-                <img src="static/img/trai-cay-mien-nam.jpg" alt="Avatar">
+                <img src="static/img/trai-cay-dac-san-mien-bac.jpg" alt="Avatar">
                 <div class="content">
-                <span class="category_name"><b>TRÁI CÂY MIỀN NAM</b></span> 
+                    <span class="category_name"><b>TRÁI CÂY MIỀN BẮC</b></span>
                 </div>
             </div>
         </a>
-        
+
         <a href="/DanhMuc.aspx?id=LTC02">
             <div class="card">
-              <img src="static/img/trai-cay-dac-san-mien-bac.jpg" alt="Avatar">
-              <div class="content">
-                <span class="category_name"><b>TRÁI CÂY MIỀN BẮC</b></span> 
-              </div>
+                <img src="static/img/trai-cay-mien-trung.jpg" alt="Avatar">
+                <div class="content">
+                    <span class="category_name"><b>TRÁI CÂY MIỀN TRUNG</b></span>
+                </div>
+            </div>
+        </a>
+        <a href="/DanhMuc.aspx?id=LTC03">
+            <div class="card">
+                <img src="static/img/trai-cay-mien-nam.jpg" alt="Avatar">
+                <div class="content">
+                    <span class="category_name"><b>TRÁI CÂY MIỀN NAM</b></span>
+                </div>
             </div>
         </a>
 
-        <a href="/DanhMuc.aspx?id=LTC03">
-            <div class="card">
-              <img src="static/img/trai-cay-mien-trung.jpg" alt="Avatar">
-              <div class="content">
-                <span class="category_name"><b>TRÁI CÂY MIỀN TRUNG</b></span> 
-              </div>
-            </div>
-        </a>
-        
         <a href="/DanhMuc.aspx?id=LTC04">
             <div class="card">
-              <img src="static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
-              <div class="content">
-                <span class="category_name"><b>TRÁI CÂY NHẬP KHẨU</b></span> 
-              </div>
+                <img src="static/img/trai-cay-nhap-khau.jpg" alt="Avatar">
+                <div class="content">
+                    <span class="category_name"><b>TRÁI CÂY NHẬP KHẨU</b></span>
+                </div>
             </div>
         </a>
     </div>
@@ -69,7 +68,8 @@
             <ul id="ul_list_tc" runat="server">
             </ul>
         </div>
-        <div class="see_more"><button class="button_see_more" onserverclick="button_see_more_ServerClick" runat="server">XEM THÊM</button></div>     
+        <div class="see_more">
+            <button class="button_see_more" onserverclick="button_see_more_ServerClick" runat="server">XEM THÊM</button></div>
     </div>
     <script src="static/js/slider.js" type="text/javascript"></script>
 </asp:Content>
