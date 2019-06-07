@@ -20,7 +20,7 @@
             <div style="font-family: 'Coiny', cursive; color: white; text-align: center; align-self: center; font-size: x-large" runat="server">Hona Green House</div>
             <div style="flex-direction: row; display: flex">
                 <asp:Button CssClass="button_nav_dn" runat="server" Text="Đăng nhập/ Đăng kí" PostBackUrl="#" />
-                <button class="button_nav_gh" runat="server">
+                <button id="btnGioHang" class="button_nav_gh" runat="server" onserverclick="btnGioHang_ServerClick">
                     <i class="fas fa-shopping-cart fa-sm"></i>
                     <div>&nbsp;&nbsp;Giỏ hàng</div>
                 </button>

@@ -13,5 +13,10 @@ namespace SellingFruitsWeb
         {
 
         }
+
+        protected void btnGioHang_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("GioHang.aspx");
+        }
     }
 }

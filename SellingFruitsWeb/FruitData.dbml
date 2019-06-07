@@ -42,12 +42,12 @@
   <Table Name="dbo.DON_HANG" Member="DON_HANGs">
     <Type Name="DON_HANG">
       <Column Name="Ma_Don_Hang" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Ma_Chi_Tiet_DH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="Ngay_Dat" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Hinh_Thuc_Thanh_Toan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Bang_Chung_Thanh_Toan" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Tinh_Trang" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Ma_Khach_Hang" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Tong_Tien" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Association Name="DON_HANG_CHI_TIET_CHUYEN_HANG" Member="CHI_TIET_CHUYEN_HANGs" ThisKey="Ma_Don_Hang" OtherKey="Ma_Don_Hang" Type="CHI_TIET_CHUYEN_HANG" />
       <Association Name="DON_HANG_CHI_TIET_DON_HANG" Member="CHI_TIET_DON_HANGs" ThisKey="Ma_Don_Hang" OtherKey="Ma_Don_Hang" Type="CHI_TIET_DON_HANG" />
       <Association Name="USER_DON_HANG" Member="USER" ThisKey="Ma_Khach_Hang" OtherKey="Ma_Khach_Hang" Type="USER" IsForeignKey="true" />
@@ -66,8 +66,9 @@
       <Column Name="Auto_ID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Ma_Trai_Cay" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="Thoi_Gian" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Tong_Tien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Don_Gia_Nhap" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="So_Luong_Nhap" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tong_Tien_Nhap" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.LOG_THANH_TOAN" Member="LOG_THANH_TOANs">
@@ -83,7 +84,8 @@
       <Column Name="Ma_Trai_Cay" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Ten_Trai_Cay" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="So_Luong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Don_Gia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Don_Gia_Nhap" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Don_Gia_Xuat" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Don_Vi_Tinh" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="Xuat_Xu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="Mo_Ta" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />

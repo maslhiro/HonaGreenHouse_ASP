@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SellingFruitsWeb</RootNamespace>
     <AssemblyName>SellingFruitsWeb</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,12 +63,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -88,6 +86,7 @@
     <Content Include="Admin\ThemTraiCay.aspx" />
     <Content Include="Admin\TiepNhanDonHang.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="GioHang.aspx" />
     <Content Include="DetailFruit.aspx" />
     <Content Include="Global.asax" />
     <Content Include="static\css\bootstrap.css" />
@@ -1810,6 +1809,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Chi_Tiet_Chuyen_Hang.cs" />
+    <Compile Include="DTO\Chi_Tiet_Gio_Hang.cs" />
+    <Compile Include="FruitData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FruitData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="GioHang.aspx.cs">
+      <DependentUpon>GioHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GioHang.aspx.designer.cs">
+      <DependentUpon>GioHang.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetailFruit.aspx.cs">
       <DependentUpon>DetailFruit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1825,11 +1838,6 @@
     <Compile Include="DTO\Trai_Cay.cs" />
     <Compile Include="Enum\EnumExtension.cs" />
     <Compile Include="Enum\Enums.cs" />
-    <Compile Include="FruitData.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FruitData.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1849,13 +1857,13 @@
     <Content Include="Api\LoaiTraiCay.ashx" />
     <Content Include="Api\DonHang.ashx" />
     <Content Include="Api\ThongKeDonHang.ashx" />
+    <Content Include="Api\ThongKeNhapXuat.ashx" />
+    <Content Include="Api\Admin.ashx" />
     <Content Include="FruitData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>FruitData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Api\ThongKeNhapXuat.ashx" />
-    <Content Include="Api\Admin.ashx" />
     <None Include="FruitData.dbml.layout">
       <DependentUpon>FruitData.dbml</DependentUpon>
     </None>

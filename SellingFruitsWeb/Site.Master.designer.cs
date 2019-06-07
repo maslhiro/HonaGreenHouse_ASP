@@ -31,6 +31,15 @@ namespace SellingFruitsWeb {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
+        /// btnGioHang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnGioHang;
+        
+        /// <summary>
         /// contentplaceholder control.
         /// </summary>
         /// <remarks>

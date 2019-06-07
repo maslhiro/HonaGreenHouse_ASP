@@ -20,6 +20,7 @@ namespace SellingFruitsWeb.DTO
         public string Trinh_Trang_String { get; set; }
         public string Ma_Chi_Tiet_DH { get; set; }
         public string Ma_Khach_Hang { get; set; }
+        public float Tong_Tien { get; set; }
 
         public Don_Hang(string ma_Don_Hang, string ngay_Dat, int hinh_Thuc_Thanh_Toan, string hinh_Thuc_Thanh_Toan_String, string bang_Chung_Thanh_Toan, int trinh_Trang, string trinh_Trang_String)
         {
