@@ -17,12 +17,12 @@
     <form id="form" runat="server">
         <%--Header--%>
         <div class="header">
-            <div style="font-family: 'Coiny', cursive; color: white; text-align: center; align-self: center; font-size: x-large" runat="server">Hona Green House</div>
+            <a href="Default.aspx" style="font-family: 'Coiny', cursive; color: white; text-align: center; align-self: center; font-size: x-large; text-decoration: none !important;">Hona Green House</a>
             <div style="flex-direction: row; display: flex">
-                <button class="button_nav_gh" runat="server">
+                <a href="GioHang.aspx"  class="button_nav_gh" style="text-decoration: none !important;">
                     <i class="fas fa-shopping-cart fa-sm"></i>
                     <div>&nbsp;&nbsp;Giỏ hàng</div>
-                </button>
+                </a>
             </div>
 
         </div>
@@ -73,5 +73,6 @@
             </div>
         </footer>
     </form>
+
 </body>
 </html>

@@ -63,7 +63,7 @@
 
     <div class="Selling_Products">
         <div class="selling_title">
-            <span>SẢN PHẨM BÁN CHẠY</span>
+            <span>SẢN PHẨM XEM NHIỀU</span>
         </div>
         <div class="list_products">
             <ul id="ul_list_tc" runat="server">

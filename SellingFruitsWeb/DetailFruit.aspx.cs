@@ -18,6 +18,11 @@ namespace SellingFruitsWeb
             {
                 string id = Request.QueryString["id"].ToString();
                 var detailFruit = db.TRAI_CAYs.Where(x => x.Ma_Trai_Cay == id).FirstOrDefault();
+
+                // +1 Count Xem 
+                detailFruit.Count += 1;
+                db.SubmitChanges();
+
                 lblTenTC.Text = detailFruit.Ten_Trai_Cay;
                 lblDonGia.Text = string.Format("{0:#,##0}", detailFruit.Don_Gia_Xuat);
                 lblDonGiaInt.Text = detailFruit.Don_Gia_Xuat.ToString();
