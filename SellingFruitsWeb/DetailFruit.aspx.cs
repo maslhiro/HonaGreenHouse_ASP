@@ -19,15 +19,15 @@ namespace SellingFruitsWeb
                 string id = Request.QueryString["id"].ToString();
                 var detailFruit = db.TRAI_CAYs.Where(x => x.Ma_Trai_Cay == id).FirstOrDefault();
                 lblTenTC.Text = detailFruit.Ten_Trai_Cay;
-                lblDonGia.Text = string.Format("{0:#,##0}", detailFruit.Don_Gia);
-                lblDonGiaInt.Text = detailFruit.Don_Gia.ToString();
+                lblDonGia.Text = string.Format("{0:#,##0}", detailFruit.Don_Gia_Xuat);
+                lblDonGiaInt.Text = detailFruit.Don_Gia_Xuat.ToString();
                 lblDonViTinh.Text = detailFruit.Don_Vi_Tinh;
                 lblMieuTa.Text = " Xuất sứ: "+detailFruit.Xuat_Xu;
                 imgFruiteId.ImageUrl = detailFruit.Url_Anh;
             }
-            catch
+            catch(Exception ex)
             {
-
+                Console.WriteLine(ex);
             }
             
 
@@ -103,6 +103,7 @@ namespace SellingFruitsWeb
             }
             catch (Exception e)
             {
+                Console.WriteLine(e);
                 return null;
             }
             return null;

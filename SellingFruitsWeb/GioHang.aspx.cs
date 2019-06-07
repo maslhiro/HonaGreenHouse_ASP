@@ -227,6 +227,7 @@ namespace SellingFruitsWeb
         }
         
         protected string MaDonHangThanhToan = "";
+
         protected void btnCheckOut_Click(object sender, EventArgs e)
         {
             try
@@ -238,7 +239,6 @@ namespace SellingFruitsWeb
                 //Create new order
                 var donHang = new DON_HANG();
                 donHang.Ma_Don_Hang = "DH" + count;
-                donHang.Ma_Chi_Tiet_DH = ""; //WTF chỗ này đáng lẽ ko có
                 donHang.Ngay_Dat = DateTime.Now;
                 //Sửa lại chỗ này, mấy cái này null éo dc
                 donHang.Hinh_Thuc_Thanh_Toan = 0;
@@ -270,7 +270,6 @@ namespace SellingFruitsWeb
                 chiTietChuyenHang.So_Dien_Thoai = txbSDT.Text;
                 chiTietChuyenHang.Dia_Chi_Nhan = txbDiaChiNhanHang.Text;
                 chiTietChuyenHang.Ma_Don_Hang= "DH" + count;
-                chiTietChuyenHang.Ghi_Chu = txbGhiChu.Text;
                 db.CHI_TIET_CHUYEN_HANGs.InsertOnSubmit(chiTietChuyenHang);
                 db.SubmitChanges();
 

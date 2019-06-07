@@ -156,13 +156,13 @@ namespace SellingFruitsWeb.Api
                     thongKe.Auto_ID = item.Auto_ID;
                     thongKe.Ma_Trai_Cay = item.Ma_Trai_Cay;
                     thongKe.Thoi_Gian = item.Thoi_Gian.ToString("hh:mm tt - dd/MM/yyyy");
-                    thongKe.Tong_Tien = item.Tong_Tien;
+                    thongKe.Tong_Tien = item.Tong_Tien_Nhap;
                     thongKe.So_Luong_Nhap = item.So_Luong_Nhap;
 
                     //Chi tiet trai cay
                     var traiCay = db.TRAI_CAYs.Where(p => p.Ma_Trai_Cay == item.Ma_Trai_Cay).FirstOrDefault();
                     thongKe.Ten_Trai_Cay = traiCay.Ten_Trai_Cay;
-                    thongKe.Don_Gia = traiCay.Don_Gia.ToString();
+                    thongKe.Don_Gia = traiCay.Don_Gia_Nhap.ToString();
                     thongKe.Don_Vi_Tinh = traiCay.Don_Vi_Tinh;
                     thongKe.Xuat_Xu = traiCay.Xuat_Xu;
 
@@ -200,13 +200,13 @@ namespace SellingFruitsWeb.Api
                     thongKe.Auto_ID = item.Auto_ID;
                     thongKe.Ma_Trai_Cay = item.Ma_Trai_Cay;
                     thongKe.Thoi_Gian = item.Thoi_Gian.ToString("hh:mm tt - dd/MM/yyyy");
-                    thongKe.Tong_Tien = item.Tong_Tien;
+                    thongKe.Tong_Tien = item.Tong_Tien_Nhap;
                     thongKe.So_Luong_Nhap = item.So_Luong_Nhap;
 
                     //Chi tiet trai cay
                     var traiCay = db.TRAI_CAYs.Where(p => p.Ma_Trai_Cay == item.Ma_Trai_Cay).FirstOrDefault();
                     thongKe.Ten_Trai_Cay = traiCay.Ten_Trai_Cay;
-                    thongKe.Don_Gia = traiCay.Don_Gia.ToString();
+                    thongKe.Don_Gia = traiCay.Don_Gia_Nhap.ToString();
                     thongKe.Don_Vi_Tinh = traiCay.Don_Vi_Tinh;
                     thongKe.Xuat_Xu = traiCay.Xuat_Xu;
 
