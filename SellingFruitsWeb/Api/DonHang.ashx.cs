@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using SellingFruitsWeb.DTO;
-using SellingFruitsWeb.Enums;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,7 +39,7 @@ namespace SellingFruitsWeb.Api
             int dataType = int.Parse(context.Request.QueryString["DataType"]);
             switch (dataType)
             {
-                // Get list don hang
+                // Get list don hang tinh trang : cho xac nhan 
                 case 1:
                     object_Response = new Object_Response();
                     ketQua = getListDonHangMoi(context);
@@ -102,7 +101,7 @@ namespace SellingFruitsWeb.Api
                             break;
                     }
                     break;
-                    // xác nhận đơn hàng
+                // xác nhận đơn hàng
                 case 3:
                     object_Response = new Object_Response();
                     ketQua = xacNhanDonHangById(context);
@@ -120,7 +119,7 @@ namespace SellingFruitsWeb.Api
                         // Ma don hang khong ton tai
                         case 1:
                             object_Response.Status_Code = 1;
-                            object_Response.Status_Text = "Mã đơn hàng không tồn tại";
+                            object_Response.Status_Text = "Vui lòng upload ảnh bằng chứng thanh toán";
                             object_Response.Data = "";
 
                             context.Response.ContentType = "text/json";
@@ -145,10 +144,10 @@ namespace SellingFruitsWeb.Api
                             break;
                     }
                     break;
-                //get Danh sach don hang
+                //get list don hang da xac nhan va da huy
                 case 4:
                     object_Response = new Object_Response();
-                    ketQua = getDanhSachDonHang(context);
+                    ketQua = getListDonHangDaXacNhan(context);
                     switch (ketQua)
                     {
                         // Get list thanh cong
@@ -203,6 +202,33 @@ namespace SellingFruitsWeb.Api
                             break;
                     }
                     break;
+                // get chi tiet don hang by madon hang
+                case 6:
+                    object_Response = new Object_Response();
+                    ketQua = getChiTietDonHangByID(context);
+                    switch (ketQua)
+                    {
+                        case 0:
+                            break;
+                        // Data = null
+                        case 1:
+                            object_Response.Status_Code = 1;
+                            object_Response.Status_Text = "Lỗi kết nối cơ sở dữ liệu";
+                            object_Response.Data = "";
+
+                            context.Response.ContentType = "text/json";
+                            context.Response.Write(JsonConvert.SerializeObject(object_Response));
+                            break;
+                        default:
+                            object_Response.Status_Code = -1;
+                            object_Response.Status_Text = "Lỗi kết nối cơ sở dữ liệu";
+                            object_Response.Data = "";
+
+                            context.Response.ContentType = "text/json";
+                            context.Response.Write(JsonConvert.SerializeObject(object_Response));
+                            break;
+                    }
+                    break;
                 default: break;
             }
 
@@ -212,20 +238,26 @@ namespace SellingFruitsWeb.Api
         {
             try
             {
-                var listDonHangMoi = db.DON_HANGs.Where(x => x.Tinh_Trang == 0);
+                var listDonHangMoi = db.DON_HANGs.Where(x => x.Tinh_Trang == (int)DonHang.DH_Pending);
                 var list = new List<Don_Hang>();
-                Don_Hang Don_Hang;
+                Don_Hang donHang;
                 foreach (DON_HANG item in listDonHangMoi.ToList())
                 {
-                    Don_Hang = new Don_Hang();
-                    Don_Hang.Ma_Don_Hang = item.Ma_Don_Hang;
-                    Don_Hang.Ngay_Dat = item.Ngay_Dat.ToString("dd/MM/yyyy");
-                    Don_Hang.Hinh_Thuc_Thanh_Toan = item.Hinh_Thuc_Thanh_Toan;
-                    Don_Hang.Hinh_Thuc_Thanh_Toan_String = item.Hinh_Thuc_Thanh_Toan.ToEnum<ThanhToan>().Text();
-                    Don_Hang.Bang_Chung_Thanh_Toan = item.Bang_Chung_Thanh_Toan;
-                    Don_Hang.Trinh_Trang = item.Tinh_Trang;
-                    Don_Hang.Trinh_Trang_String= item.Tinh_Trang.ToEnum<DonHang>().Text();
-                    list.Add(Don_Hang);
+                    donHang = new Don_Hang();
+
+                    donHang.Ma_Don_Hang = item.Ma_Don_Hang;
+                    donHang.Ngay_Dat = item.Ngay_Dat.ToString("dd/MM/yyyy");
+                    donHang.Bang_Chung_Thanh_Toan = item.Bang_Chung_Thanh_Toan;
+                    donHang.Tinh_Trang = item.Tinh_Trang;
+                    donHang.Tinh_Trang_Text = item.Tinh_Trang.ToEnum<DonHang>().Text();
+
+                    donHang.Tong_Tien = item.Tong_Tien;
+                    donHang.Ho_Ten = item.Ho_Ten;
+                    donHang.Dia_Chi_Nhan = item.Dia_Chi_Nhan;
+                    donHang.So_Dien_Thoai = item.So_Dien_Thoai;
+                    donHang.Ghi_Chu = item.Ghi_Chu;
+
+                    list.Add(donHang);
                 }
 
                 object_Response.Status_Code = 0;
@@ -234,7 +266,7 @@ namespace SellingFruitsWeb.Api
 
                 context.Response.ContentType = "text/json";
                 context.Response.Write(JsonConvert.SerializeObject(object_Response));
-                return 0;              
+                return 0;
             }
             catch (Exception e)
             {
@@ -258,12 +290,12 @@ namespace SellingFruitsWeb.Api
                 db.SubmitChanges();
                 return 0;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Console.WriteLine("Exception huyDonHangById",e);
+                Console.WriteLine("Exception huyDonHangById", e);
             }
             return -1;
-           
+
 
         }
 
@@ -271,12 +303,18 @@ namespace SellingFruitsWeb.Api
         {
             try
             {
-                string maDonHang = context.Request.QueryString["MaDonHang"];
+                string strJson = new StreamReader(context.Request.InputStream).ReadToEnd();
+                //deserialize the object
+                Don_Hang donHang = JsonConvert.DeserializeObject<Don_Hang>(strJson);
 
-                if (maDonHang.Length == 0) return 1;
-                var donhang = db.DON_HANGs.Where(x => x.Ma_Don_Hang == maDonHang).FirstOrDefault();
-                if (donhang == null) return 2;
-                donhang.Tinh_Trang = (int)DonHang.DH_Processing;
+                if (donHang.Bang_Chung_Thanh_Toan == null || donHang.Ma_Don_Hang == null) return 1;
+
+                var dh = db.DON_HANGs.Where(p => p.Ma_Don_Hang == donHang.Ma_Don_Hang).FirstOrDefault();
+                if (dh == null) return 2;
+
+                dh.Tinh_Trang = (int)DonHang.DH_Success;
+                dh.Bang_Chung_Thanh_Toan = donHang.Bang_Chung_Thanh_Toan;
+
                 db.SubmitChanges();
                 return 0;
             }
@@ -289,35 +327,31 @@ namespace SellingFruitsWeb.Api
 
         }
 
-
-
-        public bool IsReusable
-        {
-            get
-            {
-                return false;
-            }
-        }
-
         //get Danh sach don hang
-        private int getDanhSachDonHang(HttpContext context)
+        private int getListDonHangDaXacNhan(HttpContext context)
         {
             try
             {
-                var listDonHangMoi = db.DON_HANGs.Where(x => x.Tinh_Trang != 0);
+                var listDonHangMoi = db.DON_HANGs.Where(x => x.Tinh_Trang != (int)DonHang.DH_Pending);
                 var list = new List<Don_Hang>();
-                Don_Hang Don_Hang;
+                Don_Hang donHang;
                 foreach (DON_HANG item in listDonHangMoi.ToList())
                 {
-                    Don_Hang = new Don_Hang();
-                    Don_Hang.Ma_Don_Hang = item.Ma_Don_Hang;
-                    Don_Hang.Ngay_Dat = item.Ngay_Dat.ToString("dd/MM/yyyy");
-                    Don_Hang.Hinh_Thuc_Thanh_Toan = item.Hinh_Thuc_Thanh_Toan;
-                    Don_Hang.Hinh_Thuc_Thanh_Toan_String = item.Hinh_Thuc_Thanh_Toan.ToEnum<ThanhToan>().Text();
-                    Don_Hang.Bang_Chung_Thanh_Toan = item.Bang_Chung_Thanh_Toan;
-                    Don_Hang.Trinh_Trang = item.Tinh_Trang;
-                    Don_Hang.Trinh_Trang_String = item.Tinh_Trang.ToEnum<DonHang>().Text();
-                    list.Add(Don_Hang);
+                    donHang = new Don_Hang();
+
+                    donHang.Ma_Don_Hang = item.Ma_Don_Hang;
+                    donHang.Ngay_Dat = item.Ngay_Dat.ToString("dd/MM/yyyy");
+                    donHang.Bang_Chung_Thanh_Toan = item.Bang_Chung_Thanh_Toan;
+                    donHang.Tinh_Trang = item.Tinh_Trang;
+                    donHang.Tinh_Trang_Text = item.Tinh_Trang.ToEnum<DonHang>().Text();
+
+                    donHang.Tong_Tien = item.Tong_Tien;
+                    donHang.Ho_Ten = item.Ho_Ten;
+                    donHang.Dia_Chi_Nhan = item.Dia_Chi_Nhan;
+                    donHang.So_Dien_Thoai = item.So_Dien_Thoai;
+                    donHang.Ghi_Chu = item.Ghi_Chu;
+
+                    list.Add(donHang);
                 }
 
                 object_Response.Status_Code = 0;
@@ -346,28 +380,13 @@ namespace SellingFruitsWeb.Api
 
                 if (don_Hang == null) return 1;
 
-                // Check prop của trái cây
-                string check = checkInputData(don_Hang);
-
-                if (check != "")
-                {
-                    object_Response.Status_Code = -2;
-                    object_Response.Status_Text = "Vui lòng nhập" + check;
-                    object_Response.Data = "";
-
-                    context.Response.ContentType = "text/json";
-                    context.Response.Write(JsonConvert.SerializeObject(object_Response));
-                    return -2;
-                }
-
                 // Parse sang class DTO của linq
                 DON_HANG dh = db.DON_HANGs.Where(p => p.Ma_Don_Hang == don_Hang.Ma_Don_Hang).FirstOrDefault();
 
                 dh.Ngay_Dat = DateTime.ParseExact(don_Hang.Ngay_Dat, "dd-MM-yyyy", CultureInfo.InvariantCulture);
-                dh.Hinh_Thuc_Thanh_Toan = Int32.Parse(don_Hang.Hinh_Thuc_Thanh_Toan_String);
-                dh.Tinh_Trang = Int32.Parse(don_Hang.Trinh_Trang_String);
+                dh.Tinh_Trang = Int32.Parse(don_Hang.Tinh_Trang_Text);
                 dh.Bang_Chung_Thanh_Toan = don_Hang.Bang_Chung_Thanh_Toan;
-                
+
                 db.SubmitChanges();
                 return 0;
             }
@@ -378,27 +397,58 @@ namespace SellingFruitsWeb.Api
             }
 
         }
-
-        private string checkInputData(Don_Hang don_Hang )
+        
+        private int getChiTietDonHangByID(HttpContext context)
         {
-            string result = "";
-
-            if (don_Hang.Ngay_Dat == "")
+            try
             {
-                result += " Ngày đặt,";
-            }
-            if (don_Hang.Hinh_Thuc_Thanh_Toan_String == "")
-            {
-                result += " Hình thức thanh toán,";
-            }
-            if (don_Hang.Trinh_Trang_String == "")
-            {
-                result += " Tình trạng,";
-            }
+                string maDonHang = context.Request.QueryString["MaDonHang"];
 
-            if (result.Length != 0) result = result.Substring(0, result.Length - 1);
+                if (maDonHang.Length == 0) return 1;
+                var listChiTiet = db.CHI_TIET_DON_HANGs.Where(p => p.Ma_Don_Hang == maDonHang);
+                var listResult = new List<Chi_Tiet_Don_Hang>();
+                Chi_Tiet_Don_Hang ctdh;
+                foreach(CHI_TIET_DON_HANG item in listChiTiet)
+                {
+                    ctdh = new Chi_Tiet_Don_Hang();
+                    ctdh.Ma_Chi_Tiet_DH = item.Ma_Chi_Tiet_DH;
+                    ctdh.Ma_Don_Hang = item.Ma_Don_Hang;
+                    ctdh.So_Luong_Xuat = item.So_Luong_Xuat;
+                    ctdh.Don_Gia_Xuat = item.Don_Gia_Xuat;
+                    ctdh.Ma_Trai_Cay = item.Ma_Trai_Cay;
+                    ctdh.Tong_Tien_Xuat = item.So_Luong_Xuat * item.Don_Gia_Xuat;
 
-            return result;
+                    var dh = db.DON_HANGs.Where(p => p.Ma_Don_Hang == maDonHang).FirstOrDefault();
+                    ctdh.Thoi_Gian = dh.Ngay_Dat;
+
+                    var tc = db.TRAI_CAYs.Where(p => p.Ma_Trai_Cay == item.Ma_Trai_Cay).FirstOrDefault();
+                    ctdh.Ten_Trai_Cay = tc.Ten_Trai_Cay;
+                    ctdh.Xuat_Xu = tc.Xuat_Xu;
+                    ctdh.Don_Vi_Tinh = tc.Don_Vi_Tinh;
+
+                    listResult.Add(ctdh);
+                }
+                object_Response.Status_Code = 0;
+                object_Response.Status_Text = "Get list chi tiet đơn hàng thành công";
+                object_Response.Data = listResult;
+
+                context.Response.ContentType = "text/json";
+                context.Response.Write(JsonConvert.SerializeObject(object_Response));
+                return 0;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                return -1;
+            }
+        }
+
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
         }
     }
 }

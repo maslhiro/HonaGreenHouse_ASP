@@ -11,31 +11,38 @@ namespace SellingFruitsWeb.DTO
 
         public string Ngay_Dat { get; set; }
 
-        public int Hinh_Thuc_Thanh_Toan { get; set; }
-        public string Hinh_Thuc_Thanh_Toan_String { get; set; }
-
         public string Bang_Chung_Thanh_Toan { get; set; }
 
-        public int Trinh_Trang { get; set; }
-        public string Trinh_Trang_String { get; set; }
-        public string Ma_Chi_Tiet_DH { get; set; }
-        public string Ma_Khach_Hang { get; set; }
+        public int Tinh_Trang { get; set; }
 
-        public Don_Hang(string ma_Don_Hang, string ngay_Dat, int hinh_Thuc_Thanh_Toan, string hinh_Thuc_Thanh_Toan_String, string bang_Chung_Thanh_Toan, int trinh_Trang, string trinh_Trang_String)
+        public string Tinh_Trang_Text { get; set; }
+
+        public double Tong_Tien { get; set; }
+
+        public string Ho_Ten { get; set; }
+
+        public string So_Dien_Thoai { get; set; }
+
+        public string Dia_Chi_Nhan { get; set; }
+
+        public string Ghi_Chu { get; set; }
+
+        public Don_Hang(string ma_Don_Hang, string ngay_Dat, string bang_Chung_Thanh_Toan, int tinh_Trang, string tinh_Trang_Text, double tong_Tien, string ho_Ten, string so_Dien_Thoai, string dia_Chi_Nhan, string ghi_Chu)
         {
             Ma_Don_Hang = ma_Don_Hang;
             Ngay_Dat = ngay_Dat;
-            Hinh_Thuc_Thanh_Toan = hinh_Thuc_Thanh_Toan;
             Bang_Chung_Thanh_Toan = bang_Chung_Thanh_Toan;
-            Trinh_Trang = trinh_Trang;
-            Trinh_Trang_String = trinh_Trang_String;
-            Hinh_Thuc_Thanh_Toan_String = hinh_Thuc_Thanh_Toan_String;
+            Tinh_Trang = tinh_Trang;
+            Tinh_Trang_Text = tinh_Trang_Text;
+            Tong_Tien = tong_Tien;
+            Ho_Ten = ho_Ten;
+            So_Dien_Thoai = so_Dien_Thoai;
+            Dia_Chi_Nhan = dia_Chi_Nhan;
+            Ghi_Chu = ghi_Chu;
         }
 
         public Don_Hang()
         {
         }
-
-
     }
 }

@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SellingFruitsWeb</RootNamespace>
     <AssemblyName>SellingFruitsWeb</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,12 +63,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -79,17 +77,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\ChiTietDonHang.aspx" />
     <Content Include="Admin\ChiTietTraiCay.aspx" />
     <Content Include="Admin\DashBoard.aspx" />
+    <Content Include="Admin\DonHangDaXuLi.aspx" />
+    <Content Include="Admin\DonHangMoi.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\ThemLoaiTraiCay.aspx" />
-    <Content Include="Admin\ThongKeNhapXuat.aspx" />
-    <Content Include="Admin\ThongKeDonHang.aspx" />
+    <Content Include="Admin\ThongKeNhap.aspx" />
     <Content Include="Admin\ThemTraiCay.aspx" />
-    <Content Include="Admin\TiepNhanDonHang.aspx" />
+    <Content Include="Admin\ThongKeXuat.aspx" />
+    <Content Include="DanhMuc.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="GioHang.aspx" />
     <Content Include="DetailFruit.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="HuongDanMuaHang.aspx" />
+    <Content Include="LienHe.aspx" />
     <Content Include="static\css\bootstrap.css" />
     <Content Include="static\css\master.css" />
     <Content Include="static\css\sb-admin.css" />
@@ -1726,6 +1730,13 @@
     <Compile Include="AdminSite.Master.designer.cs">
       <DependentUpon>AdminSite.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ChiTietDonHang.aspx.cs">
+      <DependentUpon>ChiTietDonHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ChiTietDonHang.aspx.designer.cs">
+      <DependentUpon>ChiTietDonHang.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ChiTietTraiCay.aspx.cs">
       <DependentUpon>ChiTietTraiCay.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1739,6 +1750,20 @@
     </Compile>
     <Compile Include="Admin\DashBoard.aspx.designer.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DonHangDaXuLi.aspx.cs">
+      <DependentUpon>DonHangDaXuLi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DonHangDaXuLi.aspx.designer.cs">
+      <DependentUpon>DonHangDaXuLi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DonHangMoi.aspx.cs">
+      <DependentUpon>DonHangMoi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DonHangMoi.aspx.designer.cs">
+      <DependentUpon>DonHangMoi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -1754,19 +1779,12 @@
     <Compile Include="Admin\ThemLoaiTraiCay.aspx.designer.cs">
       <DependentUpon>ThemLoaiTraiCay.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ThongKeNhapXuat.aspx.cs">
-      <DependentUpon>ThongKeNhapXuat.aspx</DependentUpon>
+    <Compile Include="Admin\ThongKeNhap.aspx.cs">
+      <DependentUpon>ThongKeNhap.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\ThongKeNhapXuat.aspx.designer.cs">
-      <DependentUpon>ThongKeNhapXuat.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ThongKeDonHang.aspx.cs">
-      <DependentUpon>ThongKeDonHang.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ThongKeDonHang.aspx.designer.cs">
-      <DependentUpon>ThongKeDonHang.aspx</DependentUpon>
+    <Compile Include="Admin\ThongKeNhap.aspx.designer.cs">
+      <DependentUpon>ThongKeNhap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ThemTraiCay.aspx.cs">
       <DependentUpon>ThemTraiCay.aspx</DependentUpon>
@@ -1775,12 +1793,12 @@
     <Compile Include="Admin\ThemTraiCay.aspx.designer.cs">
       <DependentUpon>ThemTraiCay.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\TiepNhanDonHang.aspx.cs">
-      <DependentUpon>TiepNhanDonHang.aspx</DependentUpon>
+    <Compile Include="Admin\ThongKeXuat.aspx.cs">
+      <DependentUpon>ThongKeXuat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\TiepNhanDonHang.aspx.designer.cs">
-      <DependentUpon>TiepNhanDonHang.aspx</DependentUpon>
+    <Compile Include="Admin\ThongKeXuat.aspx.designer.cs">
+      <DependentUpon>ThongKeXuat.aspx</DependentUpon>
     </Compile>
     <Compile Include="Api\Admin.ashx.cs">
       <DependentUpon>Admin.ashx</DependentUpon>
@@ -1788,20 +1806,24 @@
     <Compile Include="Api\DonHang.ashx.cs">
       <DependentUpon>DonHang.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Api\GetListLoaiTraiCay.ashx.cs">
-      <DependentUpon>GetListLoaiTraiCay.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Api\ThongKeNhapXuat.ashx.cs">
-      <DependentUpon>ThongKeNhapXuat.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Api\ThongKeDonHang.ashx.cs">
-      <DependentUpon>ThongKeDonHang.ashx</DependentUpon>
+    <Compile Include="Api\ThongKeNhap.ashx.cs">
+      <DependentUpon>ThongKeNhap.ashx</DependentUpon>
     </Compile>
     <Compile Include="Api\LoaiTraiCay.ashx.cs">
       <DependentUpon>LoaiTraiCay.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Api\ThongKeXuat.ashx.cs">
+      <DependentUpon>ThongKeXuat.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Api\TraiCay.ashx.cs">
       <DependentUpon>TraiCay.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc.aspx.cs">
+      <DependentUpon>DanhMuc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc.aspx.designer.cs">
+      <DependentUpon>DanhMuc.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -1810,6 +1832,19 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Chi_Tiet_Gio_Hang.cs" />
+    <Compile Include="FruitData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FruitData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="GioHang.aspx.cs">
+      <DependentUpon>GioHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GioHang.aspx.designer.cs">
+      <DependentUpon>GioHang.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetailFruit.aspx.cs">
       <DependentUpon>DetailFruit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1817,7 +1852,8 @@
     <Compile Include="DetailFruit.aspx.designer.cs">
       <DependentUpon>DetailFruit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DTO\Thong_Ke_Nhap_Xuat.cs" />
+    <Compile Include="DTO\Chi_Tiet_Don_Hang.cs" />
+    <Compile Include="DTO\Thong_Ke_Nhap.cs" />
     <Compile Include="DTO\Thong_Ke_Don_Hang.cs" />
     <Compile Include="DTO\Don_Hang.cs" />
     <Compile Include="DTO\Object _Response.cs" />
@@ -1825,13 +1861,22 @@
     <Compile Include="DTO\Trai_Cay.cs" />
     <Compile Include="Enum\EnumExtension.cs" />
     <Compile Include="Enum\Enums.cs" />
-    <Compile Include="FruitData.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FruitData.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HuongDanMuaHang.aspx.cs">
+      <DependentUpon>HuongDanMuaHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HuongDanMuaHang.aspx.designer.cs">
+      <DependentUpon>HuongDanMuaHang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LienHe.aspx.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LienHe.aspx.designer.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -1844,18 +1889,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminSite.Master" />
-    <Content Include="Api\GetListLoaiTraiCay.ashx" />
     <Content Include="Api\TraiCay.ashx" />
     <Content Include="Api\LoaiTraiCay.ashx" />
     <Content Include="Api\DonHang.ashx" />
-    <Content Include="Api\ThongKeDonHang.ashx" />
+    <Content Include="Api\Admin.ashx" />
+    <Content Include="Api\ThongKeNhap.ashx" />
+    <Content Include="Api\ThongKeXuat.ashx" />
     <Content Include="FruitData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>FruitData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Api\ThongKeNhapXuat.ashx" />
-    <Content Include="Api\Admin.ashx" />
     <None Include="FruitData.dbml.layout">
       <DependentUpon>FruitData.dbml</DependentUpon>
     </None>
@@ -2027,7 +2071,9 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Image\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

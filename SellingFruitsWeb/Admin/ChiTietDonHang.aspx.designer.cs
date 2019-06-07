@@ -10,7 +10,7 @@
 namespace SellingFruitsWeb.Admin {
     
     
-    public partial class ChiTietTraiCay {
+    public partial class ChiTietDonHang {
         
         /// <summary>
         /// title control.
@@ -22,22 +22,40 @@ namespace SellingFruitsWeb.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor title;
         
         /// <summary>
-        /// txtMoTa control.
+        /// txtHoTen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtMoTa;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtHoTen;
         
         /// <summary>
-        /// imageUpload control.
+        /// txtSoDienThoai control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile imageUpload;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtSoDienThoai;
+        
+        /// <summary>
+        /// txtDiaChiNhan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDiaChiNhan;
+        
+        /// <summary>
+        /// txtGhiChu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtGhiChu;
         
         /// <summary>
         /// image control.
@@ -46,15 +64,6 @@ namespace SellingFruitsWeb.Admin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image image;
-        
-        /// <summary>
-        /// btnSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSubmit;
+        protected global::System.Web.UI.HtmlControls.HtmlImage image;
     }
 }

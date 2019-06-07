@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using SellingFruitsWeb.DTO;
-using SellingFruitsWeb.Enums;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -5,18 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SellingFruitsWeb
+namespace SellingFruitsWeb.Admin
 {
-    public partial class Site : System.Web.UI.MasterPage
+    public partial class DonHangDaXuLi : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void btnGioHang_ServerClick(object sender, EventArgs e)
-        {
-            Response.Redirect("GioHang.aspx");
         }
     }
 }

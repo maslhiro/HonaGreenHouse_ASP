@@ -19,7 +19,6 @@
         <div class="header">
             <div style="font-family: 'Coiny', cursive; color: white; text-align: center; align-self: center; font-size: x-large" runat="server">Hona Green House</div>
             <div style="flex-direction: row; display: flex">
-                <asp:Button CssClass="button_nav_dn" runat="server" Text="Đăng nhập/ Đăng kí" PostBackUrl="#" />
                 <button class="button_nav_gh" runat="server">
                     <i class="fas fa-shopping-cart fa-sm"></i>
                     <div>&nbsp;&nbsp;Giỏ hàng</div>
@@ -32,19 +31,19 @@
         <div style="display: block;" runat="server">
             <ul class="nav">
 
-                <li class="nav-item"><a class="nav-a" href="#contact">Liên hệ</a></li>
-                <li class="nav-item"><a class="nav-a" href="#product">Hướng dẫn mua hàng</a></li>
+                <li class="nav-item"><a class="nav-a" href="/LienHe.aspx">Liên hệ</a></li>
+                <li class="nav-item"><a class="nav-a" href="/HuongDanMuaHang.aspx">Hướng dẫn mua hàng</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Sản phẩm</a>
                     <div class="dropdown-content">
-                        <a href="#">Trái cây miền bắc</a>
-                        <a href="#">Trái cây miền trung</a>
-                        <a href="#">Trái cây miền nam</a>
-                        <a href="#">Trái cây nhập khẩu</a>
+                        <a href="/DanhMuc.aspx?id=LTC01">Trái cây miền bắc</a>
+                        <a href="/DanhMuc.aspx?id=LTC02">Trái cây miền trung</a>
+                        <a href="/DanhMuc.aspx?id=LTC03">Trái cây miền nam</a>
+                        <a href="/DanhMuc.aspx?id=LTC04">Trái cây nhập khẩu</a>
                     </div>
                 </li>
-                <li class="nav-item"><a class="nav-a" href="#home">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-a" href="/Default.aspx">Trang chủ</a></li>
 
             </ul>
         </div>
@@ -62,13 +61,13 @@
             </div>
             <div class="footer-left">
                 <p class="footer-links">
-                    <a href="#">Trang chủ</a>
+                    <a href="/Default.aspx">Trang chủ</a>
                     ·
-					<a href="#">Sản phẩm</a>
+					<a href="/DanhMuc.aspx?id=LTC01">Sản phẩm</a>
                     ·
-					<a href="#">Hướng dẫn mua hàng</a>
+					<a href="/HuongDanMuaHang.aspx">Hướng dẫn mua hàng</a>
                     ·
-					<a href="#">Liên hệ</a>
+					<a href="/LienHe.aspx">Liên hệ</a>
                 </p>
                 <p>Hona Green House &copy; 2019</p>
             </div>

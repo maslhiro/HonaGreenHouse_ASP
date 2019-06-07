@@ -33,13 +33,14 @@
                         <thead>
                             <tr>
                                 <th>Mã</th>
-                                <th>Tên trái cây</th>
-                                <th>Mã loại trái cây</th>
-                                <th>Loại trái cây</th>
+                                <th>Tên TC</th>
+                                <th>Loại TC</th>
                                 <th>Xuất xứ</th>
-                                <th>Số lượng tồn</th>
-                                <th>Đơn vị tính</th>
-                                <th>Đơn giá</th>
+                                <th>SL tồn</th>
+                                <th>ĐVT</th>
+                                <th>ĐGiá nhập</th>
+                                <th>ĐGiá xuất</th>
+                                <th>#</th>
                                 <th>#</th>
                                 <th>#</th>
 
@@ -48,14 +49,15 @@
                         <tfoot>
                             <tr>
                                 <th>Mã</th>
-                                <th>Tên trái cây</th>
-                                <th>Mã loại trái cây</th>
-                                <th>Loại trái cây</th>
+                                <th>Tên TC</th>
+                                <th>Loại TC</th>
                                 <th>Xuất xứ</th>
-                                <th>Số lượng tồn</th>
-                                <th>Đơn vị tính</th>
-                                <th>Đơn giá</th>
+                                <th>SL tồn</th>
+                                <th>ĐVT</th>
+                                <th>ĐGiá nhập</th>
+                                <th>ĐGiá xuất</th>
                                 <th>#</th>
+                                <th>#</th>                                
                                 <th>#</th>
 
                             </tr>
@@ -84,31 +86,19 @@
                         <div class="d-flex">
                             <div class="p-1 flex-fill">
                                 <div class="form-group">
-                                    <label for="usr">Tên trái cây: (*)</label>
+                                    <label for="txtTenTraiCay">Tên trái cây: (*)</label>
                                     <input type="text" class="form-control" id="txtTenTraiCay">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Xuất xứ:</label>
+                                    <label for="txtXuatXu">Xuất xứ:</label>
                                     <input type="text" class="form-control" id="txtXuatXu">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Số lượng nhập: (*)</label>
+                                    <label for="txtSoLuongNhap">Số lượng nhập: (*)</label>
                                     <input type="number" class="form-control" id="txtSoLuongNhap" min="0" step="1" value="0">
                                 </div>
-
-                            </div>
-                            <div class="p-1 flex-fill">
-
-                                <div class="form-group">
-                                    <label for="pwd">Đơn giá: (*)</label>
-                                    <input type="number" class="form-control" id="txtDonGia" min="0" step="1" value="0">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">Đơn vị tính: (*)</label>
-                                    <input type="text" class="form-control" id="txtDonViTinh">
-                                </div>
-                                <div class="form-group">
-                                    <label for="sel1">Loại trái cây:</label>
+                                 <div class="form-group">
+                                    <label for="selLoaiTraiCay">Loại trái cây:</label>
                                     <select class="form-control" id="selLoaiTraiCay" tabindex="0">
                                         <option value="LTC01">LTC01 - Trái cây miền bắc</option>
                                         <option value="LTC02">LTC02 - Trái cây miền trung</option>
@@ -116,6 +106,22 @@
                                         <option value="LTC04">LTC04 - Trái cây nhập khẩu</option>
                                     </select>
                                 </div>
+                            </div>
+                            <div class="p-1 flex-fill">
+
+                                <div class="form-group">
+                                    <label for="txtDonGiaNhap">Đơn giá nhập: (*)</label>
+                                    <input type="number" class="form-control" id="txtDonGiaNhap" min="0" step="1" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtDonGiaXuat">Đơn giá xuất: (*)</label>
+                                    <input type="number" class="form-control" id="txtDonGiaXuat" min="0" step="1" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtDonViTinh">Đơn vị tính: (*)</label>
+                                    <input type="text" class="form-control" id="txtDonViTinh">
+                                </div>
+                               
 
                             </div>
                         </div>                        
@@ -168,31 +174,19 @@
                         <div class="d-flex">
                             <div class="p-1 flex-fill">
                                 <div class="form-group">
-                                    <label for="usr">Tên trái cây: (*)</label>
+                                    <label for="txtTenTraiCay01">Tên trái cây: (*)</label>
                                     <input type="text" class="form-control" id="txtTenTraiCay01">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Xuất xứ:</label>
+                                    <label for="txtXuatXu01">Xuất xứ:</label>
                                     <input type="text" class="form-control" id="txtXuatXu01">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pwd">Số lượng nhập: (*)</label>
+                                    <label for="txtSoLuongNhap01">Số lượng nhập: (*)</label>
                                     <input type="number" class="form-control" id="txtSoLuongNhap01" min="0" step="1" value="0">
                                 </div>
-
-                            </div>
-                            <div class="p-1 flex-fill">
-
                                 <div class="form-group">
-                                    <label for="pwd">Đơn giá: (*)</label>
-                                    <input type="number" class="form-control" id="txtDonGia01" min="0" step="1" value="0">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">Đơn vị tính: (*)</label>
-                                    <input type="text" class="form-control" id="txtDonViTinh01">
-                                </div>
-                                <div class="form-group">
-                                    <label for="sel1">Loại trái cây:</label>
+                                    <label for="selLoaiTraiCay01">Loại trái cây:</label>
                                     <select class="form-control" id="selLoaiTraiCay01">
                                         <option value="LTC01">LTC01 - Trái cây miền bắc</option>
                                         <option value="LTC02">LTC02 - Trái cây miền trung</option>
@@ -200,6 +194,24 @@
                                         <option value="LTC04">LTC04 - Trái cây nhập khẩu</option>
                                     </select>
                                 </div>
+                            </div>
+                            <div class="p-1 flex-fill">
+
+                                <div class="form-group">
+                                    <label for="txtDonGiaNhap01">Đơn giá nhập: (*)</label>
+                                    <input type="number" class="form-control" id="txtDonGiaNhap01" min="0" step="1" value="0">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtDonGiaXuat01">Đơn giá xuất: (*)</label>
+                                    <input type="number" class="form-control" id="txtDonGiaXuat01" min="0" step="1" value="0">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtDonViTinh01">Đơn vị tính: (*)</label>
+                                    <input type="text" class="form-control" id="txtDonViTinh01">
+                                </div>
+                            
 
                             </div>
                         </div>
@@ -218,8 +230,7 @@
     <!-- Page level plugin JavaScript-->
     <script src="/static/vendor/datatables/jquery.dataTables.js"></script>
     <script src="/static/vendor/datatables/dataTables.bootstrap4.js"></script>
-    <script src="/static/js/popper.min.js"></script>
-
+    
     <script type="text/javascript">
         var table;
 
@@ -228,8 +239,8 @@
             // Load dataTable qua Api trai cay  
             table = $('#dataTable').DataTable({
                 processing: true,
-                paging: false,
-                searching: false,
+                paging: true,
+                searching: true,
                 ajax: {
                     url: '/Api/TraiCay.ashx?DataType=1',
                     dataSrc: 'Data'
@@ -237,12 +248,17 @@
                 columns: [
                     { data: 'Ma_Trai_Cay' },
                     { data: 'Ten_Trai_Cay' },
-                    { data: 'Loai_ID' },
+                    //{ data: 'Loai_ID' },
                     { data: 'Ten_Loai_TC' },
                     { data: 'Xuat_Xu' },
                     { data: 'So_Luong' },
                     { data: 'Don_Vi_Tinh' },
-                    { data: 'Don_Gia' },
+                    { data: 'Don_Gia_Nhap' },
+                    { data: 'Don_Gia_Xuat' },
+                    {
+                        "data": null,
+                        "defaultContent": `<button type="button" id="btnChiTietTC" class="btn btn-primary">Chi tiết</button>`
+                    },
                     {
                         "data": null,
                         "defaultContent": `<button type="button" id="btnSua" class="btn btn-secondary" data-toggle="modal" data-target="#modalSuaTC">Sửa</button>`
@@ -263,7 +279,8 @@
                     modal.find('.modal-body #txtTenTraiCay01').val(data.Ten_Trai_Cay)
                     modal.find('.modal-body #txtXuatXu01').val(data.Xuat_Xu)
                     modal.find('.modal-body #txtSoLuongNhap01').val(data.So_Luong)
-                    modal.find('.modal-body #txtDonGia01').val(data.Don_Gia)
+                    modal.find('.modal-body #txtDonGiaXuat01').val(data.Don_Gia_Xuat)
+                    modal.find('.modal-body #txtDonGiaNhap01').val(data.Don_Gia_Nhap)
                     modal.find('.modal-body #txtDonViTinh01').val(data.Don_Vi_Tinh)
 
                     modal.find('.modal-title').text('Sửa trái cây mã ' + data.Ma_Trai_Cay)
@@ -280,7 +297,8 @@
                         "Ma_Trai_Cay": data.Ma_Trai_Cay,
                         "Ten_Trai_Cay": $("#txtTenTraiCay01").val() ? $("#txtTenTraiCay01").val() : "",
                         "Don_Vi_Tinh": $("#txtDonViTinh01").val() ? $("#txtDonViTinh01").val() : "",
-                        "Don_Gia": $("#txtDonGia01").val(),
+                        "Don_Gia_Xuat": $("#txtDonGiaXuat01").val(),
+                        "Don_Gia_Nhap": $("#txtDonGiaNhap01").val(),
                         "So_Luong": $("#txtSoLuongNhap01").val(),
                         "Xuat_Xu": $("#txtXuatXu01").val() ? $("#txtXuatXu01").val() : "",
                         "Loai_ID": $("#selLoaiTraiCay01").val()
@@ -308,7 +326,8 @@
 
                                 $("#txtTenTraiCay01").val("")
                                 $("#txtDonViTinh01").val("")
-                                $("#txtDonGia01").val("")
+                                $("#txtDonGiaNhap01").val("")
+                                $("#txtDonGiaXuat01").val("")
                                 $("#txtSoLuongNhap01").val("")
                                 $("#txtXuatXu01").val("")
                                 $("#selLoaiTraiCay01").val("LTC01")
@@ -379,6 +398,11 @@
                 });
 
             });
+
+            $('#dataTable tbody').on('click', '#btnChiTietTC', function () {
+                let data = table.row($(this).parents('tr')).data();
+                window.open('/Admin/ChiTietTraiCay.aspx?MaTraiCay=' + data.Ma_Trai_Cay,'_blank');
+            });
         }
 
         function btnSubmitThem_OnClick(e) {
@@ -387,7 +411,8 @@
             let traiCay = {
                 "Ten_Trai_Cay": $("#txtTenTraiCay").val() ? $("#txtTenTraiCay").val() : "",
                 "Don_Vi_Tinh": $("#txtDonViTinh").val() ? $("#txtDonViTinh").val() : "",
-                "Don_Gia": $("#txtDonGia").val(),
+                "Don_Gia_Nhap": $("#txtDonGiaNhap").val(),
+                "Don_Gia_Xuat": $("#txtDonGiaXuat").val(),
                 "So_Luong": $("#txtSoLuongNhap").val(),
                 "Xuat_Xu": $("#txtXuatXu").val() ? $("#txtXuatXu").val() : "",
                 "Loai_ID": $("#selLoaiTraiCay").val()
@@ -415,7 +440,8 @@
 
                         $("#txtTenTraiCay").val("")
                         $("#txtDonViTinh").val("")
-                        $("#txtDonGia").val("")
+                        $("#txtDonGiaNhap").val("")
+                        $("#txtDonGiaXuat").val("")
                         $("#txtSoLuongNhap").val("")
                         $("#txtXuatXu").val("")
                         $("#selLoaiTraiCay").val("LTC01")
