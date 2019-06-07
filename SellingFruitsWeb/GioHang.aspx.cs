@@ -240,12 +240,14 @@ namespace SellingFruitsWeb
                 var donHang = new DON_HANG();
                 donHang.Ma_Don_Hang = "DH" + count;
                 donHang.Ngay_Dat = DateTime.Now;
-                //Sửa lại chỗ này, mấy cái này null éo dc
-                donHang.Hinh_Thuc_Thanh_Toan = 0;
                 donHang.Tinh_Trang = 0;
                 donHang.Tong_Tien = calculateTongTien();
-                //     donHang.Ma_Khach_Hang = "KH001";
 
+                //Lưu thông tin chi tiết chuyển hàng xuống db
+                donHang.Ho_Ten = txbTenNguoiNhan.Text;
+                donHang.So_Dien_Thoai = txbSDT.Text;
+                donHang.Dia_Chi_Nhan = txbDiaChiNhanHang.Text;
+               
                 //Create new order details
                 int countCTDH = db.CHI_TIET_DON_HANGs.Count();
                 foreach (Chi_Tiet_Gio_Hang item in gioHang)
@@ -262,15 +264,8 @@ namespace SellingFruitsWeb
                 }
                 db.DON_HANGs.InsertOnSubmit(donHang);
 
-                //Lưu thông tin chi tiết chuyển hàng xuống db
-                string countCTCH = string.Format("{0, 0:D3}", db.CHI_TIET_CHUYEN_HANGs.Count() + 1);
-                var chiTietChuyenHang = new CHI_TIET_CHUYEN_HANG();
-                chiTietChuyenHang.Ma_Chi_Tiet_CH = "CTCH" + countCTCH;
-                chiTietChuyenHang.Ho_Ten = txbTenNguoiNhan.Text;
-                chiTietChuyenHang.So_Dien_Thoai = txbSDT.Text;
-                chiTietChuyenHang.Dia_Chi_Nhan = txbDiaChiNhanHang.Text;
-                chiTietChuyenHang.Ma_Don_Hang= "DH" + count;
-                db.CHI_TIET_CHUYEN_HANGs.InsertOnSubmit(chiTietChuyenHang);
+
+
                 db.SubmitChanges();
 
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();

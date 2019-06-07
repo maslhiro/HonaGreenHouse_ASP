@@ -10,15 +10,24 @@
 namespace SellingFruitsWeb {
     
     
-    public partial class Default {
+    public partial class DanhMuc {
         
         /// <summary>
-        /// ul_list_tc control.
+        /// danh_muc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ul_list_tc;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl danh_muc;
+        
+        /// <summary>
+        /// ul_list_danhmuc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ul_list_danhmuc;
     }
 }

@@ -10,6 +10,6 @@
 namespace SellingFruitsWeb.Admin {
     
     
-    public partial class ThongKeDonHang {
+    public partial class ThongKeNhap {
     }
 }

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SellingFruitsWeb.Admin
 {
-    public partial class DanhSachDonHang : System.Web.UI.Page
+    public partial class ThongKeXuat : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

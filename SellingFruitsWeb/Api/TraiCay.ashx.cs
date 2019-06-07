@@ -216,11 +216,21 @@ namespace SellingFruitsWeb.Api
                 tc.Ten_Trai_Cay = trai_Cay.Ten_Trai_Cay;
                 tc.So_Luong = trai_Cay.So_Luong;
                 tc.Xuat_Xu = trai_Cay.Xuat_Xu;
-                tc.Don_Gia_Nhap = trai_Cay.Don_Gia;
+                tc.Don_Gia_Xuat = trai_Cay.Don_Gia_Xuat;
+                tc.Don_Gia_Nhap = trai_Cay.Don_Gia_Nhap;
                 tc.Don_Vi_Tinh = trai_Cay.Don_Vi_Tinh;
                 tc.Loai_ID = trai_Cay.Loai_ID;
 
+                LOG_NHAP_TC logNhap = new LOG_NHAP_TC();
+                logNhap.Auto_ID =  "LNTC" + string.Format("{0, 0:D3}", db.LOG_NHAP_TCs.Count() + 1);
+                logNhap.Don_Gia_Nhap = tc.Don_Gia_Nhap;
+                logNhap.Ma_Trai_Cay = tc.Ma_Trai_Cay;
+                logNhap.Thoi_Gian = DateTime.Now;
+                logNhap.So_Luong_Nhap = tc.So_Luong;
+                logNhap.Tong_Tien_Nhap = tc.So_Luong * tc.Don_Gia_Nhap;
+
                 db.TRAI_CAYs.InsertOnSubmit(tc);
+                db.LOG_NHAP_TCs.InsertOnSubmit(logNhap);
                 db.SubmitChanges();
                 return 0;
             }
@@ -249,7 +259,8 @@ namespace SellingFruitsWeb.Api
                     trai_Cay.Ma_Trai_Cay = item.Ma_Trai_Cay;
                     trai_Cay.Ten_Trai_Cay = item.Ten_Trai_Cay;
                     trai_Cay.So_Luong = item.So_Luong;
-                    trai_Cay.Don_Gia = item.Don_Gia_Nhap;
+                    trai_Cay.Don_Gia_Nhap = item.Don_Gia_Nhap;
+                    trai_Cay.Don_Gia_Xuat = item.Don_Gia_Xuat;
                     trai_Cay.Don_Vi_Tinh = item.Don_Vi_Tinh;
                     trai_Cay.Xuat_Xu = item.Xuat_Xu;
                     trai_Cay.Mo_Ta = item.Mo_Ta;
@@ -329,7 +340,8 @@ namespace SellingFruitsWeb.Api
                 tc.Ten_Trai_Cay = trai_Cay.Ten_Trai_Cay;
                 tc.So_Luong = trai_Cay.So_Luong;
                 tc.Xuat_Xu = trai_Cay.Xuat_Xu;
-                tc.Don_Gia_Nhap = trai_Cay.Don_Gia;
+                tc.Don_Gia_Nhap = trai_Cay.Don_Gia_Nhap;
+                tc.Don_Gia_Xuat = trai_Cay.Don_Gia_Xuat;
                 tc.Don_Vi_Tinh = trai_Cay.Don_Vi_Tinh;
                 tc.Loai_ID = trai_Cay.Loai_ID;
               
@@ -357,9 +369,13 @@ namespace SellingFruitsWeb.Api
             {
                 result += " Đơn vị tính,";
             }
-            if (trai_Cay.Don_Gia == 0)
+            if (trai_Cay.Don_Gia_Nhap == 0)
             {
-                result += " Đơn giá,";
+                result += " Đơn giá nhập,";
+            }
+            if (trai_Cay.Don_Gia_Xuat == 0)
+            {
+                result += " Đơn giá xuất,";
             }
             if (trai_Cay.So_Luong == 0)
             {

@@ -25,13 +25,14 @@ namespace SellingFruitsWeb.Admin
             }
             else
             {
-                Response.Redirect("/Admin/ThemTraiCay.aspx");
-
+               
                 // Add cookie 
                 HttpCookie ck = new HttpCookie("username");
                 ck.Value = txtUsername.Value;
                 ck.Expires = DateTime.Now.AddDays(15);
                 Response.Cookies.Add(ck);
+
+                Response.Redirect("/Admin/ThemTraiCay.aspx");
             }
            
         }
