@@ -234,16 +234,23 @@ li a.active {
     display: inline-block;
 }
 
-    .card img {
-        height: 180px;
-        width: 100%;
-    }
+.Category .card img {
+    height: 180px;
+    width: 100%;
+}
 
-    /* On mouse-over, add a deeper shadow */
-    .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
+.Category .card .content {
+    padding: 10px 16px;
+    text-align: center;
+    margin: 0;
+    background-color: #8bc04e;
+    color: white;
+}
 
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
 /* Add some padding inside the card container */
 .card .content {
@@ -284,6 +291,7 @@ li a.active {
         .Selling_Products .list_products li img {
             border-radius: 40px;
             height: 225px;
+            width: 225px;
         }
 
     .Selling_Products .see_more {
