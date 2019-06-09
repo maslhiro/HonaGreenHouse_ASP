@@ -22,6 +22,15 @@ namespace SellingFruitsWeb.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtTraiCay;
         
         /// <summary>
+        /// txtDHH control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtDHH;
+        
+        /// <summary>
         /// txtDHM control.
         /// </summary>
         /// <remarks>

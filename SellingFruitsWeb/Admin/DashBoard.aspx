@@ -36,11 +36,11 @@
             <div class="card text-white bg-warning o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
-                  <i class="fas fa-fw fa-list"></i>
+                  <i class="fas fa-fw fa-shopping-cart"></i>
                 </div>
-                <div class="mr-5">11 New Tasks!</div>
+                <div class="mr-5" id="txtDHH" runat="server">11 New Tasks!</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
+              <a class="card-footer text-white clearfix small z-1" href="/Admin/DonHangDaXuLi.aspx">
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -112,7 +112,7 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          <div class="card-footer small text-muted">Updated now</div>
         </div>
 
     </div>
