@@ -43,7 +43,7 @@
                     <table class="table table-bordered" id="dataTable">
                         <thead>
                             <tr>
-                                <th>Mã đơn hàng</th>
+                                <th>Mã trái cây</th>
                                 <th>Tên trái cây</th>
                                 <th>Thời gian</th>
                                 <th>Xuất xứ</th>
@@ -52,7 +52,7 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Mã đơn hàng</th>
+                                <th>Mã trái cây</th>
                                 <th>Tên trái cây</th>
                                 <th>Thời gian</th>
                                 <th>Xuất xứ</th>

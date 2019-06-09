@@ -64,8 +64,9 @@ namespace SellingFruitsWeb
                     return list;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 return null;
             }
             return null;
@@ -267,6 +268,11 @@ namespace SellingFruitsWeb
 
 
                 db.SubmitChanges();
+
+                //Delete cart cookies
+                HttpCookie cookie = new HttpCookie("Gio_Hang");
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookie);
 
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append(@"<script language='javascript'>");

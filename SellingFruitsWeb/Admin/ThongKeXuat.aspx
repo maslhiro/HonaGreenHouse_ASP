@@ -70,60 +70,6 @@
 
         </div>
 
-        <!-- The Modal Xem chi tiet trai cay -->
-        <div class="modal fade" id="modalXemChiTiet">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Xem chi tiết trái cây</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div id="alertXemChiTiet"></div>
-                        <div class="d-flex">
-                            <div class="p-1 flex-fill">
-                                <div class="form-group">
-                                    <label for="txtTenTraiCay">Tên trái cây:</label>
-                                    <input class="form-control" id="txtTenTraiCay" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtDonViTinh">Đơn vị tính:</label>
-                                    <input class="form-control" id="txtDonViTinh" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtXuatXu">Xuất xứ:</label>
-                                    <input class="form-control" id="txtXuatXu" readonly>
-                                </div>
-                            </div>
-                            <div class="p-1 flex-fill">
-                                <div class="form-group">
-                                    <label for="txtDonGiaXuat">Đơn giá xuất:</label>
-                                    <input class="form-control" id="txtDonGiaXuat" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSoLuong">Số lượng xuất:</label>
-                                    <input class="form-control" id="txtSoLuong" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtTongTien">Tổng tiền:</label>
-                                    <input class="form-control" id="txtTongTien" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button class="btn btn-dark" id="btnCloseXemChiTiet">Đóng</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <!-- Page level plugin JavaScript-->
@@ -151,42 +97,16 @@
                     { data: 'Xuat_Xu' },
                     {
                         "data": null,
-                        "defaultContent": `<div align="center"><button type="button" id="btnXemChiTiet" class="btn btn-secondary" data-toggle="modal" data-target="#modalXemChiTiet">Xem chi tiết</button></div>`
+                        "defaultContent": `<div align="center"><button type="button" id="btnChiTiet" class="btn btn-secondary" >Xem chi tiết</button></div>`
                     },
                 ]
             });
         }
 
         //Button XemChiTiet
-        $('#dataTable tbody').on('click', '#btnXemChiTiet', function () {
-            let data = table.row($(this).parents('tr')).data();
-
-            $('#modalXemChiTiet').on('show.bs.modal', function (event) {
-                var modal = $(this)
-                modal.find('.modal-body #txtTenTraiCay').val(data.Ten_Trai_Cay)
-                modal.find('.modal-body #txtDonViTinh').val(data.Don_Vi_Tinh)
-                modal.find('.modal-body #txtDonGiaXuat').val(data.Don_Gia_Xuat)
-                modal.find('.modal-body #txtXuatXu').val(data.Xuat_Xu)
-                modal.find('.modal-body #txtSoLuong').val(data.So_Luong_Xuat)
-                modal.find('.modal-body #txtTongTien').val(data.Tong_Tien_Xuat)
-
-                modal.find('.modal-title').text('Chi tiết trái cây mã ' + data.Ma_Trai_Cay)
-            })
-
-            // Gan su kien cho btn Dong xem chi tiet
-            $("#btnCloseXemChiTiet").click(function (e) {
-                e.preventDefault();
-
-                $("#modalXemChiTiet").modal('hide')
-
-                $("#txtTenTraiCay").val("")
-                $("#txtDonViTinh").val("")
-                $("#txtDonGiaXuat").val("")
-                $("#txtXuatXu").val("")
-                $("#txtSoLuongNhap").val("")
-                $("#txtTongTien").val("")
-
-            })
+        $('#dataTable tbody').on('click', '#btnChiTiet', function () {
+                let data = table.row($(this).parents('tr')).data();
+                window.open('/Admin/ChiTietDonHang.aspx?MaDonHang=' + data.Ma_Don_Hang, '_blank');
         });
 
         function btnThongKeTheoNgay_OnClick(e) {

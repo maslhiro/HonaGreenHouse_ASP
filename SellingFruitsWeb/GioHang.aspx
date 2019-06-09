@@ -189,7 +189,7 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Đặt hàng thành công!</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button id="btnCloseDatHang" type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
@@ -219,7 +219,14 @@
             </div>
         </div>
     </div>
-    <script>
+    <script type="text/javascript">
+        document.getElementById("btnCloseDatHang").addEventListener("click", function () {
+            window.location.href = "Default.aspx";
+            });
+
+        document.getElementById("btnSubmitDatHang").addEventListener("click", function () {
+            window.location.href = "Default.aspx";
+            });
     </script>
     <script src="static/js/jquery-3.4.1.min.js" type="text/javascript"></script>
     <script src="static/js/bootstrap.js" type="text/javascript"></script>
