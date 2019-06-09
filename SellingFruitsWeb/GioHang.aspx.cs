@@ -269,6 +269,11 @@ namespace SellingFruitsWeb
 
                 db.SubmitChanges();
 
+                //Delete cart cookies
+                HttpCookie cookie = new HttpCookie("Gio_Hang");
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookie);
+
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append(@"<script language='javascript'>");
                 sb.Append(@"$('#modalDatHang').modal('show');");
