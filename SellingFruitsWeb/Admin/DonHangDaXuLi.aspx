@@ -8,7 +8,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Danh sách đơn hàng mới</a>
+                <a href="#">Danh sách đơn hàng đã xử lí</a>
             </li>
             <li class="breadcrumb-item active">Overview</li>
         </ol>
@@ -19,7 +19,7 @@
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fas fa-table"></i>
-                Danh sách đơn hàng mới
+                Danh sách đơn hàng đã xử lí
             </div>
             <div class="card-body">
                 <div class="table-responsive">
