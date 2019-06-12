@@ -4,7 +4,7 @@
      <style type="text/css">
         .img-fruite {
             height: 300px;
-            width: 100%;
+            width: 300px;
         }
 
         .container-fruite {

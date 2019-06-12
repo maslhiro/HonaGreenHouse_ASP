@@ -93,7 +93,12 @@
                 columns: [
                     { data: 'Ma_Don_Hang' },
                     { data: 'Ten_Trai_Cay' },
-                    { data: 'Thoi_Gian' },
+                    {
+                        data: 'Thoi_Gian',
+                        render :function (data, type, row){
+                        let date = new Date(data)
+                        return date.toLocaleDateString()
+                    }},
                     { data: 'Xuat_Xu' },
                     {
                         "data": null,

@@ -30,7 +30,7 @@
 
         .img-fruit {
             height: 100px;
-            width: 100%;
+            width: 100px;
         }
 
         .fruit-quantity-width {
