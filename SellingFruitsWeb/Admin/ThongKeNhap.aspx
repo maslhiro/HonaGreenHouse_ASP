@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminSite.Master" AutoEventWireup="true" CodeBehind="ThongKeNhap.aspx.cs" Inherits="SellingFruitsWeb.Admin.ThongKeNhap" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+        <title>Thống kê nhập</title>
+
     <link href="/static/gijgo-datepicker/css/gijgo.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

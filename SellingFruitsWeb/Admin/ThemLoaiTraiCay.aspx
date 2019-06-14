@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminSite.Master" AutoEventWireup="true" CodeBehind="ThemLoaiTraiCay.aspx.cs" Inherits="SellingFruitsWeb.Admin.ThemLoaiTraiCay" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <title>Thêm loại trái cây</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DanhMuc.aspx.cs" Inherits="SellingFruitsWeb.DanhMuc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <title>Danh mục</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentplaceholder" runat="server">
     <div class="Selling_Products">

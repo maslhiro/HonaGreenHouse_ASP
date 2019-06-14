@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SellingFruitsWeb.Default" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <title>Trang chủ</title>
+</asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentplaceholder" runat="server">
     <div style="display: flex; flex: 1; align-items: center; justify-content: center; margin-top: 10px; flex-direction: column">

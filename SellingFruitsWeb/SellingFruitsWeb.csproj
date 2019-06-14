@@ -1854,7 +1854,6 @@
     </Compile>
     <Compile Include="DTO\Chi_Tiet_Don_Hang.cs" />
     <Compile Include="DTO\Thong_Ke_Nhap.cs" />
-    <Compile Include="DTO\Thong_Ke_Don_Hang.cs" />
     <Compile Include="DTO\Don_Hang.cs" />
     <Compile Include="DTO\Object _Response.cs" />
     <Compile Include="DTO\Loai_Trai_cay.cs" />

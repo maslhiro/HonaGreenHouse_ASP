@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="GioHang.aspx.cs" Inherits="SellingFruitsWeb.GioHang" %>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="head">
+        <title>Giỏ hàng</title>
     <link rel="stylesheet" href="/static/css/bootstrap.css" type="text/css" />
      <style type="text/css">
         .cart-container{

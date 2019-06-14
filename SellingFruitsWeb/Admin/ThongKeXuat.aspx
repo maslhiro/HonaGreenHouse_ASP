@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminSite.Master" AutoEventWireup="true" CodeBehind="ThongKeXuat.aspx.cs" Inherits="SellingFruitsWeb.Admin.ThongKeXuat" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+        <title>Thống kê xuất</title>
+
     <link href="/static/gijgo-datepicker/css/gijgo.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -46,6 +48,8 @@
                                 <th>Mã đơn hàng</th>
                                 <th>Tên trái cây</th>
                                 <th>Thời gian</th>
+                                <th>Số Lượng</th>
+                                <th>ĐVT</th>
                                 <th>Xuất xứ</th>
                                 <th>#</th>
                             </tr>
@@ -55,6 +59,8 @@
                                 <th>Mã đơn hàng</th>
                                 <th>Tên trái cây</th>
                                 <th>Thời gian</th>
+                                <th>Số Lượng</th>
+                                <th>ĐVT</th>
                                 <th>Xuất xứ</th>
                                 <th>#</th>
                             </tr>
@@ -93,7 +99,15 @@
                 columns: [
                     { data: 'Ma_Don_Hang' },
                     { data: 'Ten_Trai_Cay' },
-                    { data: 'Thoi_Gian' },
+                    {
+                        data: 'Thoi_Gian',
+                        render :function (data, type, row){
+                        let date = new Date(data)
+                        return date.toLocaleDateString()
+                        }
+                    },
+                    { data: 'So_Luong_Xuat' },
+                    { data: 'Don_Vi_Tinh' },
                     { data: 'Xuat_Xu' },
                     {
                         "data": null,

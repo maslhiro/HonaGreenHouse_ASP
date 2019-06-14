@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminSite.Master" AutoEventWireup="true" CodeBehind="DonHangDaXuLi.aspx.cs" Inherits="SellingFruitsWeb.Admin.DonHangDaXuLi" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <title>Đơn hàng đã xử lí</title>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

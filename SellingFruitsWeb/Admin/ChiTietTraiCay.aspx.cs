@@ -99,9 +99,14 @@ namespace SellingFruitsWeb.Admin
                     break;
             }
 
-            String script = "<script>$('#alert').empty().append(`<div class='alert alert-danger'> <strong> Warning!</strong > " + text + " </div>`);$('#alert').show(); $('#alert').delay(7000).slideUp(200, function () { $(this).alert('dispose'); });</script>";
+            String script;
+            if (code == 1) script = "<script>$('#alert').empty().append(`<div class='alert alert-danger'> <strong> Success!</strong > " + text + " </div>`);$('#alert').show(); $('#alert').delay(7000).slideUp(200, function () { $(this).alert('dispose'); });</script>";
+            else
+            script = "<script>$('#alert').empty().append(`<div class='alert alert-danger'> <strong> Warning!</strong > " + text + " </div>`);$('#alert').show(); $('#alert').delay(7000).slideUp(200, function () { $(this).alert('dispose'); });</script>";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alertLoi", script, false);
         }
 
     }
+
+
 }

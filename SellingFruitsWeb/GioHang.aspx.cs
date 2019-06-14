@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json;
 using System.Web.UI.HtmlControls;
+using SellingFruitsWeb.Extensions;
 
 namespace SellingFruitsWeb
 {
@@ -241,7 +242,7 @@ namespace SellingFruitsWeb
                 var donHang = new DON_HANG();
                 donHang.Ma_Don_Hang = "DH" + count;
                 donHang.Ngay_Dat = DateTime.Now;
-                donHang.Tinh_Trang = 0;
+                donHang.Tinh_Trang = (int) DonHang.DH_Pending;
                 donHang.Tong_Tien = calculateTongTien();
 
                 //Lưu thông tin chi tiết chuyển hàng xuống db

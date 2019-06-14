@@ -4,7 +4,6 @@
 
 <html>
 <head runat="server">
-    <title></title>
     <link rel="stylesheet" href="/static/css/master.css" type="text/css" />
     <link rel="stylesheet" href="/static/css/slider.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
@@ -21,7 +20,7 @@
             <div style="flex-direction: row; display: flex">
                 <a href="GioHang.aspx"  class="button_nav_gh" style="text-decoration: none !important;">
                     <i class="fas fa-shopping-cart fa-sm"></i>
-                    <div>&nbsp;&nbsp;Giỏ hàng</div>
+                    <div id="txtGioHang" runat="server">&nbsp;&nbsp;Giỏ hàng</div>
                 </a>
             </div>
 

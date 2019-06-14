@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="LienHe.aspx.cs" Inherits="SellingFruitsWeb.LienHe" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Liên hệ</title>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentplaceholder" runat="server">
     <style type="text/css">
@@ -29,10 +32,13 @@
     .content{
         margin: 0.5em 0;
         font-size: 24px;
+
     }
 
     .name{
         font-size: 25px !important;
+        font-family: 'Pacifico', cursive;    
+
     }
 
     .Contact img{
@@ -40,9 +46,23 @@
         width: 200px;
         height: 200px;
     }
+
+    .title {
+        display : flex;
+        align-items:center;
+        justify-content:center;
+        font-size: 45px;
+        font-family: 'Pacifico', cursive;    
+
+    }
     </style>
 
     <div class="Contact">
+
+        <div class="title">
+            Nhóm thực hiện
+        </div>
+
         <ul>
             <li>
                 <div class="card_contact">
@@ -69,8 +89,8 @@
                     <img src="https://scontent.xx.fbcdn.net/v/t1.15752-0/p280x280/61583777_325602978119778_6943252694878388224_n.png?_nc_cat=108&_nc_oc=AQkN80g8QPcUHic7TOQP3CPo_jltg2qNsUtEFXkor52zIaNL4SBIbECZqsEC2O8SbftANny4rjW6aGahurKzUsE2&_nc_ad=z-m&_nc_cid=0&_nc_zor=9&_nc_ht=scontent.xx&oh=7391157a066b9278f51a3dc65e7d5567&oe=5D58DBE5" alt="Avatar">
                     <div class="content">
                         <div class="name"><b>Thang Do Thanh</b></div>
-                        <div class="mssv">Bí mật</div>
-                        <div class="mess">Bí mật</div>
+                        <div class="mssv">15520787</div>
+                        <div class="mess">Đồ án ???</div>
                     </div>
                 </div>
             </li>
